@@ -1,0 +1,58 @@
+vsim -gui work.tb_fluxo_dados
+# vsim -gui work.tb_fluxo_dados 
+# Start time: 14:40:28 on Jan 28,2025
+# Loading work.tb_fluxo_dados
+# Loading work.fluxo_dados
+# Loading work.contador_163
+# Loading work.comparador_85
+# Loading work.sync_rom_16x4
+# Loading work.registrador_4
+# Loading work.edge_detector
+# Loading work.contador_m
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/LabDigi I/Exp5/contador_163.v(16).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_fluxo_dados/dut/ContLmt File: C:/Users/matus/Desktop/LabDigi I/Exp5/exp5_fluxo_dados.v Line: 51
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/LabDigi I/Exp5/contador_163.v(16).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_fluxo_dados/dut/ContEnd File: C:/Users/matus/Desktop/LabDigi I/Exp5/exp5_fluxo_dados.v Line: 62
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/tb_fluxo_dados/clock \
+sim:/tb_fluxo_dados/botoes \
+sim:/tb_fluxo_dados/zeraR \
+sim:/tb_fluxo_dados/registraR \
+sim:/tb_fluxo_dados/contaE \
+sim:/tb_fluxo_dados/zeraE \
+sim:/tb_fluxo_dados/contaL \
+sim:/tb_fluxo_dados/zeraL \
+sim:/tb_fluxo_dados/chavesIgualMemoria \
+sim:/tb_fluxo_dados/enderecoIgualLimite \
+sim:/tb_fluxo_dados/enderecoMenorouIgualLimite \
+sim:/tb_fluxo_dados/fimL \
+sim:/tb_fluxo_dados/fimE \
+sim:/tb_fluxo_dados/jogada_feita \
+sim:/tb_fluxo_dados/db_contagem \
+sim:/tb_fluxo_dados/db_jogada \
+sim:/tb_fluxo_dados/db_memoria \
+sim:/tb_fluxo_dados/db_limite \
+sim:/tb_fluxo_dados/timeout
+run -all
+# Time: 0 | botoes: 0000 | jogada: xxxx | dado_memoria: xxxx | igual: x | endereco: xxxx | limite: xxxx | timeout: x
+# Time: 10000 | botoes: 0000 | jogada: 0000 | dado_memoria: xxxx | igual: x | endereco: xxxx | limite: xxxx | timeout: 0
+# Time: 15000 | botoes: 0000 | jogada: 0000 | dado_memoria: xxxx | igual: x | endereco: 0000 | limite: 0000 | timeout: 0
+# Time: 25000 | botoes: 0000 | jogada: 0000 | dado_memoria: 0001 | igual: 0 | endereco: 0000 | limite: 0000 | timeout: 0
+# Time: 30000 | botoes: 1010 | jogada: 0000 | dado_memoria: 0001 | igual: 0 | endereco: 0000 | limite: 0000 | timeout: 0
+# Time: 45000 | botoes: 1010 | jogada: 1010 | dado_memoria: 0001 | igual: 0 | endereco: 0000 | limite: 0000 | timeout: 0
+# Time: 65000 | botoes: 1010 | jogada: 1010 | dado_memoria: 0001 | igual: 0 | endereco: 0001 | limite: 0000 | timeout: 0
+# Time: 75000 | botoes: 1010 | jogada: 1010 | dado_memoria: 0010 | igual: 0 | endereco: 0001 | limite: 0000 | timeout: 0
+# Time: 80000 | botoes: 0010 | jogada: 1010 | dado_memoria: 0010 | igual: 0 | endereco: 0001 | limite: 0000 | timeout: 0
+# Time: 95000 | botoes: 0010 | jogada: 0010 | dado_memoria: 0010 | igual: 1 | endereco: 0001 | limite: 0000 | timeout: 0
+# Time: 115000 | botoes: 0010 | jogada: 0010 | dado_memoria: 0010 | igual: 1 | endereco: 0010 | limite: 0000 | timeout: 0
+# Time: 125000 | botoes: 0010 | jogada: 0010 | dado_memoria: 0100 | igual: 0 | endereco: 0010 | limite: 0000 | timeout: 0
+# Time: 130000 | botoes: 0100 | jogada: 0010 | dado_memoria: 0100 | igual: 0 | endereco: 0010 | limite: 0000 | timeout: 0
+# Time: 145000 | botoes: 0100 | jogada: 0100 | dado_memoria: 0100 | igual: 1 | endereco: 0010 | limite: 0000 | timeout: 0
+# Time: 165000 | botoes: 0100 | jogada: 0100 | dado_memoria: 0100 | igual: 1 | endereco: 0011 | limite: 0000 | timeout: 0
+# Time: 175000 | botoes: 0100 | jogada: 0100 | dado_memoria: 1000 | igual: 0 | endereco: 0011 | limite: 0000 | timeout: 0
+# Time: 185000 | botoes: 0100 | jogada: 0100 | dado_memoria: 1000 | igual: 0 | endereco: 0011 | limite: 0001 | timeout: 0
+# ** Note: $finish    : C:/Users/matus/Desktop/LabDigi I/Exp5/tb_FD.v(102)
+#    Time: 290 ns  Iteration: 0  Instance: /tb_fluxo_dados
+# 1
+# Break in Module tb_fluxo_dados at C:/Users/matus/Desktop/LabDigi I/Exp5/tb_FD.v line 102
