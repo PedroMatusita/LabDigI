@@ -1,0 +1,105 @@
+/*
+ * ------------------------------------------------------------------
+ *  Arquivo   : circuito_exp4.v
+ *  Projeto   : Experiencia 4 - Desenvolvimento de Projeto de Circuitos Digitais em FPGA
+ * ------------------------------------------------------------------
+ *  Descricao : Circuito do fluxo de dados da Atividade 4
+ * 
+ *     1) Projeto FPGA
+ * ------------------------------------------------------------------
+ */
+
+module circuito_exp4 (
+    input clock,
+    input reset,
+    input iniciar,
+    input [3:0] chaves,
+    output acertou,
+    output errou,
+    output pronto,
+    output [3:0] leds,
+    output db_igual,
+    output [6:0] db_contagem,
+    output [6:0] db_memoria,
+    output [6:0] db_estado,
+    output [6:0] db_jogadafeita,
+    output db_clock,
+    output db_iniciar,
+    output db_tem_jogada
+);
+
+    // Sinais internos para interligação dos componentes
+    wire s_contaC;  
+    wire s_registraR; 
+    wire s_zeraC; 
+    wire s_zeraR;
+    wire s_igual;
+    wire s_fimC;
+    wire s_jogada_feita;
+    wire [3:0] s_chaves;  
+    wire [3:0] s_dado;
+    wire [3:0] s_contagem;
+    wire [3:0] s_memoria;
+    wire [3:0] s_jogada;
+    wire [3:0] s_estado;
+    
+    // Instância do fluxo de dados
+    exp4_fluxo_dados fluxo_dados (
+        .clock(clock),
+        .chaves(chaves),
+        .zeraR(s_zeraR),
+        .registraR(s_registraR),
+        .contaC(s_contaC),
+        .zeraC(s_zeraC),
+        .igual(s_igual),
+        .fimC(s_fimC),
+        .db_tem_jogada(db_tem_jogada),
+        .jogada_feita(s_jogada_feita),
+        .db_contagem(s_contagem),
+        .db_jogada(s_jogada),
+        .db_memoria(s_memoria)
+    );
+
+    // Instância da unidade de controle
+    exp3_unidade_controle unidade_controle (
+        .clock(clock),
+        .reset(reset),
+        .iniciar(iniciar),
+        .fim(s_fimC),
+        .jogada(s_jogada_feita),
+        .igual(s_igual),
+        .zeraC(s_zeraC),
+        .contaC(s_contaC),
+        .zeraR(s_zeraR),
+        .registraR(s_registraR),
+        .acertou(acertou),
+        .errou(errou),
+        .pronto(pronto),
+        .db_estado(s_estado)
+    );
+
+    // Instâncias dos displays
+    hexa7seg disp2 (
+        .hexa(s_jogada), 
+        .display(db_jogadafeita)
+    ); 
+
+    hexa7seg disp0 (
+        .hexa(s_contagem),
+        .display(db_contagem)
+    ); 
+
+    hexa7seg disp1 (
+        .hexa(s_memoria),   
+        .display(db_memoria)
+    ); 
+
+    hexa7seg disp5 (
+        .hexa(s_estado), 
+        .display(db_estado)
+    ); 
+
+    // Conexão adicional
+    assign db_iniciar = iniciar;
+
+endmodule

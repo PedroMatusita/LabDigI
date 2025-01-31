@@ -1,0 +1,29 @@
+# Load canceled
+# Compile of contador_m.v was successful.
+# Compile of contador_m_tb.v was successful.
+# 2 compiles, 0 failed with no errors.
+# Load canceled
+# Load canceled
+# Compile of contador_m.v was successful.
+# Compile of contador_m_tb.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.contador_m_tb
+# vsim work.contador_m_tb 
+# Start time: 19:28:55 on Jan 27,2025
+# Loading work.contador_m_tb
+# Loading work.contador_m
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/contador_m_tb/clock_in \
+sim:/contador_m_tb/conta_in \
+sim:/contador_m_tb/q_out \
+sim:/contador_m_tb/fim_out \
+sim:/contador_m_tb/caso
+run -all
+# Inicio da simulacao
+# fim da simulacao
+# ** Note: $stop    : C:/Users/matus/Desktop/LabDigi I/Exp4/desafio/contador_m_tb.v(105)
+#    Time: 103480 ns  Iteration: 0  Instance: /contador_m_tb
+# Break in Module contador_m_tb at C:/Users/matus/Desktop/LabDigi I/Exp4/desafio/contador_m_tb.v line 105
+# End time: 19:36:55 on Jan 27,2025, Elapsed time: 0:08:00
+# Errors: 0, Warnings: 3

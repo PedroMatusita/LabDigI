@@ -1,0 +1,15 @@
+{C:/Users/matus/Desktop/LabDigi I/Exp4/desafio/contador_m_tb.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/LabDigi I/Exp4/desafio/contador_m_tb.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module contador_m_tb
+
+Top level modules:
+	contador_m_tb
+
+} {} {}} {C:/Users/matus/Desktop/LabDigi I/Exp4/desafio/contador_m.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/LabDigi I/Exp4/desafio/contador_m.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module contador_m
+
+Top level modules:
+	contador_m
+
+} {} {}}
