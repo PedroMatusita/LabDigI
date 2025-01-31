@@ -1,0 +1,170 @@
+vsim -gui work.circuito_exp3_tb
+# vsim -gui work.circuito_exp3_tb 
+# Start time: 13:06:04 on Jan 19,2025
+# Loading work.circuito_exp3_tb
+# Loading work.circuito_exp3
+# Loading work.exp3_fluxo_dados
+# Loading work.contador_163
+# Loading work.comparador_85
+# Loading work.sync_rom_16x4
+# Loading work.registrador_4
+# Loading work.exp3_unidade_controle
+# Loading work.hexa7seg
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'db_contagem'. The port definition is at: C:/Users/matus/Desktop/LabDigi I/Exp3/exp3_fluxo_dados.v(28).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_tb/dut/fluxo_dados File: C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3.v Line: 56
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'db_memoria'. The port definition is at: C:/Users/matus/Desktop/LabDigi I/Exp3/exp3_fluxo_dados.v(30).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_tb/dut/fluxo_dados File: C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3.v Line: 56
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'hexa'. The port definition is at: C:/Users/matus/Desktop/LabDigi I/Exp3/hexa7seg.v(23).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_tb/dut/disp0 File: C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3.v Line: 90
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'hexa'. The port definition is at: C:/Users/matus/Desktop/LabDigi I/Exp3/hexa7seg.v(23).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_tb/dut/disp1 File: C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3.v Line: 95
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/dut/fluxo_dados/db_contagem \
+sim:/circuito_exp3_tb/dut/fluxo_dados/db_chaves \
+sim:/circuito_exp3_tb/dut/fluxo_dados/db_memoria
+view -new wave
+# -new not supported on PE
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/clock_in \
+sim:/circuito_exp3_tb/reset_in \
+sim:/circuito_exp3_tb/iniciar_in \
+sim:/circuito_exp3_tb/chaves_in \
+sim:/circuito_exp3_tb/pronto_out \
+sim:/circuito_exp3_tb/db_igual_out \
+sim:/circuito_exp3_tb/db_iniciar_out \
+sim:/circuito_exp3_tb/db_contagem_out \
+sim:/circuito_exp3_tb/db_memoria_out \
+sim:/circuito_exp3_tb/db_chaves_out \
+sim:/circuito_exp3_tb/db_estado_out \
+sim:/circuito_exp3_tb/caso
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/dut/fluxo_dados/db_contagem \
+sim:/circuito_exp3_tb/dut/fluxo_dados/db_chaves \
+sim:/circuito_exp3_tb/dut/fluxo_dados/db_memoria
+view -new wave
+# -new not supported on PE
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/clock_in \
+sim:/circuito_exp3_tb/reset_in \
+sim:/circuito_exp3_tb/iniciar_in \
+sim:/circuito_exp3_tb/chaves_in \
+sim:/circuito_exp3_tb/pronto_out \
+sim:/circuito_exp3_tb/db_igual_out \
+sim:/circuito_exp3_tb/db_iniciar_out
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/dut/fluxo_dados/db_contagem \
+sim:/circuito_exp3_tb/dut/fluxo_dados/db_chaves \
+sim:/circuito_exp3_tb/dut/fluxo_dados/db_memoria
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/clock_in \
+sim:/circuito_exp3_tb/reset_in \
+sim:/circuito_exp3_tb/iniciar_in \
+sim:/circuito_exp3_tb/chaves_in \
+sim:/circuito_exp3_tb/pronto_out \
+sim:/circuito_exp3_tb/db_igual_out \
+sim:/circuito_exp3_tb/db_iniciar_out
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/dut/fluxo_dados/db_contagem \
+sim:/circuito_exp3_tb/dut/fluxo_dados/db_chaves \
+sim:/circuito_exp3_tb/dut/fluxo_dados/db_memoria
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/caso
+run -all
+# Inicio da simulacao
+# Fim da simulacao
+# ** Note: $stop    : C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3_tb.v(178)
+#    Time: 1250 ns  Iteration: 0  Instance: /circuito_exp3_tb
+# Break in Module circuito_exp3_tb at C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3_tb.v line 178
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/dut/unidade_controle/db_estado
+quit -sim
+# End time: 13:16:26 on Jan 19,2025, Elapsed time: 0:10:22
+# Errors: 0, Warnings: 5
+vsim -gui work.circuito_exp3_tb
+# vsim -gui work.circuito_exp3_tb 
+# Start time: 13:16:50 on Jan 19,2025
+# Loading work.circuito_exp3_tb
+# Loading work.circuito_exp3
+# Loading work.exp3_fluxo_dados
+# Loading work.contador_163
+# Loading work.comparador_85
+# Loading work.sync_rom_16x4
+# Loading work.registrador_4
+# Loading work.exp3_unidade_controle
+# Loading work.hexa7seg
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'db_contagem'. The port definition is at: C:/Users/matus/Desktop/LabDigi I/Exp3/exp3_fluxo_dados.v(28).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_tb/dut/fluxo_dados File: C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3.v Line: 56
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'db_memoria'. The port definition is at: C:/Users/matus/Desktop/LabDigi I/Exp3/exp3_fluxo_dados.v(30).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_tb/dut/fluxo_dados File: C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3.v Line: 56
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'hexa'. The port definition is at: C:/Users/matus/Desktop/LabDigi I/Exp3/hexa7seg.v(23).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_tb/dut/disp0 File: C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3.v Line: 90
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'hexa'. The port definition is at: C:/Users/matus/Desktop/LabDigi I/Exp3/hexa7seg.v(23).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_tb/dut/disp1 File: C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3.v Line: 95
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/clock_in \
+sim:/circuito_exp3_tb/reset_in \
+sim:/circuito_exp3_tb/iniciar_in \
+sim:/circuito_exp3_tb/chaves_in \
+sim:/circuito_exp3_tb/pronto_out \
+sim:/circuito_exp3_tb/db_igual_out \
+sim:/circuito_exp3_tb/db_iniciar_out
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/dut/db_contagem \
+sim:/circuito_exp3_tb/dut/db_memoria \
+sim:/circuito_exp3_tb/dut/db_chaves \
+sim:/circuito_exp3_tb/dut/db_estado
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/caso
+run -all
+# Inicio da simulacao
+# Fim da simulacao
+# ** Note: $stop    : C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3_tb.v(178)
+#    Time: 1250 ns  Iteration: 0  Instance: /circuito_exp3_tb
+# Break in Module circuito_exp3_tb at C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3_tb.v line 178
+quit -sim
+# End time: 13:18:54 on Jan 19,2025, Elapsed time: 0:02:04
+# Errors: 0, Warnings: 5
+vsim -gui work.circuito_exp3_tb
+# vsim -gui work.circuito_exp3_tb 
+# Start time: 13:19:02 on Jan 19,2025
+# Loading work.circuito_exp3_tb
+# Loading work.circuito_exp3
+# Loading work.exp3_fluxo_dados
+# Loading work.contador_163
+# Loading work.comparador_85
+# Loading work.sync_rom_16x4
+# Loading work.registrador_4
+# Loading work.exp3_unidade_controle
+# Loading work.hexa7seg
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'db_contagem'. The port definition is at: C:/Users/matus/Desktop/LabDigi I/Exp3/exp3_fluxo_dados.v(28).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_tb/dut/fluxo_dados File: C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3.v Line: 56
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'db_memoria'. The port definition is at: C:/Users/matus/Desktop/LabDigi I/Exp3/exp3_fluxo_dados.v(30).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_tb/dut/fluxo_dados File: C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3.v Line: 56
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'hexa'. The port definition is at: C:/Users/matus/Desktop/LabDigi I/Exp3/hexa7seg.v(23).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_tb/dut/disp0 File: C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3.v Line: 90
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'hexa'. The port definition is at: C:/Users/matus/Desktop/LabDigi I/Exp3/hexa7seg.v(23).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_tb/dut/disp1 File: C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3.v Line: 95
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/clock_in \
+sim:/circuito_exp3_tb/reset_in \
+sim:/circuito_exp3_tb/iniciar_in \
+sim:/circuito_exp3_tb/chaves_in \
+sim:/circuito_exp3_tb/pronto_out \
+sim:/circuito_exp3_tb/db_igual_out \
+sim:/circuito_exp3_tb/db_iniciar_out
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/dut/fluxo_dados/db_contagem \
+sim:/circuito_exp3_tb/dut/fluxo_dados/db_chaves \
+sim:/circuito_exp3_tb/dut/fluxo_dados/db_memoria
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/dut/unidade_controle/db_estado
+add wave -position insertpoint  \
+sim:/circuito_exp3_tb/caso
+run -all
+# Inicio da simulacao
+# Fim da simulacao
+# ** Note: $stop    : C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3_tb.v(178)
+#    Time: 1250 ns  Iteration: 0  Instance: /circuito_exp3_tb
+# Break in Module circuito_exp3_tb at C:/Users/matus/Desktop/LabDigi I/Exp3/circuito_exp3_tb.v line 178
+# End time: 11:49:40 on Jan 20,2025, Elapsed time: 22:30:38
+# Errors: 0, Warnings: 6
