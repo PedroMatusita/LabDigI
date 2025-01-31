@@ -1,0 +1,17 @@
+Quartus Prime Archive log --	C:/Users/matus/Desktop/LabDigi I/Exp2/circuito_exp2_ativ2.qarlog
+
+Archive:	C:/Users/matus/Desktop/LabDigi I/Exp2/circuito_exp2_ativ2.qar
+Date:		Mon Jan 13 10:35:51 2025
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/matus/Desktop/LabDigi I/Exp2/circuito_exp2_ativ2.qpf
+C:/Users/matus/Desktop/LabDigi I/Exp2/circuito_exp2_ativ2.qsf
+C:/Users/matus/Desktop/LabDigi I/Exp2/circuito_exp2_ativ2.v
+C:/Users/matus/Desktop/LabDigi I/Exp2/comparador_85.v
+C:/Users/matus/Desktop/LabDigi I/Exp2/contador_163.v
+c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 6 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
