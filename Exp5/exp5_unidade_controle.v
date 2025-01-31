@@ -5,9 +5,11 @@ module unidade_controle (
 	 input            fim,
 	 input            jogada,
 	 input            igual,
-     input            timeout,            
-	 output reg       zeraC,
-	 output reg       contaC,
+      input            timeout,            
+	 output reg       zeraL,
+	 output reg       contaL,
+   output reg       zeraE,
+	 output reg       contaE,
 	 output reg       zeraR,
 	 output reg       registraR,
 	 output reg       acertou,
@@ -19,10 +21,12 @@ module unidade_controle (
 
    parameter inicial    = 4'b0000; //0
    parameter inicializa = 4'b0001; //1
+   parameter inicia_sequencia = 4'b0002; //2
    parameter espera     = 4'b0100; //4
    parameter registra   = 4'b0101; //5
    parameter compara    = 4'b0110; //6   
    parameter passa      = 4'b0111; //7
+   parameter ultima_sequencia      = 4'b1000; //8
    parameter acerto     = 4'b1111; //15
    parameter erro       = 4'b1110; //14
 
@@ -38,11 +42,13 @@ module unidade_controle (
    always @* begin
       case (Eatual)
 			inicial:    Eprox = iniciar ? inicializa : inicial;
-			inicializa: Eprox = espera;
+			inicializa: Eprox = inicia_sequencia;
+			inicia_sequencia: Eprox = espera;
 			espera:     Eprox = jogada  ? registra : (timeout ? erro : espera);
 			registra:   Eprox = compara;
-			compara:    Eprox = igual  ? (fim ? acerto : passa) : erro; 
+			compara:    Eprox = igual  ? (enderecoIgualLimite ? ultima_sequencia : passa) : erro; 
 			passa:      Eprox = espera; 
+			ultima_sequencia:      Eprox = fimL ? acerto : inicia_sequencia; 
 			acerto:     Eprox = iniciar ? inicializa : acerto;
 			erro:       Eprox = iniciar ? inicializa : erro;
       endcase
@@ -51,9 +57,11 @@ module unidade_controle (
    end
 
    always @* begin
-      zeraC = (Eatual == inicial || Eatual == inicializa) ? 1'b1 : 1'b0;
-      contaC = (Eatual == passa) ? 1'b1 : 1'b0;
-      zeraR = (Eatual == inicial) ? 1'b1 : 1'b0;
+      zeraE = (Eatual == inicial || Eatual == inicializa) ? 1'b1 : 1'b0;
+      contaE = (Eatual == passa) ? 1'b1 : 1'b0;
+      contaL = (Eatual == inicia_sequencia) ? 1'b1 : 1'b0;
+      zeraR = (Eatual == inicial || Eatual == inicializa) ? 1'b1 : 1'b0;
+      zeraL = (Eatual == inicial || Eatual == inicializa) ? 1'b1 : 1'b0;
       registraR = (Eatual == registra) ? 1'b1 : 1'b0;
       acertou = (Eatual == acerto) ? 1'b1 : 1'b0;
       errou = (Eatual == erro) ? 1'b1 : 1'b0;
