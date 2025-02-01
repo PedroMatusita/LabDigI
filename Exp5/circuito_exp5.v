@@ -47,6 +47,9 @@ module circuito_exp5 (
     wire s_jogada_feita;
     wire s_timeout;
 	 wire s_pronto;
+     wire s_ganhou;
+     wire s_perdeu;
+
     wire [3:0] s_chaves;  
     wire [3:0] s_dado;
     wire [3:0] s_limite;
@@ -54,6 +57,8 @@ module circuito_exp5 (
     wire [3:0] s_memoria;
     wire [3:0] s_jogada;
     wire [3:0] s_estado;
+
+    wire iniciar = jogar;
     
     // Instância do fluxo de dados
     fluxo_dados fluxo_dados (
@@ -96,8 +101,8 @@ module circuito_exp5 (
         .contaE(s_contaE),
         .zeraR(s_zeraR),
         .registraR(s_registraR),
-        .acertou(acertou),
-        .errou(errou),
+        .acertou(s_ganhou),
+        .errou(s_perdeu),
         .pronto(s_pronto),
         .db_estado(s_estado)
     );
@@ -130,6 +135,9 @@ module circuito_exp5 (
 
     // Conexão adicional
 	assign pronto = s_pronto;
+    assign ganhou = s_ganhou;
+    assign perdeu = s_perdeu;
+    assign leds = s_jogada;
    assign db_iniciar = iniciar;
    assign db_timeout = s_timeout;
    assign db_igualjogada = s_igualjogada;
