@@ -1,27 +1,29 @@
 module unidade_controle (
-	 input            clock,
-	 input            reset,
-	 input            iniciar,
-	 input            fim,
-	 input            jogada,
-	 input            igual,
-      input            timeout,            
-	 output reg       zeraL,
-	 output reg       contaL,
-   output reg       zeraE,
-	 output reg       contaE,
-	 output reg       zeraR,
-	 output reg       registraR,
-	 output reg       acertou,
-	 output reg       errou,
-	 output reg       pronto,
-	 output reg [3:0] db_estado
+    input            clock,
+    input            reset,
+    input            iniciar,
+    input            fimE,
+    input            jogada,
+    input            igual,
+    input            timeout,
+    input            enderecoIgualLimite,
+    input            fimL,               
+    output reg       zeraL,
+    output reg       contaL,
+    output reg       zeraE,
+    output reg       contaE,
+    output reg       zeraR,
+    output reg       registraR,
+    output reg       acertou,
+    output reg       errou,
+    output reg       pronto,
+    output reg [3:0] db_estado
 );
 
 
    parameter inicial    = 4'b0000; //0
    parameter inicializa = 4'b0001; //1
-   parameter inicia_sequencia = 4'b0002; //2
+   parameter inicia_sequencia = 4'b0010; //2
    parameter espera     = 4'b0100; //4
    parameter registra   = 4'b0101; //5
    parameter compara    = 4'b0110; //6   

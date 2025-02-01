@@ -33,6 +33,7 @@ module fluxo_dados (
     output fimL,
     output fimE,
     output jogada_feita,
+    output db_tem_jogada,
     output [3:0] db_contagem,
     output [3:0] db_jogada,
     output [3:0] db_memoria,

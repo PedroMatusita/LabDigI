@@ -23,24 +23,33 @@ module circuito_exp5 (
     output [6:0] db_memoria,
     output [6:0] db_estado,
     output [6:0] db_jogadafeita,
+    output [6:0] db_sequencia,
     output db_clock,
     output db_iniciar,
+    output db_fimseq,
+    output db_igualseq,
+    output db_igualjogada,
     output db_tem_jogada,
     output db_timeout
 );
 
     // Sinais internos para interligação dos componentes
-    wire s_contaC;  
+    wire s_contaE;  
+    wire s_zeraE;  
+    wire s_contaL;  
+    wire s_zeraL;  
     wire s_registraR; 
-    wire s_zeraC; 
+    wire s_fimE; 
+    wire s_fimL; 
     wire s_zeraR;
-    wire s_igual;
-    wire s_fimC;
+    wire s_igualjogada;
+    wire s_igualseq;
     wire s_jogada_feita;
     wire s_timeout;
 	 wire s_pronto;
     wire [3:0] s_chaves;  
     wire [3:0] s_dado;
+    wire [3:0] s_limite;
     wire [3:0] s_contagem;
     wire [3:0] s_memoria;
     wire [3:0] s_jogada;
@@ -49,19 +58,24 @@ module circuito_exp5 (
     // Instância do fluxo de dados
     fluxo_dados fluxo_dados (
         .clock(clock),
-        .chaves(chaves),
+        .botoes(botoes),
         .zeraR(s_zeraR),
         .registraR(s_registraR),
-        .contaC(s_contaC),
-        .zeraC(s_zeraC),
-        .igual(s_igual),
-        .fimC(s_fimC),
-		  .pronto( s_pronto ),
+        .contaE(s_contaE),
+        .zeraE(s_zeraE),
+        .contaL(s_contaL),
+        .zeraL(s_zeraL),
+        .chavesIgualMemoria(s_igualjogada),
+        .enderecoIgualLimite(s_igualseq),
+        .enderecoMenorouIgualLimite(),
+        .fimE(s_fimE),
+        .fimL(s_fimL),
         .db_tem_jogada(db_tem_jogada),
         .jogada_feita(s_jogada_feita),
         .db_contagem(s_contagem),
         .db_jogada(s_jogada),
         .db_memoria(s_memoria),
+        .db_limite(s_limite),
         .timeout(s_timeout)
     );
 
@@ -70,12 +84,16 @@ module circuito_exp5 (
         .clock(clock),
         .reset(reset),
         .iniciar(iniciar),
-        .fim(s_fimC),
+        .fimE(s_fimE),
         .jogada(s_jogada_feita),
         .timeout(s_timeout), 
-        .igual(s_igual),
-        .zeraC(s_zeraC),
-        .contaC(s_contaC),
+        .igual(s_igualjogada),
+        .enderecoIgualLimite(s_igualseq),
+        .fimL(s_fimL),
+        .zeraL(s_zeraL),
+        .contaL(s_contaL),
+        .zeraE(s_zeraE),
+        .contaE(s_contaE),
         .zeraR(s_zeraR),
         .registraR(s_registraR),
         .acertou(acertou),
@@ -100,6 +118,11 @@ module circuito_exp5 (
         .display(db_memoria)
     ); 
 
+    hexa7seg disp3 (
+        .hexa(s_limite),   
+        .display(db_limite)
+    ); 
+
     hexa7seg disp5 (
         .hexa(s_estado), 
         .display(db_estado)
@@ -109,6 +132,8 @@ module circuito_exp5 (
 	assign pronto = s_pronto;
    assign db_iniciar = iniciar;
    assign db_timeout = s_timeout;
+   assign db_igualjogada = s_igualjogada;
+   assign db_igualseq = s_igualseq;
    
    
 endmodule
