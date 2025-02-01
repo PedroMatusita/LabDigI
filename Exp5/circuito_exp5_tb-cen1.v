@@ -104,17 +104,11 @@ module circuito_exp5_tb_cen1;
       @(negedge clock_in);
       botoes_in = 4'b0001;
       #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
 
       // Teste 5. jogada #2 (ajustar chaves para 0010 por 10 periodos de clock
       caso = 5;
       @(negedge clock_in);
       botoes_in = 4'b0010;
-      #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
       #(10*clockPeriod);
 
       // Teste 6. jogada #3 (ajustar chaves para 0100 por 10 periodos de clock
@@ -122,17 +116,11 @@ module circuito_exp5_tb_cen1;
       @(negedge clock_in);
       botoes_in = 4'b0100;
       #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
 
       // Teste 7. jogada #4 (ajustar chaves para 1000 por 10 periodos de clock
       caso = 7;
       @(negedge clock_in);
       botoes_in = 4'b1000;
-      #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
       #(10*clockPeriod);
 
     // Teste 8. jogada #5 (ajustar chaves para 0100 por 10 periodos de clock
@@ -140,17 +128,11 @@ module circuito_exp5_tb_cen1;
       @(negedge clock_in);
       botoes_in = 4'b0100;
       #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
 
     // Teste 9. jogada #6 (ajustar chaves para 0010 por 10 periodos de clock
       caso = 9;
       @(negedge clock_in);
       botoes_in = 4'b0010;
-      #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
       #(10*clockPeriod);
 
     // Teste 10. jogada #7 (ajustar chaves para 0001 por 10 periodos de clock
@@ -158,17 +140,11 @@ module circuito_exp5_tb_cen1;
       @(negedge clock_in);
       botoes_in = 4'b0001;
       #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
 
     // Teste 11. jogada #8 (ajustar chaves para 0001 por 10 periodos de clock
       caso = 11;
       @(negedge clock_in);
       botoes_in = 4'b001;
-      #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
       #(10*clockPeriod);
 
     // Teste 12. jogada #9 (ajustar chaves para 0010 por 10 periodos de clock
@@ -176,17 +152,11 @@ module circuito_exp5_tb_cen1;
       @(negedge clock_in);
       botoes_in = 4'b0010;
       #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
 
     // Teste 13. jogada #10 (ajustar chaves para 0010 por 10 periodos de clock
       caso = 13;
       @(negedge clock_in);
       botoes_in = 4'b0010;
-      #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
       #(10*clockPeriod);
 
     // Teste 14. jogada #11 (ajustar chaves para 0100 por 10 periodos de clock
@@ -194,17 +164,11 @@ module circuito_exp5_tb_cen1;
       @(negedge clock_in);
       botoes_in = 4'b0100;
       #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
 
     // Teste 15. jogada #12 (ajustar chaves para 0100 por 10 periodos de clock
       caso = 15;
       @(negedge clock_in);
       botoes_in = 4'b0100;
-      #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
       #(10*clockPeriod);
 
     // Teste 16. jogada #13(ajustar chaves para 1000 por 10 periodos de clock
@@ -212,17 +176,11 @@ module circuito_exp5_tb_cen1;
       @(negedge clock_in);
       botoes_in = 4'b1000;
       #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
 
     // Teste 17. jogada #14 (ajustar chaves para 1000 por 10 periodos de clock
       caso = 17;
       @(negedge clock_in);
       botoes_in = 4'b1000;
-      #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
       #(10*clockPeriod);
 
     // Teste 18. jogada #15 (ajustar chaves para 0001 por 10 periodos de clock
@@ -230,17 +188,11 @@ module circuito_exp5_tb_cen1;
       @(negedge clock_in);
       botoes_in = 4'b0001;
       #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
 
     // Teste 19. jogada #16 (ajustar chaves para 0100 por 10 periodos de clock
       caso = 19;
       @(negedge clock_in);
       botoes_in = 4'b0100;
-      #(10*clockPeriod);
-      botoes_in = 4'b0000;
-      // espera entre jogadas
       #(10*clockPeriod);
 
       // final dos casos de teste da simulacao
