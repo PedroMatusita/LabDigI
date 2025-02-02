@@ -46,7 +46,8 @@ module fluxo_dados (
     wire [3:0] s_jogada;
     wire [3:0] s_dado;
     wire [3:0] s_endereco;
-    
+    wire s_tem_jogada;
+    wire pronto;
 
     // contador_163
     contador_163 ContLmt (
@@ -113,7 +114,7 @@ module fluxo_dados (
 
     edge_detector detector (
       .clock( clock ),
-      .reset  ( zeraC ), // Apenas na inicialização
+      .reset  ( zeral ), // Apenas na inicialização
       .sinal   ( s_tem_jogada ),
       .pulso    ( jogada_feita )
     );
