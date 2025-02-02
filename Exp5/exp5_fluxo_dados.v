@@ -114,7 +114,7 @@ module fluxo_dados (
 
     edge_detector detector (
       .clock( clock ),
-      .reset  ( zeral ), // Apenas na inicialização
+      .reset  ( zeraL ), // Apenas na inicialização
       .sinal   ( s_tem_jogada ),
       .pulso    ( jogada_feita )
     );
