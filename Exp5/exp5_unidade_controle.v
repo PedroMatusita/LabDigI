@@ -61,7 +61,7 @@ module unidade_controle (
    always @* begin
       zeraE = (Eatual == inicia_sequencia ) ? 1'b1 : 1'b0;
       contaE = (Eatual == passa) ? 1'b1 : 1'b0;
-      contaL = (Eatual == inicia_sequencia) ? 1'b1 : 1'b0;
+      contaL = (Eatual == ultima_sequencia) ? 1'b1 : 1'b0;
       zeraR = (Eatual == inicial || Eatual == inicializa) ? 1'b1 : 1'b0;
       zeraL = (Eatual == inicial || Eatual == inicializa) ? 1'b1 : 1'b0;
       registraR = (Eatual == registra) ? 1'b1 : 1'b0;
