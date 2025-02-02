@@ -19,7 +19,7 @@ module circuito_exp5_tb_cen1;
     wire [6:0] db_estado_out;
     wire [6:0] db_jogadafeita_out;
     wire       db_clock_out;
-wire db_timeout;
+    wire       db_timeout;
     wire       db_iniciar_out;
     wire       db_tem_jogada_out;
 
@@ -43,7 +43,7 @@ wire db_timeout;
         .pronto         ( pronto_out  ),
         .leds           ( leds_out    ),
         .db_igual       ( db_igual_out       ),
-	.db_timeout	( db_timeout),
+        .db_timeout     ( db_timeout),
         .db_contagem    ( db_contagem_out    ),
         .db_memoria     ( db_memoria_out     ),
         .db_estado      ( db_estado_out      ),
@@ -53,9 +53,31 @@ wire db_timeout;
         .db_tem_jogada  ( db_tem_jogada_out  )
     );
 
+    // Vetor de testes
+    reg [3:0] test_vector [0:15];
+    integer i, j;
+
     // Procedimento de teste
     initial begin
         $display("Início da simulação");
+
+        // Inicializar vetor de testes
+        test_vector[0]  = 4'b0001;
+        test_vector[1]  = 4'b0010;
+        test_vector[2]  = 4'b0100;
+        test_vector[3]  = 4'b1000;
+        test_vector[4]  = 4'b0100;
+        test_vector[5]  = 4'b0010;
+        test_vector[6]  = 4'b0001;
+        test_vector[7]  = 4'b0001;
+        test_vector[8]  = 4'b0010;
+        test_vector[9]  = 4'b0010;
+        test_vector[10] = 4'b0100;
+        test_vector[11] = 4'b0100;
+        test_vector[12] = 4'b1000;
+        test_vector[13] = 4'b1000;
+        test_vector[14] = 4'b0001;
+        test_vector[15] = 4'b0100;
 
         // condicoes iniciais
         caso       = 0;
@@ -65,181 +87,48 @@ wire db_timeout;
         chaves_in  = 4'b0000;
         #clockPeriod;
 
+        // Teste 1. resetar circuito
+        caso = 1;
+        // gera pulso de reset
+        @(negedge clock_in);
+        reset_in = 1;
+        #(clockPeriod);
+        reset_in = 0;
+        // espera
+        #(10*clockPeriod);
 
+        // Teste 2. espera 10 periodos de clock
+        caso = 2;
+        #(5*clockPeriod);
+        // espera
+        #(10*clockPeriod);
 
-         // Teste 1. resetar circuito
-      caso = 1;
-      // gera pulso de reset
-      @(negedge clock_in);
-      reset_in = 1;
-      #(clockPeriod);
-      reset_in = 0;
-      // espera
-      #(10*clockPeriod);
+        // Teste 3. iniciar=1 por 5 periodos de clock
+        caso = 3;
+        iniciar_in = 1;
+        #(5*clockPeriod);
+        iniciar_in = 0;
+        // espera
+        #(10*clockPeriod);
 
-     // Teste 2. espera 10 periodos de clock
-      caso = 2;
-      #(5*clockPeriod);
-      // espera
-      #(10*clockPeriod);
+        // Testes 4 a 19: jogadas com diferentes valores de chaves
+        for (i = 0; i < 16; i = i + 1) begin
+            caso = 4 + i; // Mudar caso de teste
+            for (j = 0; j <= i; j = j + 1) begin
+                @(negedge clock_in);
+                chaves_in = test_vector[j];
+                #(10*clockPeriod);
+                chaves_in = 4'b0000; // Reset chaves_in
+                // espera entre jogadas
+                #(10*clockPeriod);
+            end
+        end
 
-      // Teste 3. iniciar=1 por 5 periodos de clock
-      caso = 3;
-      iniciar_in = 1;
-      #(5*clockPeriod);
-      iniciar_in = 0;
-      // espera
-      #(10*clockPeriod);
-
-      // Teste 4. jogada #1 (ajustar chaves para 0001 por 10 periodos de clock
-      caso = 4;
-      @(negedge clock_in);
-      chaves_in = 4'b0001;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-      // Teste 5. jogada #2 (ajustar chaves para 0010 por 10 periodos de clock
-      caso = 5;
-      @(negedge clock_in);
-      chaves_in = 4'b0010;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-      // Teste 6. jogada #3 (ajustar chaves para 0100 por 10 periodos de clock
-      caso = 6;
-      @(negedge clock_in);
-      chaves_in = 4'b0100;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-      // Teste 7. jogada #4 (ajustar chaves para 1000 por 10 periodos de clock
-      caso = 7;
-      @(negedge clock_in);
-      chaves_in = 4'b1000;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-    // Teste 8. jogada #5 (ajustar chaves para 0100 por 10 periodos de clock
-      caso = 8;
-      @(negedge clock_in);
-      chaves_in = 4'b0100;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-    // Teste 9. jogada #6 (ajustar chaves para 0010 por 10 periodos de clock
-      caso = 9;
-      @(negedge clock_in);
-      chaves_in = 4'b0010;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-    // Teste 10. jogada #7 (ajustar chaves para 0001 por 10 periodos de clock
-      caso = 10;
-      @(negedge clock_in);
-      chaves_in = 4'b0001;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-    // Teste 11. jogada #8 (ajustar chaves para 0001 por 10 periodos de clock
-      caso = 11;
-      @(negedge clock_in);
-      chaves_in = 4'b001;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-    // Teste 12. jogada #9 (ajustar chaves para 0010 por 10 periodos de clock
-      caso = 12;
-      @(negedge clock_in);
-      chaves_in = 4'b0010;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-    // Teste 13. jogada #10 (ajustar chaves para 0010 por 10 periodos de clock
-      caso = 13;
-      @(negedge clock_in);
-      chaves_in = 4'b0010;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-    // Teste 14. jogada #11 (ajustar chaves para 0100 por 10 periodos de clock
-      caso = 14;
-      @(negedge clock_in);
-      chaves_in = 4'b0100;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-    // Teste 15. jogada #12 (ajustar chaves para 0100 por 10 periodos de clock
-      caso = 15;
-      @(negedge clock_in);
-      chaves_in = 4'b0100;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-    // Teste 16. jogada #13(ajustar chaves para 1000 por 10 periodos de clock
-      caso = 16;
-      @(negedge clock_in);
-      chaves_in = 4'b1000;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-    // Teste 17. jogada #14 (ajustar chaves para 1000 por 10 periodos de clock
-      caso = 17;
-      @(negedge clock_in);
-      chaves_in = 4'b1000;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-    // Teste 18. jogada #15 (ajustar chaves para 0001 por 10 periodos de clock
-      caso = 18;
-      @(negedge clock_in);
-      chaves_in = 4'b0001;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-    // Teste 19. jogada #16 (ajustar chaves para 0100 por 10 periodos de clock
-      caso = 19;
-      @(negedge clock_in);
-      chaves_in = 4'b0100;
-      #(10*clockPeriod);
-      chaves_in = 4'b0000;
-      // espera entre jogadas
-      #(10*clockPeriod);
-
-      // final dos casos de teste da simulacao
-      caso = 99;
-      #100;
-      $display("Fim da simulacao");
-      $stop;
+        // final dos casos de teste da simulacao
+        caso = 99;
+        #100;
+        $display("Fim da simulacao");
+        $stop;
     end
 
-  endmodule
+endmodule
