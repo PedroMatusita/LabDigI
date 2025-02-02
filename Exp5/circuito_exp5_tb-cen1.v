@@ -9,7 +9,7 @@ module circuito_exp5_tb_cen1;
     reg  [3:0] botoes_in  = 4'b0000;
 
     wire       ganhou_out;
-    wire        perdeu_out;
+    wire       perdeu_out;
     wire       errou_out;
     wire       pronto_out;
     wire [3:0] leds_out;
@@ -41,10 +41,10 @@ module circuito_exp5_tb_cen1;
     circuito_exp5 dut (
         .clock          ( clock_in    ),
         .reset          ( reset_in    ),
-        .iniciar        ( iniciar_in  ),
-        .chaves         ( chaves_in   ),
-        .acertou        ( acertou_out ),
-        .errou          ( errou_out   ),
+        .jogar          ( jogar_in  ),
+        .botoes         ( botoes_in   ),
+        .ganhou        ( ganhou_out ),
+        .perdeu          ( perdeu_out   ),
         .pronto         ( pronto_out  ),
         .leds           ( leds_out    ),
         .db_igual       ( db_igual_out       ),
