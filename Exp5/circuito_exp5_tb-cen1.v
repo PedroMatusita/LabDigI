@@ -5,10 +5,11 @@ module circuito_exp5_tb_cen1;
     // Sinais para conectar com o DUT
     reg        clock_in   = 1;
     reg        reset_in   = 0;
-    reg        iniciar_in = 0;
-    reg  [3:0] chaves_in  = 4'b0000;
+    reg        jogar_in = 0;
+    reg  [3:0] botoes_in  = 4'b0000;
 
-    wire       acertou_out;
+    wire       ganhou_out;
+    wire        perdeu_out;
     wire       errou_out;
     wire       pronto_out;
     wire [3:0] leds_out;
@@ -18,11 +19,15 @@ module circuito_exp5_tb_cen1;
     wire [6:0] db_memoria_out;
     wire [6:0] db_estado_out;
     wire [6:0] db_jogadafeita_out;
+    wire [6:0] db_sequencia_out;
     wire       db_clock_out;
-    wire       db_timeout;
     wire       db_iniciar_out;
+    wire       db_fimseq_out;   
+    wire       db_igualseq_out;
+    wire       db_igualjogada_out;
     wire       db_tem_jogada_out;
-
+    wire       db_timeout_out;
+   
     // Configuração do clock
     parameter clockPeriod = 1_000_000; // 1 ms, f = 1kHz
 
@@ -34,22 +39,22 @@ module circuito_exp5_tb_cen1;
 
     // Instanciação do DUT (Device Under Test)
     circuito_exp5 dut (
-        .clock          ( clock_in    ),
-        .reset          ( reset_in    ),
-        .iniciar        ( iniciar_in  ),
-        .chaves         ( chaves_in   ),
-        .acertou        ( acertou_out ),
-        .errou          ( errou_out   ),
+        .clock          ( clock_in ),
+        .reset          ( reset_in ),
+        .jogar          ( jogar_in ),
+        .botoes         ( botoes_in   ),
+        .ganhou         ( ganhou_out ),
+        .perdeu         ( perdeu_out   ),
         .pronto         ( pronto_out  ),
-        .leds           ( leds_out    ),
-        .db_igual       ( db_igual_out       ),
+        .leds           ( leds_out ),
+        .db_igual       ( db_igual_out),
         .db_timeout     ( db_timeout),
-        .db_contagem    ( db_contagem_out    ),
-        .db_memoria     ( db_memoria_out     ),
-        .db_estado      ( db_estado_out      ),
+        .db_contagem    ( db_contagem_out ),
+        .db_memoria     ( db_memoria_out ),
+        .db_estado      ( db_estado_out ),
         .db_jogadafeita ( db_jogadafeita_out ),
-        .db_clock       ( db_clock_out       ),
-        .db_iniciar     ( db_iniciar_out     ),
+        .db_clock       ( db_clock_out ),
+        .db_iniciar     ( db_iniciar_out ),
         .db_tem_jogada  ( db_tem_jogada_out  )
     );
 
@@ -83,8 +88,8 @@ module circuito_exp5_tb_cen1;
         caso       = 0;
         clock_in   = 1;
         reset_in   = 0;
-        iniciar_in = 0;
-        chaves_in  = 4'b0000;
+        jogar_in = 0;
+        botoes_in  = 4'b0000;
         #clockPeriod;
 
         // Teste 1. resetar circuito
@@ -105,20 +110,20 @@ module circuito_exp5_tb_cen1;
 
         // Teste 3. iniciar=1 por 5 periodos de clock
         caso = 3;
-        iniciar_in = 1;
+        jogar_in = 1;
         #(5*clockPeriod);
-        iniciar_in = 0;
+        jogar_in = 0;
         // espera
         #(10*clockPeriod);
 
-        // Testes 4 a 19: jogadas com diferentes valores de chaves
+        // Testes 4 a 19: jogadas com diferentes valores de botoes
         for (i = 0; i < 16; i = i + 1) begin
             caso = 4 + i; // Mudar caso de teste
             for (j = 0; j <= i; j = j + 1) begin
                 @(negedge clock_in);
-                chaves_in = test_vector[j];
+                botoes_in = test_vector[j];
                 #(10*clockPeriod);
-                chaves_in = 4'b0000; // Reset chaves_in
+                botoes_in = 4'b0000; // Reset botoes_in
                 // espera entre jogadas
                 #(10*clockPeriod);
             end
