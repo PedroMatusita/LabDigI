@@ -136,16 +136,24 @@ module circuito_exp5_tb_cen3;
         end
 
         // Reseta para o segundo jogo
-        caso = 99;
+        caso = 20;
         reset_in = 1;
         @(negedge clock_in);
         #(clockPeriod);
         reset_in = 0;
 
+        // Teste 3. iniciar=1 por 5 períodos de clock
+        caso = 21;
+        jogar_in = 1;
+        #(5*clockPeriod);
+        jogar_in = 0;
+        // espera
+        #(10*clockPeriod);
+
         // Testes 4 a 19: jogadas com diferentes valores de botoes (Jogo 2)
-        caso = 20;
+        caso = 22;
         for (i = 0; i < 16; i = i + 1) begin
-            caso = 4 + i; // Mudar caso de teste
+            caso = 22 + i; // Mudar caso de teste
             for (j = 0; j <= i; j = j + 1) begin
                 @(negedge clock_in);
                 botoes_in = test_vector[j];
