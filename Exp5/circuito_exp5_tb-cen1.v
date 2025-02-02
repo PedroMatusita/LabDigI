@@ -39,23 +39,27 @@ module circuito_exp5_tb_cen1;
 
     // Instanciação do DUT (Device Under Test)
     circuito_exp5 dut (
-        .clock          ( clock_in ),
-        .reset          ( reset_in ),
-        .jogar          ( jogar_in ),
-        .botoes         ( botoes_in   ),
-        .ganhou         ( ganhou_out ),
-        .perdeu         ( perdeu_out   ),
+        .clock          ( clock_in    ),
+        .reset          ( reset_in    ),
+        .iniciar        ( iniciar_in  ),
+        .chaves         ( chaves_in   ),
+        .acertou        ( acertou_out ),
+        .errou          ( errou_out   ),
         .pronto         ( pronto_out  ),
-        .leds           ( leds_out ),
-        .db_igual       ( db_igual_out),
-        .db_timeout     ( db_timeout),
-        .db_contagem    ( db_contagem_out ),
-        .db_memoria     ( db_memoria_out ),
-        .db_estado      ( db_estado_out ),
+        .leds           ( leds_out    ),
+        .db_igual       ( db_igual_out       ),
+        .db_contagem    ( db_contagem_out    ),
+        .db_memoria     ( db_memoria_out     ),
+        .db_estado      ( db_estado_out      ),
         .db_jogadafeita ( db_jogadafeita_out ),
-        .db_clock       ( db_clock_out ),
-        .db_iniciar     ( db_iniciar_out ),
-        .db_tem_jogada  ( db_tem_jogada_out  )
+        .db_sequencia   ( db_sequencia_out   ),
+        .db_clock       ( db_clock_out       ),
+        .db_iniciar     ( db_iniciar_out     ),
+        .db_fimseq      ( db_fimseq_out      ),
+        .db_igualseq    ( db_igualseq_out    ),
+        .db_igualjogada ( db_igualjogada_out ),
+        .db_tem_jogada  ( db_tem_jogada_out  ),
+        .db_timeout     ( db_timeout_out     )
     );
 
     // Vetor de testes
