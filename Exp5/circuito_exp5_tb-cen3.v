@@ -150,19 +150,17 @@ module circuito_exp5_tb_cen3;
         // espera
         #(10*clockPeriod);
 
-        // Testes 4 a 19: jogadas com diferentes valores de botoes (Jogo 2)
+        // Testes 22 a 23: Teste do Timeout
         caso = 22;
-        for (i = 0; i < 16; i = i + 1) begin
-            caso = 22 + i; // Mudar caso de teste
-            for (j = 0; j <= i; j = j + 1) begin
-                @(negedge clock_in);
-                botoes_in = test_vector[j];
-                #(10*clockPeriod);
-                botoes_in = 4'b0000; // Reset botoes_in
-                // espera entre jogadas
-                #(10*clockPeriod);
-            end
-        end
+        botoes_in = test_vector[0];
+        #(10*clockPeriod);
+        botoes_in = 4'b0000; // Reset botoes_in
+        // espera
+        #(10*clockPeriod);
+
+        caso = 23;
+        #(10000*clockPeriod);
+        
 
         // final dos casos de teste da simulação
         caso = 99;

@@ -10,7 +10,7 @@ z2
 cModel Technology
 dC:/intelFPGA_lite/20.1
 vcircuito_exp5
-Z0 !s110 1738507471
+Z0 !s110 1738509866
 !i10b 1
 !s100 QAT7=S[0KLeKV:CAj2EG81
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -20,13 +20,13 @@ Z3 dC:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5
 Z4 w1738507290
 8C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5.v
 FC:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5.v
-!i122 15
+!i122 41
 L0 12 133
 Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1738507471.000000
+Z6 !s108 1738509866.000000
 !s107 C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5.v|
 !i113 1
@@ -43,7 +43,7 @@ R3
 R4
 8C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5_tb-cen1.v
 FC:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5_tb-cen1.v
-!i122 16
+!i122 42
 L0 3 141
 R5
 r1
@@ -66,7 +66,7 @@ R3
 R4
 8C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5_tb-cen2.v
 FC:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5_tb-cen2.v
-!i122 17
+!i122 43
 L0 3 148
 R5
 r1
@@ -79,18 +79,18 @@ R6
 R7
 R8
 vcircuito_exp5_tb_cen3
-R0
+Z9 !s110 1738509867
 !i10b 1
-!s100 SmYjM1MCPD2A<ie>oS@C_3
+!s100 gI>cMD21j7F<ZGm@VAPS]0
 R1
-I`F74=M<V=i>b60zYCdQ:I0
+IWAzHh]N>Z6eZf7Sn^QXeZ3
 R2
 R3
-R4
+w1738509859
 8C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5_tb-cen3.v
 FC:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5_tb-cen3.v
-!i122 18
-L0 3 164
+!i122 44
+L0 3 172
 R5
 r1
 !s85 0
@@ -102,7 +102,7 @@ R6
 R7
 R8
 vcomparador_85
-R0
+R9
 !i10b 1
 !s100 bckB8^W=VE]I2a21^PB@D0
 R1
@@ -112,20 +112,20 @@ R3
 w1738084726
 8C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/comparador_85.v
 FC:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/comparador_85.v
-!i122 19
+!i122 45
 L0 16 14
 R5
 r1
 !s85 0
 31
-R6
+Z10 !s108 1738509867.000000
 !s107 C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/comparador_85.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/comparador_85.v|
 !i113 1
 R7
 R8
 vcontador_163
-R0
+R9
 !i10b 1
 !s100 8iZEj:>@H9<J>a32Jj8[g3
 R1
@@ -135,20 +135,20 @@ R3
 w1737288655
 8C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/contador_163.v
 FC:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/contador_163.v
-!i122 20
+!i122 46
 L0 16 16
 R5
 r1
 !s85 0
 31
-R6
+R10
 !s107 C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/contador_163.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/contador_163.v|
 !i113 1
 R7
 R8
 vcontador_m
-R0
+R9
 !i10b 1
 !s100 BLMf5@WIC9E7[2]V7T:]00
 R1
@@ -158,20 +158,20 @@ R3
 w1737986809
 8C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/contador_m.v
 FC:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/contador_m.v
-!i122 21
+!i122 47
 L0 20 37
 R5
 r1
 !s85 0
 31
-R6
+R10
 !s107 C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/contador_m.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/contador_m.v|
 !i113 1
 R7
 R8
 vedge_detector
-Z9 !s110 1738507472
+R9
 !i10b 1
 !s100 b=6PQ:nFojW4z?d;AGW=D0
 R1
@@ -181,13 +181,13 @@ R3
 w1737507691
 8C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/edge_detector.v
 FC:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/edge_detector.v
-!i122 22
+!i122 48
 L0 21 23
 R5
 r1
 !s85 0
 31
-Z10 !s108 1738507472.000000
+R10
 !s107 C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/edge_detector.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/edge_detector.v|
 !i113 1
@@ -204,7 +204,7 @@ R3
 R4
 8C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/exp5_fluxo_dados.v
 FC:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/exp5_fluxo_dados.v
-!i122 23
+!i122 49
 L0 21 122
 R5
 r1
@@ -227,7 +227,7 @@ R3
 w1737238078
 8C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/hexa7seg.v
 FC:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/hexa7seg.v
-!i122 25
+!i122 51
 L0 23 38
 R5
 r1
@@ -250,7 +250,7 @@ R3
 w1737236936
 8C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/registrador_4.v
 FC:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/registrador_4.v
-!i122 26
+!i122 52
 L0 13 20
 R5
 r1
@@ -273,7 +273,7 @@ R3
 w1737236938
 8C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/sync_rom_16x4.v
 FC:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/sync_rom_16x4.v
-!i122 27
+!i122 53
 L0 13 27
 R5
 r1
@@ -311,15 +311,15 @@ R8
 vunidade_controle
 R9
 !i10b 1
-!s100 AViPLK^;[SVPG7n>U8FAE0
+!s100 3`EOkLZG`9R?12WcKI]8R1
 R1
-I>40>1Rlzn9MId:iMlhjz<3
+IFlB0o2@h8WJL9FRIgMd6F2
 R2
 R3
-w1738507339
+w1738508351
 8C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/exp5_unidade_controle.v
 FC:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/exp5_unidade_controle.v
-!i122 24
+!i122 50
 L0 1 75
 R5
 r1

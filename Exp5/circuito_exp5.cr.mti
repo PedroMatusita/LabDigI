@@ -5,13 +5,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	circuito_exp5_tb_cen2
 
-} {} {}} {C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5_tb-cen3.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5_tb-cen3.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module circuito_exp5_tb_cen3
-
-Top level modules:
-	circuito_exp5_tb_cen3
-
 } {} {}} {C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/edge_detector.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/edge_detector.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module edge_detector
@@ -61,6 +54,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	contador_m
 
+} {} {}} {C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/exp5_unidade_controle.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/exp5_unidade_controle.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module unidade_controle
+
+Top level modules:
+	unidade_controle
+
 } {} {}} {C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/registrador_4.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/registrador_4.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module registrador_4
@@ -68,18 +68,18 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	registrador_4
 
-} {} {}} {C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5_tb-cen1.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5_tb-cen1.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module circuito_exp5_tb_cen1
-
-Top level modules:
-	circuito_exp5_tb_cen1
-
 } {} {}} {C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/hexa7seg.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/hexa7seg.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module hexa7seg
 
 Top level modules:
 	hexa7seg
+
+} {} {}} {C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5_tb-cen1.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/LabDigi I/LabDigI/Exp5/circuito_exp5_tb-cen1.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module circuito_exp5_tb_cen1
+
+Top level modules:
+	circuito_exp5_tb_cen1
 
 } {} {}}
