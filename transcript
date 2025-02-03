@@ -1,0 +1,132 @@
+vsim -gui work.circuito_exp5_tb_cen3
+# vsim -gui work.circuito_exp5_tb_cen3 
+# Start time: 10:45:13 on Feb 03,2025
+# Loading work.circuito_exp5_tb_cen3
+# Loading work.circuito_exp5
+# Loading work.fluxo_dados
+# Loading work.contador_163
+# Loading work.comparador_85
+# Loading work.sync_rom_16x4
+# Loading work.registrador_4
+# Loading work.edge_detector
+# Loading work.contador_m
+# Loading work.unidade_controle
+# Loading work.hexa7seg
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Projetos/T3BB8/EXP5/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp5_tb_cen3/dut/fluxo_dados/ContLmt File: C:/Projetos/T3BB8/EXP5/exp5_fluxo_dados.v Line: 53
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Projetos/T3BB8/EXP5/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp5_tb_cen3/dut/fluxo_dados/ContEnd File: C:/Projetos/T3BB8/EXP5/exp5_fluxo_dados.v Line: 64
+add wave -position insertpoint  \
+sim:/circuito_exp5_tb_cen3/jogar_in \
+sim:/circuito_exp5_tb_cen3/ganhou_out \
+sim:/circuito_exp5_tb_cen3/perdeu_out \
+sim:/circuito_exp5_tb_cen3/pronto_out \
+sim:/circuito_exp5_tb_cen3/db_timeout_out \
+sim:/circuito_exp5_tb_cen3/caso
+add wave -position insertpoint  \
+sim:/circuito_exp5_tb_cen3/dut/fluxo_dados/botoes
+add wave -position insertpoint  \
+sim:/circuito_exp5_tb_cen3/dut/fluxo_dados/contador_timeout/conta \
+sim:/circuito_exp5_tb_cen3/dut/fluxo_dados/contador_timeout/Q
+run -all
+# Início da simulação
+# Fim da simulação
+# ** Note: $stop    : C:/Projetos/T3BB8/EXP5/circuito_exp5_tb-cen3.v(167)
+#    Time: 4631293764 ns  Iteration: 0  Instance: /circuito_exp5_tb_cen3
+# Break in Module circuito_exp5_tb_cen3 at C:/Projetos/T3BB8/EXP5/circuito_exp5_tb-cen3.v line 167
+add wave -position insertpoint  \
+sim:/circuito_exp5_tb_cen3/dut/fluxo_dados/db_tem_jogada
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Projetos/T3BB8/EXP5/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp5_tb_cen3/dut/fluxo_dados/ContLmt File: C:/Projetos/T3BB8/EXP5/exp5_fluxo_dados.v Line: 53
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Projetos/T3BB8/EXP5/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp5_tb_cen3/dut/fluxo_dados/ContEnd File: C:/Projetos/T3BB8/EXP5/exp5_fluxo_dados.v Line: 64
+run -all
+# GetModuleFileName: N�o foi poss�vel encontrar o m�dulo especificado.
+# 
+# 
+# Início da simulação
+# Fim da simulação
+# ** Note: $stop    : C:/Projetos/T3BB8/EXP5/circuito_exp5_tb-cen3.v(167)
+#    Time: 4631293764 ns  Iteration: 0  Instance: /circuito_exp5_tb_cen3
+# Break in Module circuito_exp5_tb_cen3 at C:/Projetos/T3BB8/EXP5/circuito_exp5_tb-cen3.v line 167
+# Compile of circuito_exp5.v was successful.
+# Compile of circuito_exp5_tb-cen3.v was successful.
+# Compile of comparador_85.v was successful.
+# Compile of contador_163.v was successful.
+# Compile of contador_m.v was successful.
+# Compile of edge_detector.v was successful.
+# Compile of exp5_fluxo_dados.v was successful.
+# Compile of exp5_unidade_controle.v was successful.
+# Compile of hexa7seg.v was successful.
+# Compile of registrador_4.v was successful.
+# Compile of sync_rom_16x4.v was successful.
+# 11 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.circuito_exp5_tb_cen3
+# Loading work.circuito_exp5
+# Loading work.fluxo_dados
+# Loading work.contador_163
+# Loading work.comparador_85
+# Loading work.sync_rom_16x4
+# Loading work.registrador_4
+# Loading work.edge_detector
+# Loading work.contador_m
+# Loading work.unidade_controle
+# Loading work.hexa7seg
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Projetos/T3BB8/EXP5/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp5_tb_cen3/dut/fluxo_dados/ContLmt File: C:/Projetos/T3BB8/EXP5/exp5_fluxo_dados.v Line: 53
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Projetos/T3BB8/EXP5/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp5_tb_cen3/dut/fluxo_dados/ContEnd File: C:/Projetos/T3BB8/EXP5/exp5_fluxo_dados.v Line: 64
+run -all
+# GetModuleFileName: N�o foi poss�vel encontrar o m�dulo especificado.
+# 
+# 
+# Início da simulação
+# Fim da simulação
+# ** Note: $stop    : C:/Projetos/T3BB8/EXP5/circuito_exp5_tb-cen3.v(167)
+#    Time: 6415087428 ns  Iteration: 0  Instance: /circuito_exp5_tb_cen3
+# Break in Module circuito_exp5_tb_cen3 at C:/Projetos/T3BB8/EXP5/circuito_exp5_tb-cen3.v line 167
+# Compile of circuito_exp5.v was successful.
+# Compile of circuito_exp5_tb-cen3.v was successful.
+# Compile of comparador_85.v was successful.
+# Compile of contador_163.v was successful.
+# Compile of contador_m.v was successful.
+# Compile of edge_detector.v was successful.
+# Compile of exp5_fluxo_dados.v was successful.
+# Compile of exp5_unidade_controle.v was successful.
+# Compile of hexa7seg.v was successful.
+# Compile of registrador_4.v was successful.
+# Compile of sync_rom_16x4.v was successful.
+# 11 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.circuito_exp5_tb_cen3
+# Loading work.circuito_exp5
+# Loading work.fluxo_dados
+# Loading work.contador_163
+# Loading work.comparador_85
+# Loading work.sync_rom_16x4
+# Loading work.registrador_4
+# Loading work.edge_detector
+# Loading work.contador_m
+# Loading work.unidade_controle
+# Loading work.hexa7seg
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Projetos/T3BB8/EXP5/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp5_tb_cen3/dut/fluxo_dados/ContLmt File: C:/Projetos/T3BB8/EXP5/exp5_fluxo_dados.v Line: 53
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Projetos/T3BB8/EXP5/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp5_tb_cen3/dut/fluxo_dados/ContEnd File: C:/Projetos/T3BB8/EXP5/exp5_fluxo_dados.v Line: 64
+run -all
+# GetModuleFileName: N�o foi poss�vel encontrar o m�dulo especificado.
+# 
+# 
+# Início da simulação
+# Fim da simulação
+# ** Note: $stop    : C:/Projetos/T3BB8/EXP5/circuito_exp5_tb-cen3.v(169)
+#    Time: 9982674756 ns  Iteration: 0  Instance: /circuito_exp5_tb_cen3
+# Break in Module circuito_exp5_tb_cen3 at C:/Projetos/T3BB8/EXP5/circuito_exp5_tb-cen3.v line 169
+quit -sim
+# End time: 11:12:47 on Feb 03,2025, Elapsed time: 0:27:34
+# Errors: 0, Warnings: 3
