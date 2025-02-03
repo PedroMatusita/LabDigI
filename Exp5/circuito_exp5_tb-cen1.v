@@ -71,22 +71,22 @@ module circuito_exp5_tb_cen1;
         $display("Início da simulação");
 
         // Inicializar vetor de testes
-        test_vector[0]  = 4'b0001;
-        test_vector[1]  = 4'b0010;
-        test_vector[2]  = 4'b0100;
-        test_vector[3]  = 4'b1000;
-        test_vector[4]  = 4'b0100;
-        test_vector[5]  = 4'b0010;
-        test_vector[6]  = 4'b0001;
-        test_vector[7]  = 4'b0001;
-        test_vector[8]  = 4'b0010;
-        test_vector[9]  = 4'b0010;
-        test_vector[10] = 4'b0100;
-        test_vector[11] = 4'b0100;
-        test_vector[12] = 4'b1000;
-        test_vector[13] = 4'b1000;
-        test_vector[14] = 4'b0001;
-        test_vector[15] = 4'b0100;
+        test_vector[0]  = 4'b0001; //1
+        test_vector[1]  = 4'b0010; //2
+        test_vector[2]  = 4'b0100; //4
+        test_vector[3]  = 4'b1000; //8
+        test_vector[4]  = 4'b0100; //4
+        test_vector[5]  = 4'b0010; //2
+        test_vector[6]  = 4'b0001; //1
+        test_vector[7]  = 4'b0001; //1
+        test_vector[8]  = 4'b0010; //2
+        test_vector[9]  = 4'b0010; //2
+        test_vector[10] = 4'b0100; //4
+        test_vector[11] = 4'b0100; //4
+        test_vector[12] = 4'b1000; //8
+        test_vector[13] = 4'b1000; //8
+        test_vector[14] = 4'b0001; //1
+        test_vector[15] = 4'b0100; //4
 
         // condicoes iniciais
         caso       = 0;
