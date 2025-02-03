@@ -7,7 +7,7 @@ module unidade_controle (
     input            igual,
     input            timeout,
     input            enderecoIgualLimite,
-    input            fimL,               
+    input            fimL,   
     output reg       zeraL,
     output reg       contaL,
     output reg       zeraE,
@@ -19,7 +19,6 @@ module unidade_controle (
     output reg       pronto,
     output reg [3:0] db_estado
 );
-
 
    parameter inicial    = 4'b0000; //0
    parameter inicializa = 4'b0001; //1
@@ -33,6 +32,7 @@ module unidade_controle (
    parameter erro       = 4'b1110; //14
 
    reg [3:0] Eatual, Eprox;
+
 
    always @(posedge clock or posedge reset) begin
         if (reset)

@@ -27,6 +27,7 @@ module fluxo_dados (
     input zeraE,
     input contaL,
     input zeraL,
+    input nivel,
     output chavesIgualMemoria,
     output enderecoIgualLimite,
     output enderecoMenorouIgualLimite,
@@ -48,6 +49,7 @@ module fluxo_dados (
     wire [3:0] s_endereco;
     wire s_tem_jogada;
     wire pronto;
+    wire [3:0] jog;
 
     // contador_163
     contador_163 ContLmt (
@@ -84,9 +86,16 @@ module fluxo_dados (
       .AEBo( chavesIgualMemoria )
     );
 
+      mux2x1 multip(
+      .D0(1'h8),
+      .D1(s_endereco),
+      .SEL(nivel),
+      .OUT(jog)
+   )
+
     comparador_85 CompLmt (
       .A   ( s_limite ),
-      .B   ( s_endereco ),
+      .B   ( jog ),
       .AEBi( 1'h1 ),
       .AGBi( 1'h0 ),
       .ALBi( 1'h0 ),
@@ -94,6 +103,7 @@ module fluxo_dados (
       .AGBo( enderecoMenorouIgualLimite ),
       .AEBo( enderecoIgualLimite )
     );
+
 
     // sync_rom_16x4
     sync_rom_16x4 MemJog (

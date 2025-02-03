@@ -14,6 +14,7 @@ module circuito_exp5 (
     input reset,
     input jogar,
     input [3:0] botoes,
+    input nivel,
     output ganhou,
     output perdeu,
     output pronto,
@@ -70,6 +71,7 @@ module circuito_exp5 (
         .zeraL(s_zeraL),
         .chavesIgualMemoria(s_igualjogada),
         .enderecoIgualLimite(s_igualseq),
+        .dificuldade()
         .enderecoMenorouIgualLimite(),
         .fimE(s_fimE),
         .fimL(s_fimL),
@@ -93,6 +95,7 @@ module circuito_exp5 (
         .igual(s_igualjogada),
         .enderecoIgualLimite(s_igualseq),
         .fimL(s_fimL),
+        .nivel(nivel),
         .zeraL(s_zeraL),
         .contaL(s_contaL),
         .zeraE(s_zeraE),
