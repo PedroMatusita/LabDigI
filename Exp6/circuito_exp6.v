@@ -1,7 +1,7 @@
 /*
  * ------------------------------------------------------------------
- *  Arquivo   : circuito_exp5.v
- *  Projeto   : Experiencia 5 - Projeto de um Jogo de Sequências de Jogadas
+ *  Arquivo   : circuito_exp6.v
+ *  Projeto   : Experiencia 6 
  * ------------------------------------------------------------------
  *  Descricao : Este arquivo contém a descrição do circuito que implementa
  * 
@@ -9,7 +9,7 @@
  * ------------------------------------------------------------------
  */
 
-module circuito_exp5 (
+module circuito_exp6 (
     input clock,
     input reset,
     input jogar,
@@ -49,6 +49,11 @@ module circuito_exp5 (
 	 wire s_pronto;
     wire s_ganhou;
     wire s_perdeu;
+    wire s_registraM;
+    wire s_zeraM;
+    wire s_contaTMR;
+    wire s_zeraTMR;
+    wire s_fimTMR;
 
     wire [3:0] s_chaves;  
     wire [3:0] s_dado;
@@ -68,11 +73,16 @@ module circuito_exp5 (
         .zeraE(s_zeraE),
         .contaL(s_contaL),
         .zeraL(s_zeraL),
+        .registraM(s_registraM),
+        .zeraM(s_zeraM),
+        .contaTMR(s_contaTMR),
+        .zeraTMR(s_zeraTMR),
         .chavesIgualMemoria(s_igualjogada),
         .enderecoIgualLimite(s_igualseq),
         .enderecoMenorouIgualLimite(),
         .fimE(s_fimE),
         .fimL(s_fimL),
+        .fimTMR(s_fimTMR),
         .db_tem_jogada(db_tem_jogada),
         .jogada_feita(s_jogada_feita),
         .db_contagem(s_contagem),
@@ -93,12 +103,17 @@ module circuito_exp5 (
         .igual(s_igualjogada),
         .enderecoIgualLimite(s_igualseq),
         .fimL(s_fimL),
+        .fimTMR(s_fimTMR),
         .zeraL(s_zeraL),
         .contaL(s_contaL),
         .zeraE(s_zeraE),
         .contaE(s_contaE),
         .zeraR(s_zeraR),
         .registraR(s_registraR),
+        .registraM(s_registraM),
+        .zeraM(s_zeraM),
+        .contaTMR(s_contaTMR),
+        .zeraTMR(s_zeraTMR),
         .acertou(s_ganhou),
         .errou(s_perdeu),
         .pronto(s_pronto),

@@ -8,12 +8,17 @@ module unidade_controle (
     input            timeout,
     input            enderecoIgualLimite,
     input            fimL,               
+    input            fimTMR,               
     output reg       zeraL,
     output reg       contaL,
     output reg       zeraE,
     output reg       contaE,
     output reg       zeraR,
     output reg       registraR,
+    output reg       registraM,
+    output reg       zeraM,
+    output reg       contaTMR,
+    output reg       zeraTMR,
     output reg       acertou,
     output reg       errou,
     output reg       pronto,
@@ -29,6 +34,8 @@ module unidade_controle (
    parameter compara    = 4'b0110; //6   
    parameter passa      = 4'b0111; //7
    parameter ultima_sequencia      = 4'b1000; //8
+   parameter ativa_led     = 4'b1001; //9
+   parameter proximo_led     = 4'b1010; //10
    parameter acerto     = 4'b1111; //15
    parameter erro       = 4'b1110; //14
 
@@ -46,11 +53,13 @@ module unidade_controle (
 			inicial:    Eprox = iniciar ? inicializa : inicial;
 			inicializa: Eprox = inicia_sequencia;
 			inicia_sequencia: Eprox = espera;
+         ativa_led: Eprox = fimTMR ? proximo_led : ativa_led;
+         proximo_led: Eprox = enderecoIgualLimite ? espera : ativa_led;
 			espera:     Eprox = jogada  ? registra : (timeout ? erro : espera);
 			registra:   Eprox = compara;
 			compara:    Eprox = igual  ? (enderecoIgualLimite ? ultima_sequencia : passa) : erro; 
 			passa:      Eprox = espera; 
-			ultima_sequencia:      Eprox = fimL ? acerto : inicia_sequencia; 
+			ultima_sequencia:      Eprox = fimL ? acerto : inicia_sequencia;
 			acerto:     Eprox = iniciar ? inicializa : acerto;
 			erro:       Eprox = iniciar ? inicializa : erro;
       endcase
@@ -68,6 +77,10 @@ module unidade_controle (
       acertou = (Eatual == acerto) ? 1'b1 : 1'b0;
       errou = (Eatual == erro) ? 1'b1 : 1'b0;
       pronto = (Eatual == acerto || Eatual == erro) ? 1'b1 : 1'b0;
+      registraM = (Eatual == proximo_led ||inicia_sequencia) ? 1'b1 : 1'b0;
+      zeraM = (Eatual == inicial || inicializa) ? 1'b1 : 1'b0;
+      contaTMR = (Eatual == ativa_led) ? 1'b1 : 1'b0;
+      zeraTMR = (Eatual == proximo_led) ? 1'b1 : 1'b0;
      
       
    end
