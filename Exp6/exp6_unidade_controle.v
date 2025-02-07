@@ -36,6 +36,7 @@ module unidade_controle (
    parameter ultima_sequencia      = 4'b1000; //8
    parameter ativa_led     = 4'b1001; //9
    parameter proximo_led     = 4'b1010; //10
+   parameter comeco_jogada     = 4'b1011; //10
    parameter acerto     = 4'b1111; //15
    parameter erro       = 4'b1110; //14
 
@@ -54,7 +55,8 @@ module unidade_controle (
 			inicializa: Eprox = inicia_sequencia;
 			inicia_sequencia: Eprox = espera;
          ativa_led: Eprox = fimTMR ? proximo_led : ativa_led;
-         proximo_led: Eprox = enderecoIgualLimite ? espera : ativa_led;
+         proximo_led: Eprox = enderecoIgualLimite ? comeco_jogada : ativa_led;
+         comeco_jogada = Eprox = espera;
 			espera:     Eprox = jogada  ? registra : (timeout ? erro : espera);
 			registra:   Eprox = compara;
 			compara:    Eprox = igual  ? (enderecoIgualLimite ? ultima_sequencia : passa) : erro; 
@@ -68,7 +70,7 @@ module unidade_controle (
    end
 
    always @* begin
-      zeraE = (Eatual == inicia_sequencia ) ? 1'b1 : 1'b0;
+      zeraE = (Eatual == inicia_sequencia || comeco_jogada ) ? 1'b1 : 1'b0;
       contaE = (Eatual == passa) ? 1'b1 : 1'b0;
       contaL = (Eatual == ultima_sequencia) ? 1'b1 : 1'b0;
       zeraR = (Eatual == inicial || Eatual == inicializa) ? 1'b1 : 1'b0;
