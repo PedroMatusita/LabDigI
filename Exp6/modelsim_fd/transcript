@@ -1,0 +1,11 @@
+# Compile of circuito_exp6.v failed with 4 errors.
+# Compile of exp6_fluxo_dados.v failed with 1 errors.
+# Compile of exp6_unidade_controle.v failed with 1 errors.
+# Compile of comparador_85.v was successful.
+# Compile of contador_163.v was successful.
+# Compile of contador_m.v was successful.
+# Compile of edge_detector.v was successful.
+# Compile of hexa7seg.v was successful.
+# Compile of registrador_4.v was successful.
+# Compile of sync_rom_16x4.v was successful.
+# 10 compiles, 3 failed with 6 errors.
