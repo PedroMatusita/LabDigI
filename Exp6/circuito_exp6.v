@@ -24,10 +24,10 @@ module circuito_exp6 (
 );
     /* Sinais internos */
     //Sinais de Controle
-    wire s_zeraR, s_zeraE, s_zeraL, s_zeraM, s_zeraTMR;
+    wire s_zeraR, s_zeraE, s_zeraS, s_zeraL, s_zeraM, s_zeraTMR;
     wire s_registraR, s_registraM;
-    wire s_contaE, s_contaL, s_contaTMR;
-    wire s_fimE, s_fimL, s_fimTMR; 
+    wire s_contaE, s_contaS, s_contaTMR;
+    wire s_fimE, s_fimS, s_fimTMR; 
     //Sinais de depuração
     wire s_igual, s_igualseq, s_igualjogada, s_jogada_feita, s_timeout;
     wire [3:0]  s_sequencia, s_contagem, s_memoria, s_jogada, s_estado;  
@@ -39,8 +39,8 @@ module circuito_exp6 (
                              
         .zeraR(s_zeraR), .zeraE(s_zeraE), .zeraL(s_zeraL), .zeraM(s_zeraM), .zeraTMR(s_zeraTMR),                     
         .registraR(s_registraR), .registraM(s_registraM),
-        .contaE(s_contaE), .contaL(s_contaL), .contaTMR(s_contaTMR),
-        .fimE(s_fimE), .fimL(s_fimL), .fimTMR(s_fimTMR),
+        .contaE(s_contaE), .contaS(s_contaS), .contaTMR(s_contaTMR),
+        .fimE(s_fimE), .fimS(s_fimS), .fimTMR(s_fimTMR),
         
         .jogada_feita(s_jogada_feita), .chavesIgualMemoria(s_igualjogada), .enderecoIgualSequencia(s_igualseq), .enderecoMenorOuIgualSequencia(), .timeout(s_timeout),
                 
@@ -52,10 +52,10 @@ module circuito_exp6 (
         
         .jogada(s_jogada_feita), .igual(s_igualjogada), .timeout(s_timeout), .enderecoIgualSequencia(s_igualseq), 
         
-        .fimE(s_fimE), .fimL(s_fimL), .fimTMR(s_fimTMR),        
-        .zeraR(s_zeraR), .zeraE(s_zeraE), .zeraL(s_zeraL), .zeraM(s_zeraM), .zeraTMR(s_zeraTMR),        
+        .fimE(s_fimE), .fimS(s_fimS), .fimTMR(s_fimTMR),        
+        .zeraR(s_zeraR), .zeraE(s_zeraE), .zeraS(s_zeraS) , .zeraL(s_zeraL), .zeraM(s_zeraM), .zeraTMR(s_zeraTMR),        
         .registraR(s_registraR), .registraM(s_registraM),
-        .contaE(s_contaE), .contaL(s_contaL), .contaTMR(s_contaTMR),
+        .contaE(s_contaE), .contaS(s_contaS), .contaTMR(s_contaTMR),
                                       
         .acertou(ganhou), .errou(perdeu), .pronto(pronto),
         

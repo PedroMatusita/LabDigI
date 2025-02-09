@@ -26,8 +26,8 @@ module fluxo_dados (
     // Controle     
     input        zeraR, zeraE, zeraL, zeraM, zeraTMR, 
     input        registraR, registraM, 
-    input        contaE, contaL, contaTMR,
-    output       fimL, fimE, fimTMR,
+    input        contaE, contaS, contaTMR,
+    output       fimS, fimE, fimTMR,
 
     output       jogada_feita, chavesIgualMemoria, enderecoIgualSequencia, enderecoMenorOuIgualSequencia, timeout, 
     //Depuracao
@@ -47,9 +47,9 @@ module fluxo_dados (
         .ld(1'b1),
         .ent(1'b1),
         .enp(contaS),
-        .D(4'b0),
+        .D(1'b0),
         .Q(s_sequencia),
-        .rco(fimL)
+        .rco(fimS)
     );
 
     // Contador de endereço
@@ -59,7 +59,7 @@ module fluxo_dados (
         .ld(1'b1),
         .ent(1'b1),
         .enp(contaE),
-        .D(4'b0),
+        .D(1'b0),
         .Q(s_endereco),
         .rco(fimE)
     );

@@ -1,0 +1,74 @@
+vsim -gui work.circuito_exp6_tb_cen1
+# vsim -gui work.circuito_exp6_tb_cen1 
+# Start time: 13:30:17 on Feb 09,2025
+# Loading work.circuito_exp6_tb_cen1
+# Loading work.circuito_exp6
+# Loading work.fluxo_dados
+# Loading work.contador_163
+# Loading work.comparador_85
+# Loading work.sync_rom_16x4
+# Loading work.registrador_4
+# Loading work.edge_detector
+# Loading work.contador_m
+# Loading work.unidade_controle
+# Loading work.hexa7seg
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen1/caso
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen1/dut/unidade_controle/db_estado
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen1/dut/fluxo_dados/s_sequencia
+run -all
+# Início da simulação
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen1/dut/fluxo_dados/botoes
+quit -sim
+# End time: 13:32:08 on Feb 09,2025, Elapsed time: 0:01:51
+# Errors: 0, Warnings: 1
+# Compile of circuito_exp6.v was successful.
+# Compile of exp6_fluxo_dados.v was successful.
+# Compile of exp6_unidade_controle.v was successful.
+# Compile of circuito_exp6_tb-cen1.v was successful.
+# Compile of circuito_exp6_tb-cen2.v was successful.
+# Compile of circuito_exp6_tb-cen3.v was successful.
+# Compile of circuito_exp6_tb-cen4.v was successful.
+# Compile of comparador_85.v was successful.
+# Compile of contador_163.v was successful.
+# Compile of contador_m.v was successful.
+# Compile of edge_detector.v was successful.
+# Compile of hexa7seg.v was successful.
+# Compile of registrador_4.v was successful.
+# Compile of sync_rom_16x4.v was successful.
+# 14 compiles, 0 failed with no errors.
+vsim -gui work.circuito_exp6_tb_cen1
+# vsim -gui work.circuito_exp6_tb_cen1 
+# Start time: 13:32:26 on Feb 09,2025
+# Loading work.circuito_exp6_tb_cen1
+# Loading work.circuito_exp6
+# Loading work.fluxo_dados
+# Loading work.contador_163
+# Loading work.comparador_85
+# Loading work.sync_rom_16x4
+# Loading work.registrador_4
+# Loading work.edge_detector
+# Loading work.contador_m
+# Loading work.unidade_controle
+# Loading work.hexa7seg
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen1/caso
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen1/perdeu_out
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen1/pronto_out
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen1/ganhou_out
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen1/dut/unidade_controle/db_estado
+run -all
+# Início da simulação
+# Fim da simulação
+# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen1.v(143)
+#    Time: 2762500100 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen1
+# Break in Module circuito_exp6_tb_cen1 at C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen1.v line 143
