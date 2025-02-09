@@ -93,26 +93,27 @@ module unidade_controle (
         // Seta valores dependendo do Estado
         case (Eatual)
             INICIAL:          begin zeraR = 1'b1; zeraL = 1'b1; zeraM = 1'b1; end
-          
             INICIA_SEQUENCIA: begin zeraS = 1'b1; zeraE = 1'b1; end
             PROXIMA_SEQUENCIA:begin contaS = 1'b1; zeraE = 1'b1; end
-            ULTIMA_SEQUENCIA: 
+            ULTIMA_SEQUENCIA: begin end // Estado vazio, mas precisa estar definido
 
             CARREGA_DADOS:    begin zeraTMR = 1'b1; registraM = 1'b1; end
-            MOSTRA_DADOS:     contaTMR = 1'b1;          
+            MOSTRA_DADOS:     begin contaTMR = 1'b1; end
             ZERA_LEDS:        begin zeraTMR = 1'b1; zeraM = 1'b1; end
-            MOSTRA_APAGADO:   contaTMR = 1'b1;
-            PROXIMA_POSICAO:  contaE = 1'b1
+            MOSTRA_APAGADO:   begin contaTMR = 1'b1; end
+            PROXIMA_POSICAO:  begin contaE = 1'b1; end
 
-            COMECO_JOGADA:    zeraE = 1'b1;
-            ESPERA_JOGADA:
-            REGISTRA_JOGADA:  registraR = 1'b1;            
-            COMPARA_JOGADA:
-            PASSA_JOGADA:     contaE = 1'b1;
+            COMECO_JOGADA:    begin zeraE = 1'b1; end
+            ESPERA_JOGADA:    begin end // Estado vazio
+
+            REGISTRA_JOGADA:  begin registraR = 1'b1; end            
+            COMPARA_JOGADA:   begin end // Estado vazio
+            PASSA_JOGADA:     begin contaE = 1'b1; end
 
             ACERTO:           begin acertou = 1'b1; pronto = 1'b1; end
             ERRO:             begin errou = 1'b1; pronto = 1'b1; end
-        endcase      
+        endcase  
+     
     end
    
 endmodule
