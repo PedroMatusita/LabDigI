@@ -24,7 +24,7 @@ module fluxo_dados (
     // Dados                
     input [3:0]  botoes,
     // Controle     
-    input        zeraR, zeraE, zeraL, zeraM, zeraTMR, 
+    input        zeraR, zeraE, zeraS, zeraM, zeraTMR, 
     input        registraR, registraM, 
     input        contaE, contaS, contaTMR,
     output       fimS, fimE, fimTMR,
@@ -47,7 +47,7 @@ module fluxo_dados (
         .ld(1'b1),
         .ent(1'b1),
         .enp(contaS),
-        .D(1'b0),
+        .D(4'b0),
         .Q(s_sequencia),
         .rco(fimS)
     );
@@ -59,7 +59,7 @@ module fluxo_dados (
         .ld(1'b1),
         .ent(1'b1),
         .enp(contaE),
-        .D(1'b0),
+        .D(4'b0),
         .Q(s_endereco),
         .rco(fimE)
     );
@@ -76,7 +76,7 @@ module fluxo_dados (
         .AEBo(chavesIgualMemoria)
     );
 
-    comparador_85 ComparadorL (
+    comparador_85 ComparadorSeq (
         .A(s_sequencia),
         .B(s_endereco),
         .AEBi(1'b1),

@@ -10,7 +10,7 @@ z2
 cModel Technology
 dC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modelsim_fd
 vcircuito_exp5_tb_cen3
-Z0 !s110 1739118735
+Z0 !s110 1739119191
 !i10b 1
 !s100 o^V^R<YK3K1G3cMGL3Yai2
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -20,20 +20,20 @@ Z3 dC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modelsim_circuito
 Z4 w1739109874
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen3.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen3.v
-!i122 168
+!i122 182
 L0 3 168
 Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1739118735.000000
+Z6 !s108 1739119191.000000
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen3.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen3.v|
 !i113 1
 Z7 o-work work
 Z8 tCvgOpt 0
 vcircuito_exp5_tb_cen4
-R0
+Z9 !s110 1739119192
 !i10b 1
 !s100 FnAdPRMWha5:nWa=2_];a0
 R1
@@ -43,13 +43,13 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen4.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen4.v
-!i122 169
-Z9 L0 3 144
+!i122 183
+L0 3 144
 R5
 r1
 !s85 0
 31
-R6
+Z10 !s108 1739119192.000000
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen4.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen4.v|
 !i113 1
@@ -66,7 +66,7 @@ R3
 w1739117542
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v
-!i122 163
+!i122 177
 L0 13 89
 R5
 r1
@@ -81,16 +81,16 @@ R8
 vcircuito_exp6_tb_cen1
 R0
 !i10b 1
-!s100 @ImQ9[<fQ?5D:aUk^[z9b2
+!s100 >l26=hQFj=cj8^l8J?8LB2
 R1
-IYeJ0F?IP?@4D8jD]BcBWF1
+IWY?6;9W:0kPJUJ6WNbKU?2
 R2
 R3
-w1739118703
+w1739119155
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen1.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen1.v
-!i122 166
-R9
+!i122 180
+L0 3 141
 R5
 r1
 !s85 0
@@ -112,7 +112,7 @@ R3
 w1739116555
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen2.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen2.v
-!i122 167
+!i122 181
 L0 3 173
 R5
 r1
@@ -125,7 +125,7 @@ R6
 R7
 R8
 vcomparador_85
-R0
+R9
 !i10b 1
 !s100 bckB8^W=VE]I2a21^PB@D0
 R1
@@ -135,20 +135,20 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/comparador_85.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/comparador_85.v
-!i122 170
+!i122 184
 L0 16 14
 R5
 r1
 !s85 0
 31
-R6
+R10
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/comparador_85.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/comparador_85.v|
 !i113 1
 R7
 R8
 vcontador_163
-Z10 !s110 1739118736
+R9
 !i10b 1
 !s100 8iZEj:>@H9<J>a32Jj8[g3
 R1
@@ -158,20 +158,20 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v
-!i122 171
+!i122 185
 L0 16 16
 R5
 r1
 !s85 0
 31
-Z11 !s108 1739118736.000000
+R10
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v|
 !i113 1
 R7
 R8
 vcontador_m
-R10
+R9
 !i10b 1
 !s100 BLMf5@WIC9E7[2]V7T:]00
 R1
@@ -181,20 +181,20 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_m.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_m.v
-!i122 172
+!i122 186
 L0 20 37
 R5
 r1
 !s85 0
 31
-R11
+R10
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_m.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_m.v|
 !i113 1
 R7
 R8
 vedge_detector
-R10
+R9
 !i10b 1
 !s100 b=6PQ:nFojW4z?d;AGW=D0
 R1
@@ -204,13 +204,13 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/edge_detector.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/edge_detector.v
-!i122 173
+!i122 187
 L0 21 23
 R5
 r1
 !s85 0
 31
-R11
+R10
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/edge_detector.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/edge_detector.v|
 !i113 1
@@ -227,7 +227,7 @@ R3
 w1739117929
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v
-!i122 164
+!i122 178
 L0 22 131
 R5
 r1
@@ -240,7 +240,7 @@ R6
 R7
 R8
 vhexa7seg
-R10
+R9
 !i10b 1
 !s100 ^ldcN:Zl`^?4Tnh8I@Z332
 R1
@@ -250,20 +250,20 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/hexa7seg.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/hexa7seg.v
-!i122 174
+!i122 188
 L0 23 38
 R5
 r1
 !s85 0
 31
-R11
+R10
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/hexa7seg.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/hexa7seg.v|
 !i113 1
 R7
 R8
 vregistrador_4
-R10
+Z11 !s110 1739119193
 !i10b 1
 !s100 45NaE0zN5R1c;nb0e8L`23
 R1
@@ -273,20 +273,20 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/registrador_4.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/registrador_4.v
-!i122 175
+!i122 189
 L0 13 20
 R5
 r1
 !s85 0
 31
-R11
+R10
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/registrador_4.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/registrador_4.v|
 !i113 1
 R7
 R8
 vsync_rom_16x4
-R10
+R11
 !i10b 1
 !s100 Tz6@dY^L3ZzVgc74FVX5T1
 R1
@@ -296,13 +296,13 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/sync_rom_16x4.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/sync_rom_16x4.v
-!i122 176
+!i122 190
 L0 13 27
 R5
 r1
 !s85 0
 31
-R11
+!s108 1739119193.000000
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/sync_rom_16x4.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/sync_rom_16x4.v|
 !i113 1
@@ -319,7 +319,7 @@ R3
 w1739116486
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_unidade_controle.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_unidade_controle.v
-!i122 165
+!i122 179
 L0 1 122
 R5
 r1

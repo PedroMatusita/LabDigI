@@ -24,7 +24,7 @@ module circuito_exp6 (
 );
     /* Sinais internos */
     //Sinais de Controle
-    wire s_zeraR, s_zeraE, s_zeraS, s_zeraL, s_zeraM, s_zeraTMR;
+    wire s_zeraR, s_zeraE, s_zeraS, s_zeraM, s_zeraTMR;
     wire s_registraR, s_registraM;
     wire s_contaE, s_contaS, s_contaTMR;
     wire s_fimE, s_fimS, s_fimTMR; 
@@ -37,7 +37,7 @@ module circuito_exp6 (
                              
         .botoes(botoes),
                              
-        .zeraR(s_zeraR), .zeraE(s_zeraE), .zeraL(s_zeraL), .zeraM(s_zeraM), .zeraTMR(s_zeraTMR),                     
+        .zeraR(s_zeraR), .zeraE(s_zeraE), .zeraS(s_zeraS), .zeraM(s_zeraM), .zeraTMR(s_zeraTMR),                     
         .registraR(s_registraR), .registraM(s_registraM),
         .contaE(s_contaE), .contaS(s_contaS), .contaTMR(s_contaTMR),
         .fimE(s_fimE), .fimS(s_fimS), .fimTMR(s_fimTMR),
@@ -53,7 +53,7 @@ module circuito_exp6 (
         .jogada(s_jogada_feita), .igual(s_igualjogada), .timeout(s_timeout), .enderecoIgualSequencia(s_igualseq), 
         
         .fimE(s_fimE), .fimS(s_fimS), .fimTMR(s_fimTMR),        
-        .zeraR(s_zeraR), .zeraE(s_zeraE), .zeraS(s_zeraS) , .zeraL(s_zeraL), .zeraM(s_zeraM), .zeraTMR(s_zeraTMR),        
+        .zeraR(s_zeraR), .zeraE(s_zeraE), .zeraS(s_zeraS), .zeraM(s_zeraM), .zeraTMR(s_zeraTMR),        
         .registraR(s_registraR), .registraM(s_registraM),
         .contaE(s_contaE), .contaS(s_contaS), .contaTMR(s_contaTMR),
                                       

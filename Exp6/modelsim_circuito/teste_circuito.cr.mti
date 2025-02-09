@@ -5,26 +5,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	registrador_4
 
-} {} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_unidade_controle.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_unidade_controle.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module unidade_controle
-
-Top level modules:
-	unidade_controle
-
 } {} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module contador_163
 
 Top level modules:
 	contador_163
-
-} {} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module circuito_exp6
-
-Top level modules:
-	circuito_exp6
 
 } {} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_m.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_m.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -39,13 +25,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	edge_detector
-
-} {} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module fluxo_dados
-
-Top level modules:
-	fluxo_dados
 
 } {} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen2.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen2.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
