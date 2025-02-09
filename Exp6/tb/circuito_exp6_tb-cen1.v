@@ -5,7 +5,7 @@ module circuito_exp6_tb_cen1;
     // Sinais para conectar com o DUT
     reg        clock_in   = 1;
     reg        reset_in   = 0;
-    reg        jogar_in = 0;
+    reg        jogar_in   = 0;
     reg  [3:0] botoes_in  = 4'b0000;
 
     wire       ganhou_out;
@@ -30,6 +30,7 @@ module circuito_exp6_tb_cen1;
    
     // Configuração do clock
     parameter clockPeriod = 1_000_000; // 1 ms, f = 1kHz
+    parameter COMECO_JOGADA = 9; // Estado que indica início da jogada
 
     // Identificação do caso de teste
     reg [31:0] caso = 0;
@@ -41,10 +42,10 @@ module circuito_exp6_tb_cen1;
     circuito_exp6 dut (
         .clock          ( clock_in    ),
         .reset          ( reset_in    ),
-        .jogar          ( jogar_in  ),
+        .jogar          ( jogar_in    ),
         .botoes         ( botoes_in   ),
-        .ganhou        ( ganhou_out ),
-        .perdeu          ( perdeu_out   ),
+        .ganhou         ( ganhou_out  ),
+        .perdeu         ( perdeu_out  ),
         .pronto         ( pronto_out  ),
         .leds           ( leds_out    ),
         .db_igual       ( db_igual_out       ),
@@ -92,51 +93,47 @@ module circuito_exp6_tb_cen1;
         caso       = 0;
         clock_in   = 1;
         reset_in   = 0;
-        jogar_in = 0;
+        jogar_in   = 0;
         botoes_in  = 4'b0000;
         #clockPeriod;
 
-        // Teste 1. resetar circuito
+        // Teste 1: Resetar circuito
         caso = 1;
-        // gera pulso de reset
         @(negedge clock_in);
         reset_in = 1;
         #(clockPeriod);
         reset_in = 0;
-        // espera
-        #(10*clockPeriod);
+        #(10 * clockPeriod);
 
-        // Teste 2. espera 10 períodos de clock
+        // Teste 2: Esperar 10 períodos de clock
         caso = 2;
-        #(5*clockPeriod);
-        // espera
-        #(10*clockPeriod);
+        #(10 * clockPeriod);
 
-        // Teste 3. iniciar=1 por 5 períodos de clock
+        // Teste 3: Ativar iniciar por 5 períodos de clock
         caso = 3;
         jogar_in = 1;
-        #(5*clockPeriod);
+        #(5 * clockPeriod);
         jogar_in = 0;
-        // espera
-        #(10*clockPeriod);
+        #(10 * clockPeriod);
 
-        // Testes 4 a 19: jogadas com diferentes valores de botoes
-        // Jogo 1
+        // Testes 4 a 19: Jogadas com diferentes valores de botões
         caso = 10;
         for (i = 0; i < 16; i = i + 1) begin
             caso = 4 + i; // Mudar caso de teste
+            
+            // Aguardar o estado COMECO_JOGADA
+            wait (db_estado_out == COMECO_JOGADA);
+
             for (j = 0; j <= i; j = j + 1) begin
                 @(negedge clock_in);
                 botoes_in = test_vector[j];
-                #(10*clockPeriod);
+                #(10 * clockPeriod);
                 botoes_in = 4'b0000; // Reset botoes_in
-                // espera entre jogadas
-                #(10*clockPeriod);
+                #(10 * clockPeriod);
             end
         end
-    
 
-        // final dos casos de teste da simulação
+        // Final dos testes
         caso = 99;
         #100;
         $display("Fim da simulação");
