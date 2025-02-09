@@ -43,3 +43,29 @@
 # Compile of registrador_4.v was successful.
 # Compile of sync_rom_16x4.v was successful.
 # 14 compiles, 1 failed with 5 errors.
+# Compile of circuito_exp6.v was successful.
+# Compile of exp6_fluxo_dados.v was successful.
+# Compile of exp6_unidade_controle.v was successful.
+# Compile of circuito_exp6_tb-cen1.v was successful.
+# Compile of circuito_exp6_tb-cen2.v was successful.
+# Compile of circuito_exp6_tb-cen3.v was successful.
+# Compile of circuito_exp6_tb-cen4.v was successful.
+# Compile of comparador_85.v was successful.
+# Compile of contador_163.v was successful.
+# Compile of contador_m.v was successful.
+# Compile of edge_detector.v was successful.
+# Compile of hexa7seg.v was successful.
+# Compile of registrador_4.v was successful.
+# Compile of sync_rom_16x4.v was successful.
+# 14 compiles, 0 failed with no errors.
+vsim -gui work.circuito_exp6_tb_cen1
+# vsim -gui work.circuito_exp6_tb_cen1 
+# Start time: 12:55:23 on Feb 09,2025
+# Loading work.circuito_exp6_tb_cen1
+# ** Error: (vsim-3033) Instantiation of 'circuito_exp5' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /circuito_exp6_tb_cen1 File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen1.v Line: 41
+#         Searched libraries:
+#             C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modelsim_circuito/work
+# Error loading design
+# End time: 12:55:23 on Feb 09,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 10

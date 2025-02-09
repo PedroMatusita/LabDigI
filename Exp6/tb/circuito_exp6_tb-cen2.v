@@ -38,7 +38,7 @@ module circuito_exp6_tb_cen2;
     always #((clockPeriod / 2)) clock_in = ~clock_in;
 
     // Instanciação do DUT (Device Under Test)
-    circuito_exp5 dut (
+    circuito_exp6 dut (
         .clock          ( clock_in    ),
         .reset          ( reset_in    ),
         .jogar          ( jogar_in    ),
