@@ -24,9 +24,9 @@ module circuito_exp6 (
 );
     /* Sinais internos */
     //Sinais de Controle
-    wire s _zeraR, s_zeraE, s_zeraL, s_zeraM, s_zeraTMR;
+    wire s_zeraR, s_zeraE, s_zeraL, s_zeraM, s_zeraTMR;
     wire s_registraR, s_registraM;
-    wire s_contaE, s_contaL, s_contaTMR,;
+    wire s_contaE, s_contaL, s_contaTMR;
     wire s_fimE, s_fimL, s_fimTMR; 
     //Sinais de depuração
     wire s_igual, s_igualseq, s_igualjogada, s_jogada_feita, s_timeout;
@@ -42,7 +42,7 @@ module circuito_exp6 (
         .contaE(s_contaE), .contaL(s_contaL), .contaTMR(s_contaTMR),
         .fimE(s_fimE), .fimL(s_fimL), .fimTMR(s_fimTMR),
         
-        .jogada_feita(s_jogada_feita), .chavesIgualMemoria(s_igualjogada), .enderecoIgualSequencia(s_igualseq), .enderecoMenorOuIgualSequencia(), .timeout(s_timeout)
+        .jogada_feita(s_jogada_feita), .chavesIgualMemoria(s_igualjogada), .enderecoIgualSequencia(s_igualseq), .enderecoMenorOuIgualSequencia(), .timeout(s_timeout),
                 
         .db_tem_jogada(db_tem_jogada), .db_contagem(s_contagem), .db_jogada(s_jogada), .db_memoria(s_memoria), .db_sequencia(s_sequencia)
     );
