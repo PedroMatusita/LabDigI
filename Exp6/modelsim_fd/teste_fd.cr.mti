@@ -1,4 +1,18 @@
-{C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/edge_detector.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/edge_detector.v}
+{C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module fluxo_dados
+
+Top level modules:
+	fluxo_dados
+
+} {} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/fluxo_dados_tb.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/fluxo_dados_tb.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module fluxo_dados_tb
+
+Top level modules:
+	fluxo_dados_tb
+
+} {} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/edge_detector.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/edge_detector.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module edge_detector
 
@@ -12,12 +26,7 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	contador_m
 
-} {} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v} {0 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module fluxo_dados
-** Error: (vlog-13069) C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v(35): near "output": syntax error, unexpected output, expecting ')'.
-
-} {4.0 5.0} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v}
+} {} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module contador_163
 

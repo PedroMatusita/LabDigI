@@ -103,8 +103,8 @@ module fluxo_dados (
         .clock(clock),
         .clear(zeraM),
         .enable(registraM),
-        .D(db_memoria),
-        .Q(s_dado)
+        .D(s_dado),
+        .Q(db_memoria)
     );
 
     // Detector de borda
