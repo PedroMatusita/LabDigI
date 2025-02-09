@@ -10,62 +10,43 @@
  */
 
 module circuito_exp6 (
-    input clock,
-    input reset,
-    input jogar,
-    input [3:0] botoes,
-    output ganhou,
-    output perdeu,
-    output pronto,
+    input        clock,
+    input        reset,
+                      
+    input        jogar,
+    input [3:0]  botoes,
+                      
+    output       ganhou,
+    output       perdeu,
+    output       pronto,
     output [3:0] leds,
-    output db_igual,
+                      
+    output       db_igual,
     output [6:0] db_contagem,
     output [6:0] db_memoria,
     output [6:0] db_estado,
     output [6:0] db_jogadafeita,
     output [6:0] db_sequencia,
-    output db_clock,
-    output db_iniciar,
-    output db_fimseq,
-    output db_igualseq,
-    output db_igualjogada,
-    output db_tem_jogada,
-    output db_timeout
+    output       db_clock,
+    output       db_iniciar,
+    output       db_fimseq,
+    output       db_igualseq,
+    output       db_igualjogada,
+    output       db_tem_jogada,
+    output       db_timeout
 );
 
-    // Sinais internos para interligação dos componentes
-    wire s_contaE;  
-    wire s_zeraE;  
-    wire s_contaL;  
-    wire s_zeraL;  
-    wire s_registraR; 
-    wire s_fimE; 
-    wire s_fimL; 
-    wire s_zeraR;
-    wire s_igualjogada;
-    wire s_igualseq;
-    wire s_jogada_feita;
-    wire s_timeout;
-	 wire s_pronto;
-    wire s_ganhou;
-    wire s_perdeu;
-    wire s_registraM;
-    wire s_zeraM;
-    wire s_contaTMR;
-    wire s_zeraTMR;
-    wire s_fimTMR;
-
-    wire [3:0] s_chaves;  
-    wire [3:0] s_dado;
-    wire [3:0] s_limite;
-    wire [3:0] s_contagem;
-    wire [3:0] s_memoria;
-    wire [3:0] s_jogada;
-    wire [3:0] s_estado;
+    //Sinais de Controle
+    wire s_contaE, s_zeraE, s_fimE, s_contaL, s_zeraL, s_fimL, s_registraR, s_zeraR, s_registraM, s_zeraM, s_contaTMR, s_zeraTMR, s_fimTMR; 
+    //Sinais de saída
+    wire [3:0] s_leds;
+    //Sinais de depuração
+    wire s_igual,s_igualseq, s_igualjogada, s_jogada_feita, s_timeout;
+    wire [3:0]  s_limite, s_contagem, s_memoria, s_jogada, s_estado;  
     
-    // Instância do fluxo de dados
     fluxo_dados fluxo_dados (
         .clock(clock),
+                             
         .botoes(botoes),
         .zeraR(s_zeraR),
         .registraR(s_registraR),
@@ -92,7 +73,6 @@ module circuito_exp6 (
         .timeout(s_timeout)
     );
 
-    // Instância da unidade de controle
     unidade_controle unidade_controle (
         .clock(clock),
         .reset(reset),
@@ -114,46 +94,45 @@ module circuito_exp6 (
         .zeraM(s_zeraM),
         .contaTMR(s_contaTMR),
         .zeraTMR(s_zeraTMR),
-        .acertou(s_ganhou),
-        .errou(s_perdeu),
-        .pronto(s_pronto),
+        .acertou(ganhou),
+        .errou(perdeu),
+        .pronto(pronto),
         .db_estado(s_estado)
     );
 
-    // Instâncias dos displays
-    hexa7seg disp2 (
+
+
+
+   
+    hexa7seg display_contagem ( //D0
+        .hexa(s_contagem),
+        .display(db_contagem)
+    );
+   
+    hexa7seg display_memoria ( //D1
+        .hexa(s_memoria),   
+        .display(db_memoria)
+    );
+   
+   hexa7seg display_jogada ( //D2
         .hexa(s_jogada), 
         .display(db_jogadafeita)
     ); 
 
-    hexa7seg disp0 (
-        .hexa(s_contagem),
-        .display(db_contagem)
-    ); 
-
-    hexa7seg disp1 (
-        .hexa(s_memoria),   
-        .display(db_memoria)
-    ); 
-
-    hexa7seg disp3 (
+    hexa7seg display_sequencia ( //D3
         .hexa(s_limite),   
         .display(db_sequencia)
     ); 
 
-    hexa7seg disp5 (
+   hexa7seg display_estado ( // D5
         .hexa(s_estado), 
         .display(db_estado)
     ); 
 
-    // Conexão adicional
-	assign pronto = s_pronto;
-    assign ganhou = s_ganhou;
-    assign perdeu = s_perdeu;
-   assign db_iniciar = jogar;
-   assign db_timeout = s_timeout;
-   assign db_igualjogada = s_igualjogada;
-   assign db_igualseq = s_igualseq;
+    assign db_iniciar = jogar;
+    assign db_timeout = s_timeouts;
+    assign db_igualjogada = s_igualjogada;
+    assign db_igualseq = s_igualseq;
    
    
 endmodule
