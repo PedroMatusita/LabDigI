@@ -1,11 +1,11 @@
 module unidade_controle (
     input            clock, reset, iniciar,
     //Controle                     
-    input            jogada, igual, timeout, enderecoIgualLimite, 
-    input            fimE, fimL, fimTMR,
-    output reg       zeraR, zeraE, zeraL, zeraM, zeraTMR,
+    input            jogada, igual, timeout, enderecoIgualSequencia, 
+    input            fimE, fimS, fimTMR,
+    output reg       zeraR, zeraE, zeraS, zeraM, zeraTMR,
     output reg       registraR, registraM,
-    output reg       contaE, contaL, contaTMR,
+    output reg       contaE, contaS, contaTMR,
     //Saida                         
     output reg       acertou, errou, pronto,
     //Depuracao                     
@@ -13,27 +13,31 @@ module unidade_controle (
 );
 
 
-   parameter INICIAL = 0;
-   parameter INICIALIZA = 1;
-   parameter INICIA_SEQUENCIA = 2;
-
-   parameter ESPERA = 4;
-   parameter REGISTRA = 5;
-   parameter COMPARA = 6;   
-   parameter PASSA = 7;
-   parameter ULTIMA_SEQUENCIA = 8;
+    parameter INICIAL = 0;
+    //Controla Sequencia
+    parameter INICIA_SEQUENCIA = 1;
+    parameter PROXIMA_SEQUENCIA = 2;
+    parameter ULTIMA_SEQUENCIA = 3;   
+    //Mostra Leds
+    parameter CARREGA_DADOS = 4;
+    parameter MOSTRA_DADOS = 5; 
+    parameter ZERA_LEDS = 6; 
+    parameter MOSTRA_APAGADO = 7;
+    parameter PROXIMA_POSICAO = 8;   
+    //Processamento jogada
+    parameter COMECO_JOGADA = 9;
+    parameter ESPERA_JOGADA = 10;
+    parameter REGISTRA_JOGADA = 11;
+    parameter COMPARA_JOGADA = 12;   
+    parameter PROXIMA_JOGADA = 13;
    
-   parameter ATIVA_LED = 9; 
-   parameter PROXIMO_LED = 10; 
-
-   parameter COMECO_JOGADA = 11;
-   parameter ERR0 = 14;
-   parameter ACERTO = 15; 
+    parameter ERRO = 14;
+    parameter ACERTO = 15; 
 
 
-   reg [3:0] Eatual, Eprox;
+    reg [3:0] Eatual, Eprox;
 
-   always @(posedge clock or posedge reset) begin
+    always @(posedge clock or posedge reset) begin
         if (reset)
             Eatual <= INICIAL;
         else
@@ -41,57 +45,74 @@ module unidade_controle (
     end
 
 
-   //Logica de próximo estado
-   always @* begin
-       case (Eatual)
-           INICIAL:          Eprox = iniciar ? INICIALIZA : INICIAL;
-           INICIALIZA:       Eprox = INICIA_SEQUENCIA;
-           INICIA_SEQUENCIA: Eprox = ESPERA;
-           ATIVA_LED:        Eprox = fimTMR ? PROXIMO_LED : ATIVA_LED;
-           PROXIMO_LED:      Eprox = enderecoIgualLimite ? COMECO_JOGADA : ATIVA_LED;
-           COMECO_JOGADA:    Eprox = ESPERA;
-           ESPERA:           Eprox = jogada ? REGISTRA : (timeout ? ERRO : ESPERA);
-           REGISTRA:         Eprox = COMPARA;
-           COMPARA:          Eprox = igual ? (enderecoIgualLimite ? ULTIMA_SEQUENCIA : PASSA) : ERRO; 
-           PASSA:            Eprox = ESPERA; 
-           ULTIMA_SEQUENCIA: Eprox = fimL ? ACERTO : INICIA_SEQUENCIA;
-           ACERTO:           Eprox = iniciar ? INICIALIZA : ACERTO;
-           ERRO:             Eprox = iniciar ? INICIALIZA : ERRO;
-           default:          Eprox = INICIAL; 
-       endcase
+    //Logica de próximo estado
+    always @* begin
+        case (Eatual)
+            INICIAL:          Eprox = iniciar ? INICIA_SEQUENCIA : INICIAL;
 
-      db_estado = Eatual;
-   end
+            INICIA_SEQUENCIA: Eprox = CARREGA_DADOS;
+            PROXIMA_SEQUENCIA:Eprox = CARREGA_DADOS;          
+            ULTIMA_SEQUENCIA: Eprox = fimS ? ACERTO : PROXIMA_SEQUENCIA;
+          
+            CARREGA_DADOS:    Eprox = MOSTRA_DADOS;
+            MOSTRA_DADOS:     Eprox = fimTMR ? ZERA_LEDS : MOSTRA_DADOS;
+            ZERA_LEDS:        Eprox = MOSTRA_APAGADO;
+            MOSTRA_APAGADO:   Eprox = fimTMR ? (enderecoIgualSequencia ? COMECO_JOGADA : PROXIMA_POSICAO) : MOSTRA_APAGADO;
+            PROXIMA_POSICAO:  Eprox = CARREGA_DADOS;
+          
+            COMECO_JOGADA:    Eprox = ESPERA;
+            ESPERA_JOGADA:    Eprox = jogada ? REGISTRA_JOGADA : (timeout ? ERRO : ESPERA_JOGADA);
+            REGISTRA_JOGADA:  Eprox = COMPARA;
+            COMPARA_JOGADA:   Eprox = igual ? (enderecoIgualSequencia ? ULTIMA_SEQUENCIA : PASSA_JOGADA) : ERRO; 
+            PASSA_JOGADA:     Eprox = ESPERA_JOGADA; 
 
-   // Logica de Saida
-   always @* begin
-       // Zera todos valores 
-       zeraE      = 1'b0;
-       contaE     = 1'b0;
-       contaL     = 1'b0;
-       zeraL      = 1'b0;
-       registraR  = 1'b0;
-       zeraR      = 1'b0;
-       acertou    = 1'b0;
-       errou      = 1'b0;
-       pronto     = 1'b0;
-       registraM  = 1'b0;
-       zeraM      = 1'b0;
-       contaTMR   = 1'b0;
-       zeraTMR    = 1'b0;
-       // Seta valores dependendo do Estado
-       case (Eatual)
-           INICIA_SEQUENCIA, COMECO_JOGADA: zeraE = 1'b1;
-           PASSA:                           contaE = 1'b1;
-           ULTIMA_SEQUENCIA:                contaL = 1'b1;
-           INICIAL, INICIALIZA:             begin zeraR = 1'b1; zeraL = 1'b1; zeraM = 1'b1; end
-           REGISTRA:                        registraR = 1'b1;
-           ACERTO:                          begin acertou = 1'b1; pronto = 1'b1; end
-           ERRO:                            begin errou = 1'b1; pronto = 1'b1; end
-           PROXIMO_LED, INICIA_SEQUENCIA:   registraM = 1'b1;
-           ATIVA_LED:                       contaTMR = 1'b1;
-           PROXIMO_LED:                     zeraTMR = 1'b1;
-       endcase      
-   end
+            ACERTO:           Eprox = iniciar ? INICIALIZA : ACERTO;
+            ERRO:             Eprox = iniciar ? INICIALIZA : ERRO;
+            default:          Eprox = INICIAL; 
+        endcase
+
+       db_estado = Eatual;
+    end
+
+    // Logica de Saida
+    always @* begin
+        // Zera todos valores 
+        zeraE      = 1'b0;
+        contaE     = 1'b0;
+        contaS     = 1'b0;
+        zeraS      = 1'b0;
+        registraR  = 1'b0;
+        zeraR      = 1'b0;
+        acertou    = 1'b0;
+        errou      = 1'b0;
+        pronto     = 1'b0;
+        registraM  = 1'b0;
+        zeraM      = 1'b0;
+        contaTMR   = 1'b0;
+        zeraTMR    = 1'b0;
+        // Seta valores dependendo do Estado
+        case (Eatual)
+            INICIAL:          begin zeraR = 1'b1; zeraL = 1'b1; zeraM = 1'b1; end
+          
+            INICIA_SEQUENCIA: begin zeraS = 1'b1; zeraE = 1'b1; end
+            PROXIMA_SEQUENCIA:begin contaS = 1'b1; zeraE = 1'b1; end
+            ULTIMA_SEQUENCIA: 
+
+            CARREGA_DADOS:    begin zeraTMR = 1'b1; registraM = 1'b1; end
+            MOSTRA_DADOS:     contaTMR = 1'b1;          
+            ZERA_LEDS:        begin zeraTMR = 1'b1; zeraM = 1'b1; end
+            MOSTRA_APAGADO:   contaTMR = 1'b1;
+            PROXIMA_POSICAO:  contaE = 1'b1
+
+            COMECO_JOGADA:    zeraE = 1'b1;
+            ESPERA_JOGADA:
+            REGISTRA_JOGADA:  registraR = 1'b1;            
+            COMPARA_JOGADA:
+            PASSA_JOGADA:     contaE = 1'b1;
+
+            ACERTO:           begin acertou = 1'b1; pronto = 1'b1; end
+            ERRO:             begin errou = 1'b1; pronto = 1'b1; end
+        endcase      
+    end
    
 endmodule

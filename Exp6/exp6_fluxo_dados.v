@@ -28,31 +28,32 @@ module fluxo_dados (
     input        registraR, registraM, 
     input        contaE, contaL, contaTMR,
     output       fimL, fimE, fimTMR,
-    output       jogada_feita, chavesIgualMemoria, enderecoIgualLimite, enderecoMenorOuIgualLimite, timeout, 
-    // Depuração
+
+    output       jogada_feita, chavesIgualMemoria, enderecoIgualSequencia, enderecoMenorOuIgualSequencia, timeout, 
+    //Depuracao
     output       db_tem_jogada,
-    output [3:0] db_contagem, db_jogada, db_memoria, db_limite
+    output [3:0] db_contagem, db_jogada, db_memoria, db_sequencia,
 );
 
 
     // Sinais internos
-    wire [3:0] s_limite, s_jogada, s_dado, s_endereco;
+    wire [3:0] s_sequencia, s_jogada, s_dado, s_endereco;
     wire s_tem_jogada;
 
-    // Contador de limite
-    contador_163 ContadorL (
+    // Contador da Sequencia
+    contador_163 ContSeq (
         .clock(clock),
-        .clr(~zeraL),
+        .clr(~zeraS),
         .ld(1'b1),
         .ent(1'b1),
-        .enp(contaL),
+        .enp(contaS),
         .D(4'b0),
-        .Q(s_limite),
+        .Q(s_sequencia),
         .rco(fimL)
     );
 
     // Contador de endereço
-    contador_163 ContadorE (
+    contador_163 ContEnd (
         .clock(clock),
         .clr(~zeraE),
         .ld(1'b1),
@@ -74,24 +75,24 @@ module fluxo_dados (
     );
 
     comparador_85 ComparadorL (
-        .A(s_limite),
+        .A(s_sequencia),
         .B(s_endereco),
         .AEBi(1'b1),
         .AGBi(1'b0),
         .ALBi(1'b0),
-        .AGBo(enderecoMenorOuIgualLimite),
-        .AEBo(enderecoIgualLimite)
+        .AGBo(enderecoMenorOuIgualSequencia),
+        .AEBo(enderecoIgualSequencia)
     );
 
     // Memória ROM
-    sync_rom_16x4 MemoriaJogada (
+    sync_rom_16x4 MemJogo (
         .clock(clock),
         .address(s_endereco),
         .data_out(s_dado)
     );
 
     // Registrador botoes
-    registrador_4 RegR (
+    registrador_4 RegBotoes (
         .clock(clock),
         .clear(zeraR),
         .enable(registraR),
@@ -99,7 +100,7 @@ module fluxo_dados (
         .Q(s_jogada)
     );
 
-    registrador_4 RegM(
+    registrador_4 RegMem(
         .clock(clock),
         .clear(zeraM),
         .enable(registraM),
@@ -110,7 +111,7 @@ module fluxo_dados (
     // Detector de borda
     edge_detector detector (
         .clock(clock),
-        .reset(zeraL),
+        .reset(zeraS),
         .sinal(s_tem_jogada),
         .pulso(jogada_feita)
     );
@@ -142,7 +143,7 @@ module fluxo_dados (
     // Sinais de depuração
     assign db_jogada = s_jogada;
     assign db_contagem = s_endereco;
-    assign db_limite = s_limite;
+    assign db_sequencia = s_sequencia;
     assign db_tem_jogada = s_tem_jogada;
   
 endmodule
