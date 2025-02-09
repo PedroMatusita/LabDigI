@@ -1,3 +1,4 @@
+
 /*
  * ------------------------------------------------------------------
  *  Arquivo   : circuito_exp6.v
@@ -10,93 +11,56 @@
  */
 
 module circuito_exp6 (
-    input        clock,
-    input        reset,
+    input        clock, reset,
                       
     input        jogar,
     input [3:0]  botoes,
                       
-    output       ganhou,
-    output       perdeu,
-    output       pronto,
+    output       ganhou, perdeu, pronto,
     output [3:0] leds,
                       
-    output       db_igual,
-    output [6:0] db_contagem,
-    output [6:0] db_memoria,
-    output [6:0] db_estado,
-    output [6:0] db_jogadafeita,
-    output [6:0] db_sequencia,
-    output       db_clock,
-    output       db_iniciar,
-    output       db_fimseq,
-    output       db_igualseq,
-    output       db_igualjogada,
-    output       db_tem_jogada,
-    output       db_timeout
+    output       db_igual, db_clock, db_iniciar, db_fimseq, db_igualseq, db_igualjogada, db_tem_jogada, db_timeout,
+    output [6:0] db_contagem, db_memoria, db_estado, db_jogadafeita, db_sequencia
 );
-
+    /* Sinais internos */
     //Sinais de Controle
-    wire s_contaE, s_zeraE, s_fimE, s_contaL, s_zeraL, s_fimL, s_registraR, s_zeraR, s_registraM, s_zeraM, s_contaTMR, s_zeraTMR, s_fimTMR; 
+    wire s _zeraR, s_zeraE, s_zeraL, s_zeraM, s_zeraTMR;
+    wire s_registraR, s_registraM;
+    wire s_contaE, s_contaL, s_contaTMR,;
+    wire s_fimE, s_fimL, s_fimTMR; 
     //Sinais de saída
     wire [3:0] s_leds;
     //Sinais de depuração
-    wire s_igual,s_igualseq, s_igualjogada, s_jogada_feita, s_timeout;
+    wire s_igual, s_igualseq, s_igualjogada, s_jogada_feita, s_timeout;
     wire [3:0]  s_limite, s_contagem, s_memoria, s_jogada, s_estado;  
     
     fluxo_dados fluxo_dados (
         .clock(clock),
                              
         .botoes(botoes),
-        .zeraR(s_zeraR),
-        .registraR(s_registraR),
-        .contaE(s_contaE),
-        .zeraE(s_zeraE),
-        .contaL(s_contaL),
-        .zeraL(s_zeraL),
-        .registraM(s_registraM),
-        .zeraM(s_zeraM),
-        .contaTMR(s_contaTMR),
-        .zeraTMR(s_zeraTMR),
-        .chavesIgualMemoria(s_igualjogada),
-        .enderecoIgualLimite(s_igualseq),
-        .enderecoMenorouIgualLimite(),
-        .fimE(s_fimE),
-        .fimL(s_fimL),
-        .fimTMR(s_fimTMR),
-        .db_tem_jogada(db_tem_jogada),
-        .jogada_feita(s_jogada_feita),
-        .db_contagem(s_contagem),
-        .db_jogada(s_jogada),
-        .db_memoria(s_memoria),
-        .db_limite(s_limite),
-        .timeout(s_timeout)
+                             
+        .zeraR(s_zeraR), .zeraE(s_zeraE), .zeraL(s_zeraL), .zeraM(s_zeraM), .zeraTMR(s_zeraTMR),                     
+        .registraR(s_registraR), .registraM(s_registraM),
+        .contaE(s_contaE), .contaL(s_contaL), .contaTMR(s_contaTMR),
+        .fimE(s_fimE), .fimL(s_fimL), .fimTMR(s_fimTMR),
+        
+        .jogada_feita(s_jogada_feita), .chavesIgualMemoria(s_igualjogada), .enderecoIgualLimite(s_igualseq), .enderecoMenorOuIgualLimite(), .timeout(s_timeout)
+                
+        .db_tem_jogada(db_tem_jogada), .db_contagem(s_contagem), .db_jogada(s_jogada), .db_memoria(s_memoria), .db_limite(s_limite)
     );
 
     unidade_controle unidade_controle (
-        .clock(clock),
-        .reset(reset),
-        .iniciar(jogar),
-        .fimE(s_fimE),
-        .jogada(s_jogada_feita),
-        .timeout(s_timeout), 
-        .igual(s_igualjogada),
-        .enderecoIgualLimite(s_igualseq),
-        .fimL(s_fimL),
-        .fimTMR(s_fimTMR),
-        .zeraL(s_zeraL),
-        .contaL(s_contaL),
-        .zeraE(s_zeraE),
-        .contaE(s_contaE),
-        .zeraR(s_zeraR),
-        .registraR(s_registraR),
-        .registraM(s_registraM),
-        .zeraM(s_zeraM),
-        .contaTMR(s_contaTMR),
-        .zeraTMR(s_zeraTMR),
-        .acertou(ganhou),
-        .errou(perdeu),
-        .pronto(pronto),
+        .clock(clock), .reset(reset), .iniciar(jogar),
+        
+        .jogada(s_jogada_feita), .igual(s_igualjogada), .timeout(s_timeout), .enderecoIgualLimite(s_igualseq), 
+        
+        .fimE(s_fimE), .fimL(s_fimL), .fimTMR(s_fimTMR),        
+        .zeraR(s_zeraR), .zeraE(s_zeraE), .zeraL(s_zeraL), .zeraM(s_zeraM), .zeraTMR(s_zeraTMR),        
+        .registraR(s_registraR), .registraM(s_registraM),
+        .contaE(s_contaE), .contaL(s_contaL), .contaTMR(s_contaTMR),
+                                      
+        .acertou(ganhou), .errou(perdeu), .pronto(pronto),
+        
         .db_estado(s_estado)
     );
 

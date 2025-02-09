@@ -1,32 +1,14 @@
 module unidade_controle (
-    input            clock,
-    input            reset,
-    input            iniciar,
-                         
-    input            jogada,
-    input            igual,
-    input            timeout,
-    input            enderecoIgualLimite,
-                         
-    input            fimL, 
-    input            fimTMR,
-    input            fimE,
-                         
-    output reg       zeraL,
-    output reg       contaL,
-    output reg       zeraE,
-    output reg       contaE,
-    output reg       zeraR,
-    output reg       registraR,
-    output reg       registraM,
-    output reg       zeraM,
-    output reg       contaTMR,
-    output reg       zeraTMR,
-                         
-    output reg       acertou,
-    output reg       errou,
-    output reg       pronto,
-                         
+    input            clock, reset, iniciar,
+    //Controle                     
+    input            jogada, igual, timeout, enderecoIgualLimite, 
+    input            fimE, fimL, fimTMR,
+    output reg       zeraR, zeraE, zeraL, zeraM, zeraTMR,
+    output reg       registraR, registraM,
+    output reg       contaE, contaL, contaTMR,
+    //Saida                         
+    output reg       acertou, errou, pronto,
+    //Depuracao                     
     output reg [3:0] db_estado
 );
 
