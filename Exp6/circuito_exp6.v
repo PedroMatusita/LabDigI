@@ -93,7 +93,7 @@ module circuito_exp6 (
 
     assign leds = s_memoria;
     assign db_iniciar = jogar;
-    assign db_timeout = s_timeouts;
+    assign db_timeout = s_timeout;
     assign db_igualjogada = s_igualjogada;
     assign db_igualseq = s_igualseq;
    

@@ -3,7 +3,7 @@ module unidade_controle (
     //Controle                     
     input            jogada, igual, timeout, enderecoIgualSequencia, 
     input            fimE, fimS, fimTMR,
-    output reg       zeraR, zeraE, zeraS, zeraM, zeraTMR,
+    output reg       zeraR, zeraE, zeraS, zeraM, zeraTMR, zeraL,
     output reg       registraR, registraM,
     output reg       contaE, contaS, contaTMR,
     //Saida                         
@@ -45,7 +45,7 @@ module unidade_controle (
     end
 
 
-    //Logica de próximo estado
+    // Correção dos estados
     always @* begin
         case (Eatual)
             INICIAL:          Eprox = iniciar ? INICIA_SEQUENCIA : INICIAL;
@@ -60,18 +60,17 @@ module unidade_controle (
             MOSTRA_APAGADO:   Eprox = fimTMR ? (enderecoIgualSequencia ? COMECO_JOGADA : PROXIMA_POSICAO) : MOSTRA_APAGADO;
             PROXIMA_POSICAO:  Eprox = CARREGA_DADOS;
           
-            COMECO_JOGADA:    Eprox = ESPERA;
+            COMECO_JOGADA:    Eprox = ESPERA_JOGADA; // Corrigido de "ESPERA"
             ESPERA_JOGADA:    Eprox = jogada ? REGISTRA_JOGADA : (timeout ? ERRO : ESPERA_JOGADA);
-            REGISTRA_JOGADA:  Eprox = COMPARA;
-            COMPARA_JOGADA:   Eprox = igual ? (enderecoIgualSequencia ? ULTIMA_SEQUENCIA : PASSA_JOGADA) : ERRO; 
-            PASSA_JOGADA:     Eprox = ESPERA_JOGADA; 
+            REGISTRA_JOGADA:  Eprox = COMPARA_JOGADA; // Corrigido de "COMPARA"
+            COMPARA_JOGADA:   Eprox = igual ? (enderecoIgualSequencia ? ULTIMA_SEQUENCIA : PROXIMA_JOGADA) : ERRO; 
+            PROXIMA_JOGADA:     Eprox = ESPERA_JOGADA; // Corrigido de "PASSA"
 
-            ACERTO:           Eprox = iniciar ? INICIALIZA : ACERTO;
-            ERRO:             Eprox = iniciar ? INICIALIZA : ERRO;
+            ACERTO:           Eprox = iniciar ? INICIAL : ACERTO; // Corrigido de "INICIALIZA"
+            ERRO:             Eprox = iniciar ? INICIAL : ERRO;
             default:          Eprox = INICIAL; 
         endcase
-
-       db_estado = Eatual;
+        db_estado = Eatual;
     end
 
     // Logica de Saida
@@ -90,6 +89,10 @@ module unidade_controle (
         zeraM      = 1'b0;
         contaTMR   = 1'b0;
         zeraTMR    = 1'b0;
+        
+        // **Corrigido: Adicionar zeraL, caso seja necessário**
+        zeraL      = 1'b0; 
+
         // Seta valores dependendo do Estado
         case (Eatual)
             INICIAL:          begin zeraR = 1'b1; zeraL = 1'b1; zeraM = 1'b1; end
@@ -108,12 +111,12 @@ module unidade_controle (
 
             REGISTRA_JOGADA:  begin registraR = 1'b1; end            
             COMPARA_JOGADA:   begin end // Estado vazio
-            PASSA_JOGADA:     begin contaE = 1'b1; end
+            PROXIMA_JOGADA:     begin contaE = 1'b1; end
 
             ACERTO:           begin acertou = 1'b1; pronto = 1'b1; end
             ERRO:             begin errou = 1'b1; pronto = 1'b1; end
         endcase  
      
     end
-   
+
 endmodule

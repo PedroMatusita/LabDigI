@@ -13,3 +13,33 @@
 # Compile of registrador_4.v was successful.
 # Compile of sync_rom_16x4.v was successful.
 # 14 compiles, 2 failed with 15 errors.
+# Compile of circuito_exp6.v failed with 1 errors.
+# Compile of exp6_fluxo_dados.v was successful.
+# Compile of exp6_unidade_controle.v failed with 5 errors.
+# Compile of circuito_exp6_tb-cen1.v was successful.
+# Compile of circuito_exp6_tb-cen2.v was successful.
+# Compile of circuito_exp6_tb-cen3.v was successful.
+# Compile of circuito_exp6_tb-cen4.v was successful.
+# Compile of comparador_85.v was successful.
+# Compile of contador_163.v was successful.
+# Compile of contador_m.v was successful.
+# Compile of edge_detector.v was successful.
+# Compile of hexa7seg.v was successful.
+# Compile of registrador_4.v was successful.
+# Compile of sync_rom_16x4.v was successful.
+# 14 compiles, 2 failed with 6 errors.
+# Compile of circuito_exp6.v was successful.
+# Compile of exp6_fluxo_dados.v was successful.
+# Compile of exp6_unidade_controle.v failed with 5 errors.
+# Compile of circuito_exp6_tb-cen1.v was successful.
+# Compile of circuito_exp6_tb-cen2.v was successful.
+# Compile of circuito_exp6_tb-cen3.v was successful.
+# Compile of circuito_exp6_tb-cen4.v was successful.
+# Compile of comparador_85.v was successful.
+# Compile of contador_163.v was successful.
+# Compile of contador_m.v was successful.
+# Compile of edge_detector.v was successful.
+# Compile of hexa7seg.v was successful.
+# Compile of registrador_4.v was successful.
+# Compile of sync_rom_16x4.v was successful.
+# 14 compiles, 1 failed with 5 errors.
