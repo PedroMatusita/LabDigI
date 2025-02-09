@@ -21,9 +21,9 @@
 
 module fluxo_dados (
     input        clock,
-    //Dados                
+    // Dados                
     input [3:0]  botoes,
-    //Controle     
+    // Controle     
     input        zeraR, zeraE, zeraL, zeraM, zeraTMR, 
     input        registraR, registraM, 
     input        contaE, contaL, contaTMR,
@@ -34,6 +34,7 @@ module fluxo_dados (
     output       db_tem_jogada,
     output [3:0] db_contagem, db_jogada, db_memoria, db_sequencia,
 );
+
 
     // Sinais internos
     wire [3:0] s_sequencia, s_jogada, s_dado, s_endereco;
