@@ -69,3 +69,70 @@ vsim -gui work.circuito_exp6_tb_cen1
 # Error loading design
 # End time: 12:55:23 on Feb 09,2025, Elapsed time: 0:00:00
 # Errors: 1, Warnings: 10
+# Compile of circuito_exp6.v was successful.
+# Compile of exp6_fluxo_dados.v was successful.
+# Compile of exp6_unidade_controle.v was successful.
+# Compile of circuito_exp6_tb-cen1.v was successful.
+# Compile of circuito_exp6_tb-cen2.v was successful.
+# Compile of circuito_exp6_tb-cen3.v was successful.
+# Compile of circuito_exp6_tb-cen4.v was successful.
+# Compile of comparador_85.v was successful.
+# Compile of contador_163.v was successful.
+# Compile of contador_m.v was successful.
+# Compile of edge_detector.v was successful.
+# Compile of hexa7seg.v was successful.
+# Compile of registrador_4.v was successful.
+# Compile of sync_rom_16x4.v was successful.
+# 14 compiles, 0 failed with no errors.
+vsim -gui work.circuito_exp6_tb_cen1
+# vsim -gui work.circuito_exp6_tb_cen1 
+# Start time: 12:56:28 on Feb 09,2025
+# Loading work.circuito_exp6_tb_cen1
+# Loading work.circuito_exp6
+# Loading work.fluxo_dados
+# Loading work.contador_163
+# Loading work.comparador_85
+# Loading work.sync_rom_16x4
+# Loading work.registrador_4
+# Loading work.edge_detector
+# Loading work.contador_m
+# Loading work.unidade_controle
+# Loading work.hexa7seg
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen1/dut/fluxo_dados/ContSeq File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen1/dut/fluxo_dados/ContEnd File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 56
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'ComparadorJogada'.  Expected 8, found 6.
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen1/dut/fluxo_dados/ComparadorJogada File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 68
+# ** Warning: (vsim-3722) C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v(68): [TFMPC] - Missing connection for port 'ALBo'.
+# ** Warning: (vsim-3722) C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v(68): [TFMPC] - Missing connection for port 'AGBo'.
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'ComparadorL'.  Expected 8, found 7.
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen1/dut/fluxo_dados/ComparadorL File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 77
+# ** Warning: (vsim-3722) C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v(77): [TFMPC] - Missing connection for port 'ALBo'.
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'unidade_controle'.  Expected 25, found 24.
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen1/dut/unidade_controle File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v Line: 50
+# ** Error: (vsim-3063) Port 'fimL' not found in the connected module (9th connection).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen1/dut/unidade_controle File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v Line: 50
+# ** Error: (vsim-3063) Port 'contaL' not found in the connected module (19th connection).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen1/dut/unidade_controle File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v Line: 50
+# ** Warning: (vsim-3722) C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v(50): [TFMPC] - Missing connection for port 'fimS'.
+# ** Warning: (vsim-3722) C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v(50): [TFMPC] - Missing connection for port 'zeraS'.
+# ** Warning: (vsim-3722) C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v(50): [TFMPC] - Missing connection for port 'contaS'.
+# Error loading design
+# End time: 12:56:28 on Feb 09,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 13
+# Compile of circuito_exp6.v was successful.
+# Compile of exp6_fluxo_dados.v was successful.
+# Compile of exp6_unidade_controle.v was successful.
+# Compile of circuito_exp6_tb-cen1.v was successful.
+# Compile of circuito_exp6_tb-cen2.v was successful.
+# Compile of circuito_exp6_tb-cen3.v was successful.
+# Compile of circuito_exp6_tb-cen4.v was successful.
+# Compile of comparador_85.v was successful.
+# Compile of contador_163.v was successful.
+# Compile of contador_m.v was successful.
+# Compile of edge_detector.v was successful.
+# Compile of hexa7seg.v was successful.
+# Compile of registrador_4.v was successful.
+# Compile of sync_rom_16x4.v was successful.
+# 14 compiles, 0 failed with no errors.

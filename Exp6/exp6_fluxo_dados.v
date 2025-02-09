@@ -71,6 +71,8 @@ module fluxo_dados (
         .AEBi(1'b1),
         .AGBi(1'b0),
         .ALBi(1'b0),
+        .ALBo(),
+        .AGBo(),
         .AEBo(chavesIgualMemoria)
     );
 
@@ -81,6 +83,7 @@ module fluxo_dados (
         .AGBi(1'b0),
         .ALBi(1'b0),
         .AGBo(enderecoMenorOuIgualSequencia),
+        .ALBo(),
         .AEBo(enderecoIgualSequencia)
     );
 
