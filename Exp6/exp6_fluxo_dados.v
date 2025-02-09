@@ -32,7 +32,7 @@ module fluxo_dados (
     output       jogada_feita, chavesIgualMemoria, enderecoIgualSequencia, enderecoMenorOuIgualSequencia, timeout, 
     //Depuracao
     output       db_tem_jogada,
-    output [3:0] db_contagem, db_jogada, db_memoria, db_sequencia,
+    output [3:0] db_contagem, db_jogada, db_memoria, db_sequencia
 );
 
 
