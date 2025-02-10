@@ -37,8 +37,8 @@ module fluxo_dados (
 
 
     // Sinais internos
-    wire [3:0] s_sequencia, s_jogada, s_dado, s_endereco;
-    wire s_tem_jogada, s_memoria;
+    wire [3:0] s_sequencia, s_jogada, s_dado, s_memoria, s_endereco;
+    wire s_tem_jogada;
 
     // Contador da Sequencia
     contador_163 ContSeq (
