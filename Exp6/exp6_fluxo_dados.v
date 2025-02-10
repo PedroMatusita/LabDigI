@@ -140,6 +140,14 @@ module fluxo_dados (
         .meio()
     );
 
+    mux2x1_n seletor(
+        .D0(s_memoria),
+        .D1(botoes),
+        .SEL(jogada_feita),
+        .OUT(db_memoria)
+    );
+   
+   
     // Lógica combinacional
     assign s_tem_jogada = |botoes;
 

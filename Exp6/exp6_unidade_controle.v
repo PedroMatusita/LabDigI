@@ -90,12 +90,10 @@ module unidade_controle (
         contaTMR   = 1'b0;
         zeraTMR    = 1'b0;
         
-        // **Corrigido: Adicionar zeraL, caso seja necessário**
-        zeraL      = 1'b0; 
 
         // Seta valores dependendo do Estado
         case (Eatual)
-            INICIAL:          begin zeraR = 1'b1; zeraL = 1'b1; zeraM = 1'b1; end
+            INICIAL:          begin zeraR = 1'b1; zeraS = 1'b1; zeraM = 1'b1; end
             INICIA_SEQUENCIA: begin zeraS = 1'b1; zeraE = 1'b1; end
             PROXIMA_SEQUENCIA:begin contaS = 1'b1; zeraE = 1'b1; end
             ULTIMA_SEQUENCIA: begin end // Estado vazio, mas precisa estar definido
