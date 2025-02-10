@@ -64,7 +64,7 @@ module unidade_controle (
             ESPERA_JOGADA:    Eprox = jogada ? REGISTRA_JOGADA : (timeout ? ERRO : ESPERA_JOGADA);
             REGISTRA_JOGADA:  Eprox = COMPARA_JOGADA; // Corrigido de "COMPARA"
             COMPARA_JOGADA:   Eprox = igual ? (enderecoIgualSequencia ? ULTIMA_SEQUENCIA : PROXIMA_JOGADA) : ERRO; 
-            PROXIMA_JOGADA:     Eprox = ESPERA_JOGADA; // Corrigido de "PASSA"
+            PROXIMA_JOGADA:   Eprox = ESPERA_JOGADA; // Corrigido de "PASSA"
 
             ACERTO:           Eprox = iniciar ? INICIAL : ACERTO; // Corrigido de "INICIALIZA"
             ERRO:             Eprox = iniciar ? INICIAL : ERRO;

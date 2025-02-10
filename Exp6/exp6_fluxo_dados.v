@@ -1,6 +1,6 @@
 /*
  * ------------------------------------------------------------------
- *  Arquivo   : exp6_fluxo_dados.v
+ v*  Arquivo   : exp6_fluxo_dados.v
  *  Projeto   : Experiencia 6 
  * ------------------------------------------------------------------
  *  Descricao : Circuito do fluxo de dados da Atividade 1
@@ -38,7 +38,7 @@ module fluxo_dados (
 
     // Sinais internos
     wire [3:0] s_sequencia, s_jogada, s_dado, s_endereco;
-    wire s_tem_jogada;
+    wire s_tem_jogada, s_memoria;
 
     // Contador da Sequencia
     contador_163 ContSeq (
@@ -108,7 +108,7 @@ module fluxo_dados (
         .clear(zeraM),
         .enable(registraM),
         .D(s_dado),
-        .Q(db_memoria)
+        .Q(s_memoria)
     );
 
     // Detector de borda
