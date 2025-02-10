@@ -93,13 +93,13 @@ module unidade_controle (
 
         // Seta valores dependendo do Estado
         case (Eatual)
-            INICIAL:          begin zeraR = 1'b1; zeraS = 1'b1; zeraM = 1'b1; end
+            INICIAL:          begin zeraR = 1'b1; zeraS = 1'b1; zeraM = 1'b1; zeraE = 1'b1; end
             INICIA_SEQUENCIA: begin zeraS = 1'b1; zeraE = 1'b1; end
             PROXIMA_SEQUENCIA:begin contaS = 1'b1; zeraE = 1'b1; end
             ULTIMA_SEQUENCIA: begin end // Estado vazio, mas precisa estar definido
 
-            CARREGA_DADOS:    begin zeraTMR = 1'b1; registraM = 1'b1; end
-            MOSTRA_DADOS:     begin contaTMR = 1'b1; end
+            CARREGA_DADOS:    begin zeraTMR = 1'b1; end
+            MOSTRA_DADOS:     begin contaTMR = 1'b1; registraM = 1'b1; end
             ZERA_LEDS:        begin zeraTMR = 1'b1; zeraM = 1'b1; end
             MOSTRA_APAGADO:   begin contaTMR = 1'b1; end
             PROXIMA_POSICAO:  begin contaE = 1'b1; end

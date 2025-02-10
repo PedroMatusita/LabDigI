@@ -1,6 +1,6 @@
 /*
  * ------------------------------------------------------------------
- v*  Arquivo   : exp6_fluxo_dados.v
+ *  Arquivo   : exp6_fluxo_dados.v
  *  Projeto   : Experiencia 6 
  * ------------------------------------------------------------------
  *  Descricao : Circuito do fluxo de dados da Atividade 1
