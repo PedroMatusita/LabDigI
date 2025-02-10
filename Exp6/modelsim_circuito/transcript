@@ -1,7 +1,7 @@
-vsim -gui work.circuito_exp6_tb_cen1
-# vsim -gui work.circuito_exp6_tb_cen1 
-# Start time: 13:30:17 on Feb 09,2025
-# Loading work.circuito_exp6_tb_cen1
+vsim -gui work.circuito_exp6_tb_cen2
+# vsim -gui work.circuito_exp6_tb_cen2 
+# Start time: 09:42:50 on Feb 10,2025
+# Loading work.circuito_exp6_tb_cen2
 # Loading work.circuito_exp6
 # Loading work.fluxo_dados
 # Loading work.contador_163
@@ -12,107 +12,146 @@ vsim -gui work.circuito_exp6_tb_cen1
 # Loading work.contador_m
 # Loading work.unidade_controle
 # Loading work.hexa7seg
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2/dut/fluxo_dados/ContSeq File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2/dut/fluxo_dados/ContEnd File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 56
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'unidade_controle'.  Expected 25, found 24.
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2/dut/unidade_controle File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v Line: 50
+# ** Warning: (vsim-3722) C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v(50): [TFMPC] - Missing connection for port 'zeraL'.
 # WARNING: No extended dataflow license exists
 add wave -position insertpoint  \
-sim:/circuito_exp6_tb_cen1/caso
-add wave -position insertpoint  \
-sim:/circuito_exp6_tb_cen1/dut/unidade_controle/db_estado
-add wave -position insertpoint  \
-sim:/circuito_exp6_tb_cen1/dut/fluxo_dados/s_sequencia
-run -all
-# Início da simulação
-add wave -position insertpoint  \
-sim:/circuito_exp6_tb_cen1/dut/fluxo_dados/botoes
-quit -sim
-# End time: 13:32:08 on Feb 09,2025, Elapsed time: 0:01:51
-# Errors: 0, Warnings: 1
-# Compile of circuito_exp6.v was successful.
-# Compile of exp6_fluxo_dados.v was successful.
-# Compile of exp6_unidade_controle.v was successful.
-# Compile of circuito_exp6_tb-cen1.v was successful.
-# Compile of circuito_exp6_tb-cen2.v was successful.
-# Compile of circuito_exp6_tb-cen3.v was successful.
-# Compile of circuito_exp6_tb-cen4.v was successful.
-# Compile of comparador_85.v was successful.
-# Compile of contador_163.v was successful.
-# Compile of contador_m.v was successful.
-# Compile of edge_detector.v was successful.
-# Compile of hexa7seg.v was successful.
-# Compile of registrador_4.v was successful.
-# Compile of sync_rom_16x4.v was successful.
-# 14 compiles, 0 failed with no errors.
-vsim -gui work.circuito_exp6_tb_cen1
-# vsim -gui work.circuito_exp6_tb_cen1 
-# Start time: 13:32:26 on Feb 09,2025
-# Loading work.circuito_exp6_tb_cen1
-# Loading work.circuito_exp6
-# Loading work.fluxo_dados
-# Loading work.contador_163
-# Loading work.comparador_85
-# Loading work.sync_rom_16x4
-# Loading work.registrador_4
-# Loading work.edge_detector
-# Loading work.contador_m
-# Loading work.unidade_controle
-# Loading work.hexa7seg
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint  \
-sim:/circuito_exp6_tb_cen1/caso
-add wave -position insertpoint  \
-sim:/circuito_exp6_tb_cen1/perdeu_out
-add wave -position insertpoint  \
-sim:/circuito_exp6_tb_cen1/pronto_out
-add wave -position insertpoint  \
-sim:/circuito_exp6_tb_cen1/ganhou_out
-add wave -position insertpoint  \
-sim:/circuito_exp6_tb_cen1/dut/unidade_controle/db_estado
+sim:/circuito_exp6_tb_cen2/dut/fluxo_dados/ContEnd/Q
 run -all
 # Início da simulação
 # Fim da simulação
-# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen1.v(143)
-#    Time: 2762500100 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen1
-# Break in Module circuito_exp6_tb_cen1 at C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen1.v line 143
-# Compile of circuito_exp6.v was successful.
-# Compile of exp6_fluxo_dados.v was successful.
-# Compile of exp6_unidade_controle.v was successful.
-# Compile of circuito_exp6_tb-cen1.v was successful.
-# Compile of circuito_exp6_tb-cen2.v was successful.
-# Compile of circuito_exp6_tb-cen3.v was successful.
-# Compile of circuito_exp6_tb-cen4.v was successful.
-# Compile of comparador_85.v was successful.
-# Compile of contador_163.v was successful.
-# Compile of contador_m.v was successful.
-# Compile of edge_detector.v was successful.
-# Compile of hexa7seg.v was successful.
-# Compile of registrador_4.v was successful.
-# Compile of sync_rom_16x4.v was successful.
-# 14 compiles, 0 failed with no errors.
+# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen2.v(172)
+#    Time: 4257565508 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2
+# Break in Module circuito_exp6_tb_cen2 at C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen2.v line 172
+add wave -position insertpoint sim:/circuito_exp6_tb_cen2/dut/fluxo_dados/ContEnd/*
+run a-ll
+# Invalid time value: a-ll
+run -all
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen2/dut/fluxo_dados/clock
+end
+# wrong # args: should be "endpoint_image option ?arg ...?"
+run -all
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen2/dut/fluxo_dados/s_dado \
+sim:/circuito_exp6_tb_cen2/dut/fluxo_dados/s_endereco \
+sim:/circuito_exp6_tb_cen2/dut/fluxo_dados/s_jogada \
+sim:/circuito_exp6_tb_cen2/dut/fluxo_dados/s_sequencia \
+sim:/circuito_exp6_tb_cen2/dut/fluxo_dados/s_tem_jogada
+restart -f
 restart -f
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.circuito_exp6_tb_cen1
-# Loading work.circuito_exp6
-# Loading work.fluxo_dados
-# Loading work.contador_163
-# Loading work.comparador_85
-# Loading work.sync_rom_16x4
-# Loading work.registrador_4
-# Loading work.edge_detector
-# Loading work.contador_m
-# Loading work.unidade_controle
-# Loading work.hexa7seg
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2/dut/fluxo_dados/ContSeq File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2/dut/fluxo_dados/ContEnd File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 56
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'unidade_controle'.  Expected 25, found 24.
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2/dut/unidade_controle File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v Line: 50
+# ** Warning: (vsim-3722) C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v(50): [TFMPC] - Missing connection for port 'zeraL'.
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2/dut/fluxo_dados/ContSeq File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2/dut/fluxo_dados/ContEnd File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 56
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'unidade_controle'.  Expected 25, found 24.
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2/dut/unidade_controle File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v Line: 50
+# ** Warning: (vsim-3722) C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v(50): [TFMPC] - Missing connection for port 'zeraL'.
 run -all
 # GetModuleFileName: N�o foi poss�vel encontrar o m�dulo especificado.
 # 
 # 
 # Início da simulação
+# Fim da simulação
+# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen2.v(172)
+#    Time: 4257565508 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2
+# Break in Module circuito_exp6_tb_cen2 at C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen2.v line 172
 add wave -position insertpoint  \
-sim:/circuito_exp6_tb_cen1/botoes_in
+sim:/circuito_exp6_tb_cen2/dut/fluxo_dados/ContEnd/Q
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen2/dut/unidade_controle/db_estado
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2/dut/fluxo_dados/ContSeq File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2/dut/fluxo_dados/ContEnd File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 56
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'unidade_controle'.  Expected 25, found 24.
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2/dut/unidade_controle File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v Line: 50
+# ** Warning: (vsim-3722) C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v(50): [TFMPC] - Missing connection for port 'zeraL'.
+run -all
+# GetModuleFileName: N�o foi poss�vel encontrar o m�dulo especificado.
+# 
+# 
+# Início da simulação
+# Fim da simulação
+# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen2.v(172)
+#    Time: 4257565508 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2
+# Break in Module circuito_exp6_tb_cen2 at C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen2.v line 172
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen2/dut/fluxo_dados/contaE
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen2/dut/fluxo_dados/zeraE
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen2/dut/fluxo_dados/s_endereco
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2/dut/fluxo_dados/ContSeq File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2/dut/fluxo_dados/ContEnd File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 56
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'unidade_controle'.  Expected 25, found 24.
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2/dut/unidade_controle File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v Line: 50
+# ** Warning: (vsim-3722) C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v(50): [TFMPC] - Missing connection for port 'zeraL'.
+run -all
+# GetModuleFileName: N�o foi poss�vel encontrar o m�dulo especificado.
+# 
+# 
+# Início da simulação
+# Fim da simulação
+# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen2.v(172)
+#    Time: 4257565508 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen2
+# Break in Module circuito_exp6_tb_cen2 at C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen2.v line 172
+# Compile of circuito_exp6.v was successful.
+# Compile of exp6_fluxo_dados.v was successful.
+# Compile of exp6_unidade_controle.v was successful.
+# Compile of circuito_exp6_tb-cen1.v was successful.
+# Compile of circuito_exp6_tb-cen2.v was successful.
+# Compile of circuito_exp6_tb-cen3.v was successful.
+# Compile of circuito_exp6_tb-cen4.v was successful.
+# Compile of comparador_85.v was successful.
 quit -sim
-# End time: 13:40:26 on Feb 09,2025, Elapsed time: 0:08:00
-# Errors: 0, Warnings: 1
+# End time: 09:51:07 on Feb 10,2025, Elapsed time: 0:08:17
+# Errors: 0, Warnings: 5
+# Compile of contador_163.v was successful.
+# Compile of contador_m.v was successful.
+# Compile of edge_detector.v was successful.
+# Compile of hexa7seg.v was successful.
+# Compile of registrador_4.v was successful.
+# Compile of sync_rom_16x4.v was successful.
+# 14 compiles, 0 failed with no errors.
+# Compile of circuito_exp6.v was successful.
+# Compile of exp6_fluxo_dados.v was successful.
+# Compile of exp6_unidade_controle.v was successful.
+# Compile of circuito_exp6_tb-cen1.v was successful.
+# Compile of circuito_exp6_tb-cen2.v was successful.
+# Compile of circuito_exp6_tb-cen3.v was successful.
+# Compile of circuito_exp6_tb-cen4.v was successful.
+# Compile of comparador_85.v was successful.
+# Compile of contador_163.v was successful.
+# Compile of contador_m.v was successful.
+# Compile of edge_detector.v was successful.
+# Compile of hexa7seg.v was successful.
+# Compile of registrador_4.v was successful.
+# Compile of sync_rom_16x4.v was successful.
+# 14 compiles, 0 failed with no errors.
 vsim -gui work.circuito_exp6_tb_cen1
 # vsim -gui work.circuito_exp6_tb_cen1 
-# Start time: 13:40:33 on Feb 09,2025
+# Start time: 09:51:21 on Feb 10,2025
 # Loading work.circuito_exp6_tb_cen1
 # Loading work.circuito_exp6
 # Loading work.fluxo_dados
@@ -124,6 +163,13 @@ vsim -gui work.circuito_exp6_tb_cen1
 # Loading work.contador_m
 # Loading work.unidade_controle
 # Loading work.hexa7seg
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen1/dut/fluxo_dados/ContSeq File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v(16).
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen1/dut/fluxo_dados/ContEnd File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v Line: 56
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'unidade_controle'.  Expected 25, found 24.
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen1/dut/unidade_controle File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v Line: 50
+# ** Warning: (vsim-3722) C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v(50): [TFMPC] - Missing connection for port 'zeraL'.
 # WARNING: No extended dataflow license exists
 add wave -position insertpoint  \
 sim:/circuito_exp6_tb_cen1/caso
@@ -134,8 +180,20 @@ sim:/circuito_exp6_tb_cen1/perdeu_out
 add wave -position insertpoint  \
 sim:/circuito_exp6_tb_cen1/pronto_out
 add wave -position insertpoint  \
-sim:/circuito_exp6_tb_cen1/dut/unidade_controle/db_estado
+sim:/circuito_exp6_tb_cen1/dut/s_sequencia
 add wave -position insertpoint  \
-sim:/circuito_exp6_tb_cen1/dut/fluxo_dados/s_sequencia
+sim:/circuito_exp6_tb_cen1/dut/s_memoria
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen1/dut/s_jogada
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen1/dut/s_contagem
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen1/dut/s_estado
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb_cen1/dut/fluxo_dados/s_endereco
 run -all
 # Início da simulação
+# Fim da simulação
+# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen1.v(139)
+#    Time: 31690500100 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen1
+# Break in Module circuito_exp6_tb_cen1 at C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen1.v line 139

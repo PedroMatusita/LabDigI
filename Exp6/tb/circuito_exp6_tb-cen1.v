@@ -121,9 +121,7 @@ module circuito_exp6_tb_cen1;
         for (i = 0; i < 16; i = i + 1) begin
             caso = 4 + i; // Mudar caso de teste
             
-            while (db_estado_out != 7'd9) begin
-            @(posedge clock_in); // Aguarda um ciclo de clock
-            end
+            #(1100 * i * clockPeriod);
 
             for (j = 0; j <= i; j = j + 1) begin
                 @(negedge clock_in);

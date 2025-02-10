@@ -10,7 +10,7 @@ z2
 cModel Technology
 dC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modelsim_fd
 vcircuito_exp5_tb_cen3
-Z0 !s110 1739119191
+Z0 !s110 1739191873
 !i10b 1
 !s100 o^V^R<YK3K1G3cMGL3Yai2
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -20,20 +20,20 @@ Z3 dC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modelsim_circuito
 Z4 w1739109874
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen3.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen3.v
-!i122 182
+!i122 294
 L0 3 168
 Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1739119191.000000
+Z6 !s108 1739191873.000000
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen3.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen3.v|
 !i113 1
 Z7 o-work work
 Z8 tCvgOpt 0
 vcircuito_exp5_tb_cen4
-Z9 !s110 1739119192
+R0
 !i10b 1
 !s100 FnAdPRMWha5:nWa=2_];a0
 R1
@@ -43,36 +43,36 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen4.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen4.v
-!i122 183
+!i122 295
 L0 3 144
 R5
 r1
 !s85 0
 31
-Z10 !s108 1739119192.000000
+R6
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen4.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen4.v|
 !i113 1
 R7
 R8
 vcircuito_exp6
-R0
+Z9 !s110 1739191872
 !i10b 1
-!s100 _n2HeZai43gK=IibaQCK11
+!s100 7d[geH_VIJhn>I8h_bj0o3
 R1
-IM7hb?[M8gVQDZZV>Hj@Ce3
+IgN<iSG^GVCl6N;^iTfa0Q3
 R2
 R3
-w1739117542
+w1739119510
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v
-!i122 177
+!i122 289
 L0 13 89
 R5
 r1
 !s85 0
 31
-R6
+Z10 !s108 1739191872.000000
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/circuito_exp6.v|
 !i113 1
@@ -81,16 +81,16 @@ R8
 vcircuito_exp6_tb_cen1
 R0
 !i10b 1
-!s100 >l26=hQFj=cj8^l8J?8LB2
+!s100 JNo3`HYBS>nkdOnVL>RFO3
 R1
-IWY?6;9W:0kPJUJ6WNbKU?2
+I:g40h1[a;AKJBQRm8hg>=3
 R2
 R3
-w1739119155
+w1739191854
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen1.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen1.v
-!i122 180
-L0 3 141
+!i122 292
+L0 3 140
 R5
 r1
 !s85 0
@@ -112,7 +112,7 @@ R3
 w1739116555
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen2.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen2.v
-!i122 181
+!i122 293
 L0 3 173
 R5
 r1
@@ -125,7 +125,7 @@ R6
 R7
 R8
 vcomparador_85
-R9
+R0
 !i10b 1
 !s100 bckB8^W=VE]I2a21^PB@D0
 R1
@@ -135,20 +135,20 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/comparador_85.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/comparador_85.v
-!i122 184
+!i122 296
 L0 16 14
 R5
 r1
 !s85 0
 31
-R10
+R6
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/comparador_85.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/comparador_85.v|
 !i113 1
 R7
 R8
 vcontador_163
-R9
+Z11 !s110 1739191874
 !i10b 1
 !s100 8iZEj:>@H9<J>a32Jj8[g3
 R1
@@ -158,20 +158,20 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v
-!i122 185
+!i122 297
 L0 16 16
 R5
 r1
 !s85 0
 31
-R10
+R6
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_163.v|
 !i113 1
 R7
 R8
 vcontador_m
-R9
+R11
 !i10b 1
 !s100 BLMf5@WIC9E7[2]V7T:]00
 R1
@@ -181,20 +181,20 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_m.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_m.v
-!i122 186
+!i122 298
 L0 20 37
 R5
 r1
 !s85 0
 31
-R10
+Z12 !s108 1739191874.000000
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_m.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/contador_m.v|
 !i113 1
 R7
 R8
 vedge_detector
-R9
+R11
 !i10b 1
 !s100 b=6PQ:nFojW4z?d;AGW=D0
 R1
@@ -204,43 +204,43 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/edge_detector.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/edge_detector.v
-!i122 187
+!i122 299
 L0 21 23
 R5
 r1
 !s85 0
 31
-R10
+R12
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/edge_detector.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/edge_detector.v|
 !i113 1
 R7
 R8
 vfluxo_dados
-R0
+R9
 !i10b 1
-!s100 njeIdA3@F8c5>nQ1o=Ek<0
+!s100 [4ibYnP_i^n>01NfPnSBE0
 R1
-ID@l48Ok:zDAkDGh3IPlZV1
+I?`G`fP5c?F1d9`go_XJJ]1
 R2
 R3
-w1739117929
+w1739119515
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v
-!i122 178
+!i122 290
 L0 22 131
 R5
 r1
 !s85 0
 31
-R6
+R10
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_fluxo_dados.v|
 !i113 1
 R7
 R8
 vhexa7seg
-R9
+R11
 !i10b 1
 !s100 ^ldcN:Zl`^?4Tnh8I@Z332
 R1
@@ -250,20 +250,20 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/hexa7seg.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/hexa7seg.v
-!i122 188
+!i122 300
 L0 23 38
 R5
 r1
 !s85 0
 31
-R10
+R12
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/hexa7seg.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/hexa7seg.v|
 !i113 1
 R7
 R8
 vregistrador_4
-Z11 !s110 1739119193
+R11
 !i10b 1
 !s100 45NaE0zN5R1c;nb0e8L`23
 R1
@@ -273,20 +273,20 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/registrador_4.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/registrador_4.v
-!i122 189
+!i122 301
 L0 13 20
 R5
 r1
 !s85 0
 31
-R10
+R12
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/registrador_4.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/registrador_4.v|
 !i113 1
 R7
 R8
 vsync_rom_16x4
-R11
+!s110 1739191875
 !i10b 1
 !s100 Tz6@dY^L3ZzVgc74FVX5T1
 R1
@@ -296,13 +296,13 @@ R3
 R4
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/sync_rom_16x4.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/sync_rom_16x4.v
-!i122 190
+!i122 302
 L0 13 27
 R5
 r1
 !s85 0
 31
-!s108 1739119193.000000
+!s108 1739191875.000000
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/sync_rom_16x4.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/modules/sync_rom_16x4.v|
 !i113 1
@@ -316,16 +316,16 @@ R1
 IR^UZZCJ_:_f>QMzO<zJ5d3
 R2
 R3
-w1739116486
+w1739119519
 8C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_unidade_controle.v
 FC:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_unidade_controle.v
-!i122 179
+!i122 291
 L0 1 122
 R5
 r1
 !s85 0
 31
-R6
+R10
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_unidade_controle.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/exp6_unidade_controle.v|
 !i113 1
