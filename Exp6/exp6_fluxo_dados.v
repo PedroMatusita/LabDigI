@@ -122,8 +122,8 @@ module fluxo_dados (
     // Contadores temporizadores para um relógio de 1000Hz
     contador_m #(.M(5000), .N(13)) contador_timeout (
         .clock(clock), 
-        .zera_s(),
-        .zera_as(contaE || zeraE),
+        .zera_s(contaE || zeraE),
+        .zera_as(),
         .conta(!s_tem_jogada && !timeout),             
         .Q(),
         .fim(timeout),
@@ -143,7 +143,7 @@ module fluxo_dados (
     mux2x1_n seletor(
         .D0(s_memoria),
         .D1(botoes),
-        .SEL(jogada_feita),
+        .SEL(s_tem_jogada),
         .OUT(db_memoria)
     );
    
