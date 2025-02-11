@@ -116,22 +116,203 @@ module circuito_exp6_tb_cen1;
         jogar_in = 0;
         #(10 * clockPeriod);
 
-        // Testes 4 a 19: Jogadas com diferentes valores de botões
-        caso = 10;
-        for (i = 0; i < 16; i = i + 1) begin
-            caso = 4 + i; // Mudar caso de teste
-            
-            #(1100 * i * clockPeriod);
-
-            for (j = 0; j <= i; j = j + 1) begin
+        // Teste 3: Ativar iniciar por 5 períodos de clock
+        caso = 4;
+        #(1100 * clockPeriod);
+        for (j = 0; j <= 1; j = j + 1) begin
                 @(negedge clock_in);
                 botoes_in = test_vector[j];
                 #(10 * clockPeriod);
                 botoes_in = 4'b0000; // Reset botoes_in
                 #(10 * clockPeriod);
             end
-        end
 
+        caso = 5;
+        #(1100 * 2 * clockPeriod);
+        for (j = 0; j <= 2; j = j + 1) begin
+                @(negedge clock_in);
+                botoes_in = test_vector[j];
+                #(10 * clockPeriod);
+                botoes_in = 4'b0000; // Reset botoes_in
+                #(10 * clockPeriod);
+            end
+
+        caso = 6;
+        #(1100 * 3 * clockPeriod);
+        for (j = 0; j <= 3; j = j + 1) begin
+                @(negedge clock_in);
+                botoes_in = test_vector[j];
+                #(10 * clockPeriod);
+                botoes_in = 4'b0000; // Reset botoes_in
+                #(10 * clockPeriod);
+            end
+
+        caso = 7;
+        #(1100 * 2 * clockPeriod);
+        #(1100 * 2 * clockPeriod);
+        for (j = 0; j <= 4; j = j + 1) begin
+                @(negedge clock_in);
+                botoes_in = test_vector[j];
+                #(10 * clockPeriod);
+                botoes_in = 4'b0000; // Reset botoes_in
+                #(10 * clockPeriod);
+            end
+        
+        caso = 8;
+        #(1100 * 3 * clockPeriod);
+        #(1100 * 2 * clockPeriod);
+        for (j = 0; j <= 5; j = j + 1) begin
+                @(negedge clock_in);
+                botoes_in = test_vector[j];
+                #(10 * clockPeriod);
+                botoes_in = 4'b0000; // Reset botoes_in
+                #(10 * clockPeriod);
+            end
+        
+        caso = 9;
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 3 *clockPeriod);
+        for (j = 0; j <= 6; j = j + 1) begin
+                @(negedge clock_in);
+                botoes_in = test_vector[j];
+                #(10 * clockPeriod);
+                botoes_in = 4'b0000; // Reset botoes_in
+                #(10 * clockPeriod);
+            end
+
+        caso = 10;
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 3 *clockPeriod);
+        #(1100 *clockPeriod);
+        for (j = 0; j <= 7; j = j + 1) begin
+                @(negedge clock_in);
+                botoes_in = test_vector[j];
+                #(10 * clockPeriod);
+                botoes_in = 4'b0000; // Reset botoes_in
+                #(10 * clockPeriod);
+            end
+
+        caso = 11;
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 3 *clockPeriod);
+        for (j = 0; j <= 8; j = j + 1) begin
+                @(negedge clock_in);
+                botoes_in = test_vector[j];
+                #(10 * clockPeriod);
+                botoes_in = 4'b0000; // Reset botoes_in
+                #(10 * clockPeriod);
+            end
+
+        caso = 12;
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 3 *clockPeriod);
+        for (j = 0; j <= 9; j = j + 1) begin
+                @(negedge clock_in);
+                botoes_in = test_vector[j];
+                #(10 * clockPeriod);
+                botoes_in = 4'b0000; // Reset botoes_in
+                #(10 * clockPeriod);
+            end
+
+        caso = 13;
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 3 *clockPeriod);
+        for (j = 0; j <= 10; j = j + 1) begin
+                @(negedge clock_in);
+                botoes_in = test_vector[j];
+                #(10 * clockPeriod);
+                botoes_in = 4'b0000; // Reset botoes_in
+                #(10 * clockPeriod);
+            end
+
+        caso = 14;
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 3 *clockPeriod);
+        for (j = 0; j <= 11; j = j + 1) begin
+                @(negedge clock_in);
+                botoes_in = test_vector[j];
+                #(10 * clockPeriod);
+                botoes_in = 4'b0000; // Reset botoes_in
+                #(10 * clockPeriod);
+            end
+
+        caso = 15;
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        for (j = 0; j <= 12; j = j + 1) begin
+                @(negedge clock_in);
+                botoes_in = test_vector[j];
+                #(10 * clockPeriod);
+                botoes_in = 4'b0000; // Reset botoes_in
+                #(10 * clockPeriod);
+            end
+
+        caso = 16;
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        for (j = 0; j <= 12; j = j + 1) begin
+                @(negedge clock_in);
+                botoes_in = test_vector[j];
+                #(10 * clockPeriod);
+                botoes_in = 4'b0000; // Reset botoes_in
+                #(10 * clockPeriod);
+            end
+
+        caso = 17;
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 3 *clockPeriod);
+        for (j = 0; j <= 13; j = j + 1) begin
+                @(negedge clock_in);
+                botoes_in = test_vector[j];
+                #(10 * clockPeriod);
+                botoes_in = 4'b0000; // Reset botoes_in
+                #(10 * clockPeriod);
+            end
+
+        caso = 18;
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        for (j = 0; j <= 14; j = j + 1) begin
+                @(negedge clock_in);
+                botoes_in = test_vector[j];
+                #(10 * clockPeriod);
+                botoes_in = 4'b0000; // Reset botoes_in
+                #(10 * clockPeriod);
+            end
+
+        caso = 19;
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        #(1100 * 7 *clockPeriod);
+        for (j = 0; j <= 15; j = j + 1) begin
+                @(negedge clock_in);
+                botoes_in = test_vector[j];
+                #(10 * clockPeriod);
+                botoes_in = 4'b0000; // Reset botoes_in
+                #(10 * clockPeriod);
+            end
+
+
+        caso = 20;
+        #(1100 * 3 *clockPeriod);
+        
         // Final dos testes
         caso = 99;
         #100;
