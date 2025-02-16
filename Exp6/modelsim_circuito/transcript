@@ -1673,3 +1673,5 @@ run -all
 # ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen1.v(320)
 #    Time: 159373500100 ns  Iteration: 0  Instance: /circuito_exp6_tb_cen1
 # Break in Module circuito_exp6_tb_cen1 at C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp6/tb/circuito_exp6_tb-cen1.v line 320
+# End time: 10:21:35 on Feb 11,2025, Elapsed time: 19:19:38
+# Errors: 0, Warnings: 5
