@@ -1,12 +1,12 @@
 // Isso será um modulo que vai receber um valor e "Randomizar" ele usando um algoritmo de LFSR
 // O modulo funciona sincronamente
 
-module random(
-              input         clock, reset;
-              input  [15:0] entrada;
+module random (
+            input         clock, reset,
+            input  [15:0] entrada,
 
-              output [15:0] saída;
-    );
+            output reg [15:0] saida
+);
 
    wire [15:0] s_bit;
    
@@ -18,7 +18,6 @@ module random(
      end
    end
 
-   // Utiliza do polinomio x^16 + x^14 + x^13 + x^11
    assign s_bit = (entrada >> 0) ^ (entrada >> 2) ^ (entrada >> 3) ^ (entrada >> 5) & 1;
 
-end module 
+endmodule

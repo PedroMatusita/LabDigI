@@ -61,7 +61,7 @@ module fluxo_dados (
     );
 
     // Comparadores
-    comparador_85 ComparadorJogada (
+    comparador_85 Comparador (
         .A(s_memoria),
         .B(s_botao),
         .AEBi(1'b1),
@@ -70,6 +70,12 @@ module fluxo_dados (
         .ALBo(),
         .AGBo(),
         .AEBo(botaoIgualMemoria)
+    );
+
+    comparador_jog ComparadorJogada (
+        .A(),
+        .B(),
+        .acerto()
     );
 
     // Memória ROM

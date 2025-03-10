@@ -1,0 +1,93 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000021c834ebd60 .scope module, "random" "random" 2 4;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clock";
+    .port_info 1 /INPUT 1 "reset";
+    .port_info 2 /INPUT 16 "entrada";
+    .port_info 3 /OUTPUT 16 "saida";
+L_0000021c83532a40 .functor XOR 32, L_0000021c835835f0, L_0000021c835825b0, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+L_0000021c83533060 .functor XOR 32, L_0000021c83532a40, L_0000021c83582650, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+L_0000021c83583b90 .functor BUFT 1, C4<00000000000000000000000000000001>, C4<0>, C4<0>, C4<0>;
+L_0000021c835329d0 .functor AND 32, L_0000021c83581cf0, L_0000021c83583b90, C4<11111111111111111111111111111111>, C4<11111111111111111111111111111111>;
+L_0000021c83532e30 .functor XOR 32, L_0000021c83533060, L_0000021c835329d0, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+v0000021c83528a80_0 .net *"_ivl_0", 31 0, L_0000021c835835f0;  1 drivers
+v0000021c835297a0_0 .net *"_ivl_10", 29 0, L_0000021c83582a10;  1 drivers
+L_0000021c83583a28 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v0000021c83528d00_0 .net *"_ivl_12", 1 0, L_0000021c83583a28;  1 drivers
+v0000021c83528940_0 .net *"_ivl_14", 31 0, L_0000021c83532a40;  1 drivers
+v0000021c835292a0_0 .net *"_ivl_16", 31 0, L_0000021c83581e30;  1 drivers
+L_0000021c83583a70 .functor BUFT 1, C4<0000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000021c83529160_0 .net *"_ivl_19", 15 0, L_0000021c83583a70;  1 drivers
+v0000021c835290c0_0 .net *"_ivl_20", 31 0, L_0000021c83582650;  1 drivers
+v0000021c83529700_0 .net *"_ivl_22", 28 0, L_0000021c835819d0;  1 drivers
+L_0000021c83583ab8 .functor BUFT 1, C4<000>, C4<0>, C4<0>, C4<0>;
+v0000021c83528b20_0 .net *"_ivl_24", 2 0, L_0000021c83583ab8;  1 drivers
+v0000021c83528ee0_0 .net *"_ivl_26", 31 0, L_0000021c83533060;  1 drivers
+v0000021c83529520_0 .net *"_ivl_28", 31 0, L_0000021c83581b10;  1 drivers
+L_0000021c83583998 .functor BUFT 1, C4<0000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000021c83528bc0_0 .net *"_ivl_3", 15 0, L_0000021c83583998;  1 drivers
+L_0000021c83583b00 .functor BUFT 1, C4<0000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000021c83528f80_0 .net *"_ivl_31", 15 0, L_0000021c83583b00;  1 drivers
+v0000021c83529020_0 .net *"_ivl_32", 31 0, L_0000021c83581cf0;  1 drivers
+v0000021c83529660_0 .net *"_ivl_34", 26 0, L_0000021c83582e70;  1 drivers
+L_0000021c83583b48 .functor BUFT 1, C4<00000>, C4<0>, C4<0>, C4<0>;
+v0000021c83529480_0 .net *"_ivl_36", 4 0, L_0000021c83583b48;  1 drivers
+v0000021c835295c0_0 .net/2u *"_ivl_38", 31 0, L_0000021c83583b90;  1 drivers
+v0000021c83529200_0 .net *"_ivl_4", 31 0, L_0000021c835828d0;  1 drivers
+v0000021c83528c60_0 .net *"_ivl_40", 31 0, L_0000021c835329d0;  1 drivers
+v0000021c83528da0_0 .net *"_ivl_42", 31 0, L_0000021c83532e30;  1 drivers
+L_0000021c835839e0 .functor BUFT 1, C4<0000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000021c83528e40_0 .net *"_ivl_7", 15 0, L_0000021c835839e0;  1 drivers
+v0000021c83529340_0 .net *"_ivl_8", 31 0, L_0000021c835825b0;  1 drivers
+o0000021c835373f8 .functor BUFZ 1, C4<z>; HiZ drive
+v0000021c835293e0_0 .net "clock", 0 0, o0000021c835373f8;  0 drivers
+o0000021c83537428 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v0000021c835288a0_0 .net "entrada", 15 0, o0000021c83537428;  0 drivers
+o0000021c83537458 .functor BUFZ 1, C4<z>; HiZ drive
+v0000021c835823d0_0 .net "reset", 0 0, o0000021c83537458;  0 drivers
+v0000021c83582dd0_0 .net "s_bit", 15 0, L_0000021c83582b50;  1 drivers
+v0000021c83581c50_0 .var "saida", 15 0;
+E_0000021c834ec5d0 .event posedge, v0000021c835823d0_0, v0000021c835293e0_0;
+L_0000021c835835f0 .concat [ 16 16 0 0], o0000021c83537428, L_0000021c83583998;
+L_0000021c835828d0 .concat [ 16 16 0 0], o0000021c83537428, L_0000021c835839e0;
+L_0000021c83582a10 .part L_0000021c835828d0, 2, 30;
+L_0000021c835825b0 .concat [ 30 2 0 0], L_0000021c83582a10, L_0000021c83583a28;
+L_0000021c83581e30 .concat [ 16 16 0 0], o0000021c83537428, L_0000021c83583a70;
+L_0000021c835819d0 .part L_0000021c83581e30, 3, 29;
+L_0000021c83582650 .concat [ 29 3 0 0], L_0000021c835819d0, L_0000021c83583ab8;
+L_0000021c83581b10 .concat [ 16 16 0 0], o0000021c83537428, L_0000021c83583b00;
+L_0000021c83582e70 .part L_0000021c83581b10, 5, 27;
+L_0000021c83581cf0 .concat [ 27 5 0 0], L_0000021c83582e70, L_0000021c83583b48;
+L_0000021c83582b50 .part L_0000021c83532e30, 0, 16;
+    .scope S_0000021c834ebd60;
+T_0 ;
+    %wait E_0000021c834ec5d0;
+    %load/vec4 v0000021c835823d0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 16;
+    %assign/vec4 v0000021c83581c50_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0000021c83582dd0_0;
+    %parti/s 1, 0, 2;
+    %load/vec4 v0000021c835288a0_0;
+    %parti/s 15, 1, 2;
+    %concat/vec4; draw_concat_vec4
+    %assign/vec4 v0000021c83581c50_0, 0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    ".\randomizador.v";
