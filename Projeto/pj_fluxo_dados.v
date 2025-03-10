@@ -31,7 +31,11 @@ module fluxo_dados (
     output [3:0] db_contagem, db_jogada, db_memoria
 );
 
+    
+    
 
+
+   
     // Sinais internos
     wire [3:0] s_endereco, s_memoria, s_botao;
     wire s_tem_jogada;
@@ -109,6 +113,32 @@ module fluxo_dados (
         .reset(zeraRod),
         .sinal(s_tem_jogada),
         .pulso(jogada_feita)
+    );
+
+    wire [15:0] s_seed, s_numero_aletorio, s_contador_jogada;
+    contador_m #(.M(65536), .N(16)) contador_tempo_jogada (
+        .clock(clock), 
+        .zera_s(),
+        .zera_as(),
+        .conta(),             
+        .Q(s_contador_jogada),
+        .fim(),
+        .meio()
+    );
+
+    mux2x1_n #(.BITS(16)) mux_randomizador (
+        .clock(clock),
+        .D0(s_contador_jogada),
+        .D1(s_numero_aleatorio),
+        .SEL(),
+        .OUT(s_seed),
+    );                                      
+
+    lfsr randomizador (
+         .clock(clock),
+         .reset(reset),              
+         .entrada(s_seed),
+         .saida(s_numero_aleatorio)
     );
    
    

@@ -23,6 +23,8 @@ module fluxo_dados (
     input        clock,
     // Dados                
     input [3:0]  botoes,
+    input        memoria,
+    input        pronto,       
     // Controle     
     input        zeraR, zeraE, zeraS, zeraM, zeraTMR, 
     input        registraR, registraM, 
@@ -37,8 +39,8 @@ module fluxo_dados (
 
 
     // Sinais internos
-    wire [3:0] s_sequencia, s_jogada, s_dado, s_memoria, s_endereco;
-    wire s_tem_jogada;
+    wire [3:0] s_sequencia, s_jogada, s_dado, s_dado0, s_dado1,  s_endereco;
+    wire s_memoria, s_tem_jogada;
 
     // Contador da Sequencia
     contador_163 ContSeq (
@@ -88,12 +90,20 @@ module fluxo_dados (
     );
 
     // Memória ROM
-    sync_rom_16x4 MemJogo (
+    sync_rom_16x4 MemJogo0 (
         .clock(clock),
         .address(s_endereco),
-        .data_out(s_dado)
+        .data_out(s_dado0)
     );
 
+    
+    // Memória ROM
+    sync_rom_16x4_desafio MemJogo1 (
+        .clock(clock),
+        .address(s_endereco),
+        .data_out(s_dado1)
+    );
+   
     // Registrador botoes
     registrador_4 RegBotoes (
         .clock(clock),
@@ -112,18 +122,18 @@ module fluxo_dados (
     );
 
     // Detector de borda
-    edge_detector detector (
+    edge_detector detectorJog (
         .clock(clock),
         .reset(zeraS),
         .sinal(s_tem_jogada),
         .pulso(jogada_feita)
     );
-
+   
     // Contadores temporizadores para um relógio de 1000Hz
     contador_m #(.M(5000), .N(13)) contador_timeout (
         .clock(clock), 
-        .zera_s(contaE || zeraE),
-        .zera_as(),
+        .zera_s(),
+        .zera_as(contaE || zeraE),
         .conta(!s_tem_jogada && !timeout),             
         .Q(),
         .fim(timeout),
@@ -139,17 +149,33 @@ module fluxo_dados (
         .fim(fimTMR),
         .meio()
     );
-
-    mux2x1_n seletor(
-        .D0(s_memoria),
+    //Multiplexadores 
+    mux2x1_n seletorLeds(
+        .D0(s_dado),
         .D1(botoes),
         .SEL(s_tem_jogada),
         .OUT(db_memoria)
     );
+
+    mux2x1_n seletorJogo(
+        .D0(s_dado0),
+        .D1(s_dado1),
+        .SEL(r_memoria[0]),
+        .OUT(s_dado)
+    );   
    
+    registrador_4 regS_Mem(
+        .clock(clock),
+        .clear(pronto),
+        .enable(zeraM)
+        .D(s_memoria),
+        .Q(r_memoria)
+    );
    
     // Lógica combinacional
     assign s_tem_jogada = |botoes;
+    assign s_memoria = {3'b0, memoria};
+   
 
     // Sinais de depuração
     assign db_jogada = s_jogada;

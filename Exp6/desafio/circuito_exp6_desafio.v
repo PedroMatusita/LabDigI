@@ -1,8 +1,8 @@
 
 /*
  * ------------------------------------------------------------------
- *  Arquivo   : jogo_desafio_memoria.v
- *  Projeto   : P1
+ *  Arquivo   : circuito_exp6.v
+ *  Projeto   : Experiencia 6 
  * ------------------------------------------------------------------
  *  Descricao : Este arquivo contém a descrição do circuito que implementa
  * 
@@ -10,7 +10,7 @@
  * ------------------------------------------------------------------
  */
 
-module jogo_desafio_memoria (
+module circuito_exp6 (
     input        clock, reset,
                       
     input        jogar,
@@ -29,13 +29,15 @@ module jogo_desafio_memoria (
     wire s_contaE, s_contaS, s_contaTMR;
     wire s_fimE, s_fimS, s_fimTMR; 
     //Sinais de depuração
-    wire s_igual, s_igualseq, s_igualjogada, s_jogada_feita, s_timeout;
+    wire s_igual, s_igualseq, s_igualjogada, s_jogada_feita, s_timeout, s_reset_memoria, s_pronto;
     wire [3:0]  s_sequencia, s_contagem, s_memoria, s_jogada, s_estado;  
     
     fluxo_dados fluxo_dados (
         .clock(clock),
                              
         .botoes(botoes),
+        .memoria(memoria),
+        .pronto(s_pronto),
                              
         .zeraR(s_zeraR), .zeraE(s_zeraE), .zeraS(s_zeraS), .zeraM(s_zeraM), .zeraTMR(s_zeraTMR),                     
         .registraR(s_registraR), .registraM(s_registraM),
@@ -57,7 +59,7 @@ module jogo_desafio_memoria (
         .registraR(s_registraR), .registraM(s_registraM),
         .contaE(s_contaE), .contaS(s_contaS), .contaTMR(s_contaTMR),
                                       
-        .acertou(ganhou), .errou(perdeu), .pronto(pronto),
+        .acertou(ganhou), .errou(perdeu), .pronto(s_pronto),
         
         .db_estado(s_estado)
     );
@@ -92,6 +94,7 @@ module jogo_desafio_memoria (
     ); 
 
     assign leds = s_memoria;
+    assign pronto = s_pronto;
     assign db_iniciar = jogar;
     assign db_timeout = s_timeout;
     assign db_igualjogada = s_igualjogada;
