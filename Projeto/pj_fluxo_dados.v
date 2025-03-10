@@ -1,9 +1,9 @@
 /*
  * ------------------------------------------------------------------
  *  Arquivo   : pj_fluxo_dados.v
- *  Projeto   : Projeto Final 
+ *  Projeto   : MindFocus 
  * ------------------------------------------------------------------
- *  Descricao : Circuito do fluxo de dados da Atividade 1
+ *  Descricao : Circuito do fluxo de dados do Projeto
  * 
  *     1) Projeto FPGA
  * ------------------------------------------------------------------
@@ -18,32 +18,34 @@ module fluxo_dados (
     // Dados                
     input [3:0]  botoes,
     // Controle     
-    input        zeraR, zeraE, zeraS, zeraM, zeraTMR, 
-    input        registraR, registraM, 
-    input        contaE, contaS, contaTMR,
-    output       fimS, fimE, fimTMR,
+    input        zeraA, zeraE, zeraR,  // zerar
+    input        registraR,               // registrar
+    input        contaE, contaA             // contar
+    output       fimE,                   // fim
 
-    output       jogada_feita, chavesIgualMemoria, enderecoIgualSequencia, enderecoMenorOuIgualSequencia, timeout, 
+    output       botaoIgualMemoria, jogada_feita, 
+    // Saída
+    output [3:0] acertos,
     //Depuracao
     output       db_tem_jogada,
-    output [3:0] db_contagem, db_jogada, db_memoria, db_sequencia
+    output [3:0] db_contagem, db_jogada, db_memoria
 );
 
 
     // Sinais internos
-    wire [3:0] s_sequencia, s_jogada, s_dado, s_memoria, s_endereco;
+    wire [3:0] s_endereco, s_memoria, s_botao;
     wire s_tem_jogada;
 
     // Contador da Sequencia
-    contador_163 ContSeq (
+    contador_163 ContAcertos (
         .clock(clock),
-        .clr(~zeraS),
+        .clr(~zeraA),
         .ld(1'b1),
         .ent(1'b1),
-        .enp(contaS),
-        .D(4'b0),
-        .Q(s_sequencia),
-        .rco(fimS)
+        .enp(contaA),
+        .D(1'b0),
+        .Q(acertos),
+        .rco()
     );
 
     // Contador de endereço
@@ -53,28 +55,28 @@ module fluxo_dados (
         .ld(1'b1),
         .ent(1'b1),
         .enp(contaE),
-        .D(4'b0),
+        .D(1'b0),
         .Q(s_endereco),
         .rco(fimE)
     );
 
     // Comparadores
     comparador_85 ComparadorJogada (
-        .A(s_dado),
-        .B(s_jogada),
+        .A(s_memoria),
+        .B(s_botao),
         .AEBi(1'b1),
         .AGBi(1'b0),
         .ALBi(1'b0),
         .ALBo(),
         .AGBo(),
-        .AEBo(chavesIgualMemoria)
+        .AEBo(botaoIgualMemoria)
     );
 
     // Memória ROM
     sync_rom_16x4 MemJogo (
         .clock(clock),
         .address(s_endereco),
-        .data_out(s_dado)
+        .data_out(s_memoria)
     );
 
     // Registrador botoes
@@ -83,13 +85,13 @@ module fluxo_dados (
         .clear(zeraR),
         .enable(registraR),
         .D(botoes),
-        .Q(s_jogada)
+        .Q(s_botao)
     );
 
     // Detector de borda
     edge_detector detector (
         .clock(clock),
-        .reset(zeraS),
+        .reset(zeraE),
         .sinal(s_tem_jogada),
         .pulso(jogada_feita)
     );
@@ -99,9 +101,8 @@ module fluxo_dados (
     assign s_tem_jogada = |botoes;
 
     // Sinais de depuração
-    assign db_jogada = s_jogada;
+    assign db_jogada = s_botao;
     assign db_contagem = s_endereco;
-    assign db_sequencia = s_sequencia;
     assign db_tem_jogada = s_tem_jogada;
   
 endmodule
