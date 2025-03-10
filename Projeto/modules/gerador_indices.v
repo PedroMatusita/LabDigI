@@ -1,3 +1,4 @@
+
 // Se Aleatorio % 32 < 24 retorna uma permutacao da memoria e da ready, se nao, retorna 0 e nao da ready
 
 module gerador_indices(
