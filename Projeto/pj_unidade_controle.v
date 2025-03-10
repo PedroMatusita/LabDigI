@@ -14,25 +14,15 @@ module unidade_controle (
 
 
     parameter INICIAL = 0;
-    //Controla Sequencia
-    parameter INICIA_SEQUENCIA = 1;
-    parameter PROXIMA_SEQUENCIA = 2;
-    parameter ULTIMA_SEQUENCIA = 3;   
-    //Mostra Leds
-    parameter CARREGA_DADOS = 4;
-    parameter MOSTRA_DADOS = 5; 
-    parameter ZERA_LEDS = 6; 
-    parameter MOSTRA_APAGADO = 7;
-    parameter PROXIMA_POSICAO = 8;   
-    //Processamento jogada
-    parameter COMECO_JOGADA = 9;
-    parameter ESPERA_JOGADA = 10;
-    parameter REGISTRA_JOGADA = 11;
-    parameter COMPARA_JOGADA = 12;   
-    parameter PROXIMA_JOGADA = 13;
-   
-    parameter ERRO = 14;
-    parameter ACERTO = 15; 
+    //Preparação
+    parameter PROXIMA_RODADA = 3;
+    parameter MOSTRA_PERGUNTA = 4;
+    parameter ZERA_TIMER = 5;
+    //Jogadas
+    parameter ESPERA_JOGADA = 7;   
+    parameter COMPARA_JOGADA = 8;
+    //Fim de Jogo
+    parameter FIM_JOGO = 15;    
 
 
     reg [3:0] Eatual, Eprox;
@@ -48,26 +38,15 @@ module unidade_controle (
     // Correção dos estados
     always @* begin
         case (Eatual)
-            INICIAL:          Eprox = iniciar ? INICIA_SEQUENCIA : INICIAL;
+            INICIAL:          Eprox = iniciar ? PROXIMA_RODADA : INICIAL;
 
-            INICIA_SEQUENCIA: Eprox = CARREGA_DADOS;
-            PROXIMA_SEQUENCIA:Eprox = CARREGA_DADOS;          
-            ULTIMA_SEQUENCIA: Eprox = fimS ? ACERTO : PROXIMA_SEQUENCIA;
+            PROXIMA_RODADA: Eprox = CARREGA_DADOS;
+            MOSTRA_PERGUNTA:Eprox = fimTMR ? ESPERA_JOGADA : MOSTRA_PERGUNTA;          
           
-            CARREGA_DADOS:    Eprox = MOSTRA_DADOS;
-            MOSTRA_DADOS:     Eprox = fimTMR ? ZERA_LEDS : MOSTRA_DADOS;
-            ZERA_LEDS:        Eprox = MOSTRA_APAGADO;
-            MOSTRA_APAGADO:   Eprox = fimTMR ? (enderecoIgualSequencia ? COMECO_JOGADA : PROXIMA_POSICAO) : MOSTRA_APAGADO;
-            PROXIMA_POSICAO:  Eprox = CARREGA_DADOS;
-          
-            COMECO_JOGADA:    Eprox = ESPERA_JOGADA; // Corrigido de "ESPERA"
-            ESPERA_JOGADA:    Eprox = jogada ? REGISTRA_JOGADA : (timeout ? ERRO : ESPERA_JOGADA);
-            REGISTRA_JOGADA:  Eprox = COMPARA_JOGADA; // Corrigido de "COMPARA"
-            COMPARA_JOGADA:   Eprox = igual ? (enderecoIgualSequencia ? ULTIMA_SEQUENCIA : PROXIMA_JOGADA) : ERRO; 
-            PROXIMA_JOGADA:   Eprox = ESPERA_JOGADA; // Corrigido de "PASSA"
+            ESPERA_JOGADA:    Eprox = volta ? MOSTRA_PERGUNTA : (jogada ? COMPARA_JOGADA : ESPERA_JOGADA);
+            COMPARA_JOGADA:     Eprox = fim ? FIM_JOGO : PROXIMA_RODADA;
 
-            ACERTO:           Eprox = iniciar ? INICIAL : ACERTO; // Corrigido de "INICIALIZA"
-            ERRO:             Eprox = iniciar ? INICIAL : ERRO;
+            FIM_JOGO:           Eprox = iniciar ? INICIAL : FIM_JOGO; // fim do jogo
             default:          Eprox = INICIAL; 
         endcase
         db_estado = Eatual;
@@ -94,17 +73,11 @@ module unidade_controle (
         // Seta valores dependendo do Estado
         case (Eatual)
             INICIAL:          begin zeraR = 1'b1; zeraS = 1'b1; zeraM = 1'b1; zeraE = 1'b1; end
-            INICIA_SEQUENCIA: begin zeraS = 1'b1; zeraE = 1'b1; end
-            PROXIMA_SEQUENCIA:begin contaS = 1'b1; zeraE = 1'b1; end
-            ULTIMA_SEQUENCIA: begin end // Estado vazio, mas precisa estar definido
+            PROXIMA_RODADA:   begin contaS = 1'b1; zeraE = 1'b1; end
+            MOSTRA_PERGUNTA:  begin end // Estado vazio, mas precisa estar definido
 
-            CARREGA_DADOS:    begin zeraTMR = 1'b1; end
-            MOSTRA_DADOS:     begin contaTMR = 1'b1; registraM = 1'b1; end
-            ZERA_LEDS:        begin zeraTMR = 1'b1; zeraM = 1'b1; end
-            MOSTRA_APAGADO:   begin contaTMR = 1'b1; end
-            PROXIMA_POSICAO:  begin contaE = 1'b1; end
+            ZERA_TIMER:    begin zeraTMR = 1'b1; end
 
-            COMECO_JOGADA:    begin zeraE = 1'b1; end
             ESPERA_JOGADA:    begin end // Estado vazio
 
             REGISTRA_JOGADA:  begin registraR = 1'b1; end            

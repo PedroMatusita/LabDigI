@@ -1,41 +1,41 @@
-# Compile of randomizador.v failed with 3 errors.
-# 1 compiles, 2 failed with 3 errors.
-# Compile of randomizador.v failed with 3 errors.
-# Compile of random-cen1.v failed with 5 errors.
-# 2 compiles, 2 failed with 8 errors.
-# Compile of randomizador.v was successful.
-# Compile of random-cen1.v was successful.
+# Compile of comparador_tb.v was successful.
+# Compile of comparador_jog.v was successful.
 # 2 compiles, 0 failed with no errors.
-vsim -gui work.random_tb
-# vsim -gui work.random_tb 
-# Start time: 10:13:51 on Mar 10,2025
-# Loading work.random_tb
-# Loading work.random
+vsim -gui work.comparador_jog_tb
+# vsim -gui work.comparador_jog_tb 
+# Start time: 10:47:07 on Mar 10,2025
+# Loading work.comparador_jog_tb
+# Loading work.comparador_jog
 # WARNING: No extended dataflow license exists
 add wave -position insertpoint  \
-sim:/random_tb/clock_in \
-sim:/random_tb/clockPeriod \
-sim:/random_tb/entrada_in \
-sim:/random_tb/reset_in \
-sim:/random_tb/saida_out
+sim:/comparador_jog_tb/A_in \
+sim:/comparador_jog_tb/acerto_out \
+sim:/comparador_jog_tb/B_in \
+sim:/comparador_jog_tb/caso
 run -all
-# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/random-cen1.v(56)
-#    Time: 150 ns  Iteration: 0  Instance: /random_tb
-# Break in Module random_tb at C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/random-cen1.v line 56
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-run -all
-# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/random-cen1.v(56)
-#    Time: 150 ns  Iteration: 0  Instance: /random_tb
-# Break in Module random_tb at C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/random-cen1.v line 56
-restart -f
-run -all
-# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/random-cen1.v(56)
-#    Time: 150 ns  Iteration: 0  Instance: /random_tb
-# Break in Module random_tb at C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/random-cen1.v line 56
+# Fim da simulação
+# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/comparador_tb.v(61)
+#    Time: 70 ns  Iteration: 0  Instance: /comparador_jog_tb
+# Break in Module comparador_jog_tb at C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/comparador_tb.v line 61
+quit -sim
+vsim -gui work.comparador_jog_tb
+# End time: 10:47:58 on Mar 10,2025, Elapsed time: 0:00:51
+# Errors: 0, Warnings: 6
+# vsim -gui work.comparador_jog_tb 
+# Start time: 10:47:58 on Mar 10,2025
+# Loading work.comparador_jog_tb
+# Loading work.comparador_jog
+# WARNING: No extended dataflow license exists
 add wave -position insertpoint  \
-sim:/random_tb/clock_in \
-sim:/random_tb/clockPeriod \
-sim:/random_tb/entrada_in \
-sim:/random_tb/reset_in \
-sim:/random_tb/saida_out
+sim:/comparador_jog_tb/A_in \
+sim:/comparador_jog_tb/acerto_out \
+sim:/comparador_jog_tb/B_in \
+sim:/comparador_jog_tb/caso
+run
+# Fim da simulação
+# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/comparador_tb.v(61)
+#    Time: 70 ns  Iteration: 0  Instance: /comparador_jog_tb
+# Break in Module comparador_jog_tb at C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/comparador_tb.v line 61
+quit -sim
+# End time: 10:50:49 on Mar 10,2025, Elapsed time: 0:02:51
+# Errors: 0, Warnings: 1

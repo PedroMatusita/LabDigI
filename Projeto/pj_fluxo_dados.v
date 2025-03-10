@@ -36,7 +36,7 @@ module fluxo_dados (
     wire [3:0] s_endereco, s_memoria, s_botao;
     wire s_tem_jogada;
 
-    // Contador da Sequencia
+    // Contador de Acertos
     contador_163 ContAcertos (
         .clock(clock),
         .clr(~zeraA),
@@ -48,41 +48,50 @@ module fluxo_dados (
         .rco()
     );
 
-    // Contador de endereço
-    contador_163 ContEnd (
+    // Contador das rodadas
+    contador_163 ContRodada (
         .clock(clock),
-        .clr(~zeraE),
+        .clr(~zeraRod),
         .ld(1'b1),
         .ent(1'b1),
-        .enp(contaE),
+        .enp(contaRod),
         .D(1'b0),
-        .Q(s_endereco),
-        .rco(fimE)
+        .Q(s_rodada),
+        .rco()
+    );
+
+
+    // Randomizador
+    randomizador Rand (
+        .clock(clock),
+        .reset(),
+        .entrada(),
+        .saida()
     );
 
     // Comparadores
-    comparador_85 Comparador (
-        .A(s_memoria),
+    comparador_jog ComparadorJogada (
+        .A(), // indices
         .B(s_botao),
+        .acerto(botaoIgualMemoria)
+    );
+
+    comparador_85 ComparadorRodada (
+        .A(4'b0011), // 3 rodadas no final
+        .B(s_rodada),
         .AEBi(1'b1),
         .AGBi(1'b0),
         .ALBi(1'b0),
-        .ALBo(),
         .AGBo(),
-        .AEBo(botaoIgualMemoria)
-    );
-
-    comparador_jog ComparadorJogada (
-        .A(),
-        .B(),
-        .acerto()
+        .ALBo(),
+        .AEBo(rodadaIgualFinal)
     );
 
     // Memória ROM
     sync_rom_16x4 MemJogo (
         .clock(clock),
-        .address(s_endereco),
-        .data_out(s_memoria)
+        .address(),
+        .data_out()
     );
 
     // Registrador botoes
@@ -97,7 +106,7 @@ module fluxo_dados (
     // Detector de borda
     edge_detector detector (
         .clock(clock),
-        .reset(zeraE),
+        .reset(zeraRod),
         .sinal(s_tem_jogada),
         .pulso(jogada_feita)
     );

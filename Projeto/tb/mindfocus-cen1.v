@@ -1,6 +1,6 @@
 `timescale 1ns/1ns
 
-module circuito_exp6_tb_cen1;
+module mindfocus_cen1;
 
     // Sinais para conectar com o DUT
     reg        clock_in   = 1;
@@ -30,7 +30,6 @@ module circuito_exp6_tb_cen1;
    
     // Configuração do clock
     parameter clockPeriod = 1_000_000; // 1 ms, f = 1kHz
-    parameter COMECO_JOGADA = 9; // Estado que indica início da jogada
 
     // Identificação do caso de teste
     reg [31:0] caso = 0;
@@ -39,7 +38,7 @@ module circuito_exp6_tb_cen1;
     always #((clockPeriod / 2)) clock_in = ~clock_in;
 
     // Instanciação do DUT (Device Under Test)
-    circuito_exp6 dut (
+    jogo_mindfocus dut (
         .clock          ( clock_in    ),
         .reset          ( reset_in    ),
         .jogar          ( jogar_in    ),
@@ -62,32 +61,6 @@ module circuito_exp6_tb_cen1;
         .db_tem_jogada  ( db_tem_jogada_out  ),
         .db_timeout     ( db_timeout_out     )
     );
-
-    // Vetor de testes
-    reg [3:0] test_vector [0:15];
-    integer i, j;
-
-    // Procedimento de teste
-    initial begin
-        $display("Início da simulação");
-
-        // Inicializar vetor de testes
-        test_vector[0]  = 4'b0001;
-        test_vector[1]  = 4'b0010;
-        test_vector[2]  = 4'b0100;
-        test_vector[3]  = 4'b1000;
-        test_vector[4]  = 4'b0100;
-        test_vector[5]  = 4'b0010;
-        test_vector[6]  = 4'b0001;
-        test_vector[7]  = 4'b0001;
-        test_vector[8]  = 4'b0010;
-        test_vector[9]  = 4'b0010;
-        test_vector[10] = 4'b0100;
-        test_vector[11] = 4'b0100;
-        test_vector[12] = 4'b1000;
-        test_vector[13] = 4'b1000;
-        test_vector[14] = 4'b0001;
-        test_vector[15] = 4'b0100;
 
         // Condições iniciais
         caso       = 0;
