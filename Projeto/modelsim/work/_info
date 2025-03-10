@@ -1,0 +1,57 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_lite/20.1
+vrandom
+Z0 !s110 1741612423
+!i10b 1
+!s100 a]cNQVSBZi2F3Tfkb23[R0
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IR<z9T2C@Je_`dIG0DEZaY1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modelsim
+w1741611151
+8C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/randomizador.v
+FC:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/randomizador.v
+!i122 0
+L0 4 20
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1741612423.000000
+!s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/randomizador.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/randomizador.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+vrandom_tb
+R0
+!i10b 1
+!s100 ]]]E4_ATRTf?>TV_5foSY2
+R1
+IYOgXo]V_BCm2dWJUYgeeU2
+R2
+R3
+w1741612377
+8C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/random-cen1.v
+FC:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/random-cen1.v
+!i122 1
+L0 3 57
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/random-cen1.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/random-cen1.v|
+!i113 1
+R6
+R7

@@ -19,12 +19,13 @@ module jogo_mindfocus (
     output       ganhou, perdeu, pronto,
     output [3:0] leds,
                       
-    output       db_igual, db_clock, db_iniciar, db_fimseq, db_igualseq, db_igualjogada, db_tem_jogada, db_timeout,
+    output       db_igual, db_clock, db_iniciar, db_igualjogada, db_tem_jogada,
+
     output [6:0] db_contagem, db_memoria, db_estado, db_jogadafeita, db_acertos
 );
     /* Sinais internos */
     //Sinais de Controle
-    wire s_zeraR, s_zeraE, s_zeraS, s_zeraM, s_zeraTMR;
+    wire s_zeraR, s_zeraE, s_zeraA;
     wire s_registraR, s_registraM;
     wire s_contaE, s_contaS, s_contaTMR;
     wire s_fimE, s_fimS, s_fimTMR; 
