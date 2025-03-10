@@ -6,101 +6,19 @@
 # Compile of mux2x1_n.v was successful.
 # Compile of registrador_4.v was successful.
 # Compile of sync_rom_16x4.v was successful.
+# Compile of circuito_exp7_tb-cen1.v was successful.
+# Compile of circuito_exp7_tb-cen2.v was successful.
+# Compile of circuito_exp7_tb-cen3.v was successful.
 # Compile of exp7_fluxo_dados.v was successful.
 # Compile of exp7_unidade_controle.v was successful.
 # Compile of jogo_desafio_memoria.v was successful.
-# Compile of circuito_exp7_tb-cen1.v was successful.
-# Compile of circuito_exp7_tb-cen2.v was successful.
-# 13 compiles, 0 failed with no errors.
-vsim -gui work.circuito_exp7_tb_cen1
-# vsim -gui work.circuito_exp7_tb_cen1 
-# Start time: 11:20:49 on Feb 16,2025
-# Loading work.circuito_exp7_tb_cen1
-# Loading work.jogo_desafio_memoria
-# Loading work.fluxo_dados
-# Loading work.contador_163
-# Loading work.comparador_85
-# Loading work.sync_rom_16x4
-# Loading work.registrador_4
-# Loading work.edge_detector
-# Loading work.contador_m
-# Loading work.mux2x1_n
-# Loading work.unidade_controle
-# Loading work.hexa7seg
-# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/modules/contador_163.v(16).
-#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp7_tb_cen1/dut/fluxo_dados/ContSeq File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/exp7_fluxo_dados.v Line: 44
-# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/modules/contador_163.v(16).
-#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp7_tb_cen1/dut/fluxo_dados/ContEnd File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/exp7_fluxo_dados.v Line: 56
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'unidade_controle'.  Expected 25, found 24.
-#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp7_tb_cen1/dut/unidade_controle File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/jogo_desafio_memoria.v Line: 50
-# ** Warning: (vsim-3722) C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/jogo_desafio_memoria.v(50): [TFMPC] - Missing connection for port 'zeraL'.
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint  \
-sim:/circuito_exp7_tb_cen1/caso
-add wave -position insertpoint  \
-sim:/circuito_exp7_tb_cen1/jogar_in
-add wave -position insertpoint  \
-sim:/circuito_exp7_tb_cen1/jogar_in
-add wave -position insertpoint  \
-sim:/circuito_exp7_tb_cen1/reset_in
-add wave -position insertpoint  \
-sim:/circuito_exp7_tb_cen1/ganhou_out
-add wave -position insertpoint  \
-sim:/circuito_exp7_tb_cen1/perdeu_out
-add wave -position insertpoint  \
-sim:/circuito_exp7_tb_cen1/pronto_out
-run -all
-# Início da simulação
-# Fim da simulação
-# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/tb/circuito_exp7_tb-cen1.v(320)
-#    Time: 159373500100 ns  Iteration: 0  Instance: /circuito_exp7_tb_cen1
-# Break in Module circuito_exp7_tb_cen1 at C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/tb/circuito_exp7_tb-cen1.v line 320
-quit -sim
-# End time: 11:22:19 on Feb 16,2025, Elapsed time: 0:01:30
-# Errors: 0, Warnings: 11
-vsim -gui work.circuito_exp7_tb_cen2
-# vsim -gui work.circuito_exp7_tb_cen2 
-# Start time: 11:22:23 on Feb 16,2025
-# Loading work.circuito_exp7_tb_cen2
-# Loading work.jogo_desafio_memoria
-# Loading work.fluxo_dados
-# Loading work.contador_163
-# Loading work.comparador_85
-# Loading work.sync_rom_16x4
-# Loading work.registrador_4
-# Loading work.edge_detector
-# Loading work.contador_m
-# Loading work.mux2x1_n
-# Loading work.unidade_controle
-# Loading work.hexa7seg
-# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/modules/contador_163.v(16).
-#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp7_tb_cen2/dut/fluxo_dados/ContSeq File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/exp7_fluxo_dados.v Line: 44
-# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'D'. The port definition is at: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/modules/contador_163.v(16).
-#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp7_tb_cen2/dut/fluxo_dados/ContEnd File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/exp7_fluxo_dados.v Line: 56
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'unidade_controle'.  Expected 25, found 24.
-#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp7_tb_cen2/dut/unidade_controle File: C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/jogo_desafio_memoria.v Line: 50
-# ** Warning: (vsim-3722) C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/jogo_desafio_memoria.v(50): [TFMPC] - Missing connection for port 'zeraL'.
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint  \
-sim:/circuito_exp7_tb_cen2/caso
-add wave -position insertpoint  \
-sim:/circuito_exp7_tb_cen2/jogar_in
-add wave -position insertpoint  \
-sim:/circuito_exp7_tb_cen2/reset_in
-add wave -position insertpoint  \
-sim:/circuito_exp7_tb_cen2/ganhou_out
-add wave -position insertpoint  \
-sim:/circuito_exp7_tb_cen2/perdeu_out
-add wave -position insertpoint  \
-sim:/circuito_exp7_tb_cen2/pronto_out
-add wave -position insertpoint  \
-sim:/circuito_exp7_tb_cen2/db_timeout_out
-run -all
-# Início da simulação
-# Fim da simulação
-# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/tb/circuito_exp7_tb-cen2.v(172)
-#    Time: 4257565508 ns  Iteration: 0  Instance: /circuito_exp7_tb_cen2
-# Break in Module circuito_exp7_tb_cen2 at C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/tb/circuito_exp7_tb-cen2.v line 172
-run -continue
-# End time: 11:35:47 on Feb 16,2025, Elapsed time: 0:13:24
-# Errors: 0, Warnings: 5
+# 14 compiles, 0 failed with no errors.
+vsim -gui circuito_exp7_tb_cen3
+# vsim -gui circuito_exp7_tb_cen3 
+# Start time: 09:05:48 on Feb 17,2025
+# ** Error: (vsim-3170) Could not find 'circuito_exp7_tb_cen3'.
+#         Searched libraries:
+#             C:/Users/matus/Desktop/Lab Dig/LabDigI/Exp7/modp1/work
+# Error loading design
+# End time: 09:05:48 on Feb 17,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 15
