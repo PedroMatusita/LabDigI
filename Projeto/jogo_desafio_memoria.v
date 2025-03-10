@@ -10,7 +10,7 @@
  * ------------------------------------------------------------------
  */
 
-module jogo_desafio_memoria (
+module jogo_mindfocus (
     input        clock, reset,
                       
     input        jogar,
@@ -20,7 +20,7 @@ module jogo_desafio_memoria (
     output [3:0] leds,
                       
     output       db_igual, db_clock, db_iniciar, db_fimseq, db_igualseq, db_igualjogada, db_tem_jogada, db_timeout,
-    output [6:0] db_contagem, db_memoria, db_estado, db_jogadafeita, db_sequencia
+    output [6:0] db_contagem, db_memoria, db_estado, db_jogadafeita, db_acertos
 );
     /* Sinais internos */
     //Sinais de Controle
@@ -30,21 +30,23 @@ module jogo_desafio_memoria (
     wire s_fimE, s_fimS, s_fimTMR; 
     //Sinais de depuração
     wire s_igual, s_igualseq, s_igualjogada, s_jogada_feita, s_timeout;
-    wire [3:0]  s_sequencia, s_contagem, s_memoria, s_jogada, s_estado;  
+    wire [3:0]  s_sequencia, s_contagem, s_memoria, s_jogada, s_estado, s_acertos;  
     
     fluxo_dados fluxo_dados (
         .clock(clock),
                              
         .botoes(botoes),
                              
-        .zeraR(s_zeraR), .zeraE(s_zeraE), .zeraS(s_zeraS), .zeraM(s_zeraM), .zeraTMR(s_zeraTMR),                     
-        .registraR(s_registraR), .registraM(s_registraM),
-        .contaE(s_contaE), .contaS(s_contaS), .contaTMR(s_contaTMR),
-        .fimE(s_fimE), .fimS(s_fimS), .fimTMR(s_fimTMR),
+        .zeraR(s_zeraR), .zeraE(s_zeraE), .zeraA(),                     
+        .registraR(s_registraR),
+        .contaE(s_contaE), .contaA(), 
+        .fimE(s_fimE),
         
-        .jogada_feita(s_jogada_feita), .chavesIgualMemoria(s_igualjogada), .enderecoIgualSequencia(s_igualseq), .enderecoMenorOuIgualSequencia(), .timeout(s_timeout),
-                
-        .db_tem_jogada(db_tem_jogada), .db_contagem(s_contagem), .db_jogada(s_jogada), .db_memoria(s_memoria), .db_sequencia(s_sequencia)
+        .jogada_feita(s_jogada_feita), .botaoIgualMemoria(),
+
+        .acertos(s_acertos),
+
+        .db_tem_jogada(db_tem_jogada), .db_contagem(s_contagem), .db_jogada(s_jogada), .db_memoria(s_memoria)
     );
 
     unidade_controle unidade_controle (
@@ -81,9 +83,9 @@ module jogo_desafio_memoria (
         .display(db_jogadafeita)
     ); 
 
-    hexa7seg display_sequencia ( //D3
-        .hexa(s_sequencia),   
-        .display(db_sequencia)
+    hexa7seg display_acertos ( //D3
+        .hexa(s_acertos),   
+        .display(db_acertos)
     ); 
 
     hexa7seg display_estado ( // D5
@@ -95,7 +97,6 @@ module jogo_desafio_memoria (
     assign db_iniciar = jogar;
     assign db_timeout = s_timeout;
     assign db_igualjogada = s_igualjogada;
-    assign db_igualseq = s_igualseq;
    
    
 endmodule
