@@ -55,8 +55,56 @@ R5
 !i113 1
 R6
 R7
+vGameRam
+Z8 !s110 1742138735
+!i10b 1
+!s100 ;eLHAoIz7<_@V7bn^?JV;2
+R1
+ISBk:6=de3_4^24Jdl19PP0
+R2
+R3
+w1742138729
+8C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/GameRam.v
+FC:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/GameRam.v
+!i122 20
+L0 1 41
+R4
+r1
+!s85 0
+31
+Z9 !s108 1742138735.000000
+!s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/GameRam.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/GameRam.v|
+!i113 1
+R6
+R7
+n@game@ram
+vGameRam_tb
+R8
+!i10b 1
+!s100 kJ[YKTRFSE@Mi4o7h?If;1
+R1
+ImCE?fNeOgb9^iPXLZK8c^1
+R2
+R3
+w1742138635
+8C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/gameram_tb.v
+FC:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/gameram_tb.v
+!i122 19
+L0 3 69
+R4
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/gameram_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/gameram_tb.v|
+!i113 1
+R6
+R7
+n@game@ram_tb
 vgerador_indices
-Z8 !s110 1741618031
+Z10 !s110 1741618031
 !i10b 1
 !s100 A@@[aZOHoUVNF14WR82Jm1
 R1
@@ -72,14 +120,14 @@ R4
 r1
 !s85 0
 31
-Z9 !s108 1741618031.000000
+Z11 !s108 1741618031.000000
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/gerador_indices.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/gerador_indices.v|
 !i113 1
 R6
 R7
 vrandom
-Z10 !s110 1741612423
+Z12 !s110 1741612423
 !i10b 1
 !s100 a]cNQVSBZi2F3Tfkb23[R0
 R1
@@ -95,14 +143,14 @@ R4
 r1
 !s85 0
 31
-Z11 !s108 1741612423.000000
+Z13 !s108 1741612423.000000
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/randomizador.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/randomizador.v|
 !i113 1
 R6
 R7
 vrandom_tb
-R10
+R12
 !i10b 1
 !s100 ]]]E4_ATRTf?>TV_5foSY2
 R1
@@ -118,14 +166,38 @@ R4
 r1
 !s85 0
 31
-R11
+R13
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/random-cen1.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/random-cen1.v|
 !i113 1
 R6
 R7
+vSelectGameIndex
+!s110 1742139128
+!i10b 1
+!s100 ozbP5S7?FPZ1nPbFGbM;l1
+R1
+ILN73`Klo7CC7Kl>^NzcoK1
+R2
+R3
+w1742135257
+8C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/SelectGameIndex.v
+FC:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/SelectGameIndex.v
+!i122 23
+L0 1 26
+R4
+r1
+!s85 0
+31
+Z14 !s108 1742139128.000000
+!s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/SelectGameIndex.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/SelectGameIndex.v|
+!i113 1
+R6
+R7
+n@select@game@index
 vtb_gerador_indices
-R8
+R10
 !i10b 1
 !s100 m_?lXZ7nI^G51289N>K1g1
 R1
@@ -141,9 +213,33 @@ R4
 r1
 !s85 0
 31
-R9
+R11
 !s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/indices-cen1.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/indices-cen1.v|
 !i113 1
 R6
 R7
+vtb_SelectGameIndex
+!s110 1742139129
+!i10b 1
+!s100 `4Y>54;G>mf7IGg<E7PN71
+R1
+I?9f4`CZFSU9C47`D2_UUT2
+R2
+R3
+w1742139116
+8C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/selectindex_tb.v
+FC:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/selectindex_tb.v
+!i122 24
+L0 3 59
+R4
+r1
+!s85 0
+31
+R14
+!s107 C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/selectindex_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/selectindex_tb.v|
+!i113 1
+R6
+R7
+ntb_@select@game@index

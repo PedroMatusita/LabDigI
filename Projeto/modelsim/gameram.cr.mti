@@ -1,0 +1,15 @@
+{C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/GameRam.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/GameRam.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module GameRam
+
+Top level modules:
+	GameRam
+
+} {} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/gameram_tb.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/gameram_tb.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module GameRam_tb
+
+Top level modules:
+	GameRam_tb
+
+} {} {}}
