@@ -1,0 +1,15 @@
+{C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/comparador_tb.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/comparador_tb.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module comparador_jog_tb
+
+Top level modules:
+	comparador_jog_tb
+
+} {} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/comparador_jog.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/comparador_jog.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module comparador_jog
+
+Top level modules:
+	comparador_jog
+
+} {} {}}

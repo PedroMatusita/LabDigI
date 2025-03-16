@@ -21,6 +21,7 @@ module unidade_controle (
     //Jogadas
     parameter ESPERA_JOGADA = 7;   
     parameter COMPARA_JOGADA = 8;
+    parameter REGISTRA_JOGADA = 9;
     //Fim de Jogo
     parameter FIM_JOGO = 15;    
 
@@ -38,16 +39,18 @@ module unidade_controle (
     // Correção dos estados
     always @* begin
         case (Eatual)
-            INICIAL:          Eprox = iniciar ? PROXIMA_RODADA : INICIAL;
+            INICIAL:            Eprox = iniciar ? PROXIMA_RODADA : INICIAL;
 
-            PROXIMA_RODADA: Eprox = CARREGA_DADOS;
-            MOSTRA_PERGUNTA:Eprox = fimTMR ? ESPERA_JOGADA : MOSTRA_PERGUNTA;          
+            PROXIMA_RODADA:     Eprox = CARREGA_DADOS;
+            MOSTRA_PERGUNTA:    Eprox = fimTMR ? ZERA_TIMER : MOSTRA_PERGUNTA;          
+            ZERA_TIMER:         Eprox = ESPERA_JOGADA;          
           
-            ESPERA_JOGADA:    Eprox = volta ? MOSTRA_PERGUNTA : (jogada ? COMPARA_JOGADA : ESPERA_JOGADA);
+            ESPERA_JOGADA:      Eprox = volta ? MOSTRA_PERGUNTA : (jogada ? REGISTRA_JOGADA : ESPERA_JOGADA);
+            REGISTRA_JOGADA:    Eprox = COMPARA_JOGADA;
             COMPARA_JOGADA:     Eprox = fim ? FIM_JOGO : PROXIMA_RODADA;
 
             FIM_JOGO:           Eprox = iniciar ? INICIAL : FIM_JOGO; // fim do jogo
-            default:          Eprox = INICIAL; 
+            default:            Eprox = INICIAL; 
         endcase
         db_estado = Eatual;
     end
@@ -72,20 +75,19 @@ module unidade_controle (
 
         // Seta valores dependendo do Estado
         case (Eatual)
-            INICIAL:          begin zeraR = 1'b1; zeraS = 1'b1; zeraM = 1'b1; zeraE = 1'b1; end
-            PROXIMA_RODADA:   begin contaS = 1'b1; zeraE = 1'b1; end
-            MOSTRA_PERGUNTA:  begin end // Estado vazio, mas precisa estar definido
+            INICIAL:             begin zeraR = 1'b1; zeraS = 1'b1; zeraM = 1'b1; zeraE = 1'b1; end
+            PROXIMA_RODADA:      begin contaS = 1'b1; zeraE = 1'b1; end
+            MOSTRA_PERGUNTA:     begin end // Estado vazio, mas precisa estar definido
 
-            ZERA_TIMER:    begin zeraTMR = 1'b1; end
+            ZERA_TIMER:          begin zeraTMR = 1'b1; end
 
-            ESPERA_JOGADA:    begin end // Estado vazio
+            ESPERA_JOGADA:       begin end // Estado vazio
 
-            REGISTRA_JOGADA:  begin registraR = 1'b1; end            
-            COMPARA_JOGADA:   begin end // Estado vazio
-            PROXIMA_JOGADA:     begin contaE = 1'b1; end
+            REGISTRA_JOGADA:     begin registraR = 1'b1; end            
+            COMPARA_JOGADA:      begin end // Estado vazio
+            PROXIMA_JOGADA:      begin contaE = 1'b1; end
 
-            ACERTO:           begin acertou = 1'b1; pronto = 1'b1; end
-            ERRO:             begin errou = 1'b1; pronto = 1'b1; end
+            FIM_JOGO:            begin errou = 1'b1; pronto = 1'b1; end
         endcase  
      
     end

@@ -1,0 +1,16 @@
+|comparador_jog
+A[0] => Equal3.IN1
+A[1] => Equal3.IN0
+A[2] => Equal2.IN1
+A[3] => Equal2.IN0
+A[4] => Equal1.IN1
+A[5] => Equal1.IN0
+A[6] => Equal0.IN1
+A[7] => Equal0.IN0
+B[0] => CS4.IN1
+B[1] => CS3.IN1
+B[2] => CS2.IN1
+B[3] => CS1.IN1
+acerto <= acerto.DB_MAX_OUTPUT_PORT_TYPE
+
+

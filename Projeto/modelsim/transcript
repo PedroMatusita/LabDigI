@@ -1,41 +1,36 @@
-# Compile of comparador_tb.v was successful.
-# Compile of comparador_jog.v was successful.
-# 2 compiles, 0 failed with no errors.
-vsim -gui work.comparador_jog_tb
-# vsim -gui work.comparador_jog_tb 
-# Start time: 10:47:07 on Mar 10,2025
-# Loading work.comparador_jog_tb
-# Loading work.comparador_jog
+vsim -gui work.tb_gerador_indices
+# vsim -gui work.tb_gerador_indices 
+# Start time: 11:48:03 on Mar 10,2025
+# Loading work.tb_gerador_indices
+# Loading work.gerador_indices
 # WARNING: No extended dataflow license exists
 add wave -position insertpoint  \
-sim:/comparador_jog_tb/A_in \
-sim:/comparador_jog_tb/acerto_out \
-sim:/comparador_jog_tb/B_in \
-sim:/comparador_jog_tb/caso
+sim:/tb_gerador_indices/clock \
+sim:/tb_gerador_indices/entrada \
+sim:/tb_gerador_indices/perm \
+sim:/tb_gerador_indices/ready \
+sim:/tb_gerador_indices/reset
 run -all
-# Fim da simulação
-# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/comparador_tb.v(61)
-#    Time: 70 ns  Iteration: 0  Instance: /comparador_jog_tb
-# Break in Module comparador_jog_tb at C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/comparador_tb.v line 61
-quit -sim
-vsim -gui work.comparador_jog_tb
-# End time: 10:47:58 on Mar 10,2025, Elapsed time: 0:00:51
-# Errors: 0, Warnings: 6
-# vsim -gui work.comparador_jog_tb 
-# Start time: 10:47:58 on Mar 10,2025
-# Loading work.comparador_jog_tb
-# Loading work.comparador_jog
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint  \
-sim:/comparador_jog_tb/A_in \
-sim:/comparador_jog_tb/acerto_out \
-sim:/comparador_jog_tb/B_in \
-sim:/comparador_jog_tb/caso
-run
-# Fim da simulação
-# ** Note: $stop    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/comparador_tb.v(61)
-#    Time: 70 ns  Iteration: 0  Instance: /comparador_jog_tb
-# Break in Module comparador_jog_tb at C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/comparador_tb.v line 61
-quit -sim
-# End time: 10:50:49 on Mar 10,2025, Elapsed time: 0:02:51
+# Time = 0 | reset = 1 | entrada =     0 | perm = 00000000 | ready = 0
+# Time = 20000 | reset = 0 | entrada =     0 | perm = 00000000 | ready = 0
+# Time = 25000 | reset = 0 | entrada =     0 | perm = 00011011 | ready = 1
+# Time = 40000 | reset = 0 | entrada =    31 | perm = 00011011 | ready = 1
+# Time = 45000 | reset = 0 | entrada =    31 | perm = 00000000 | ready = 0
+# Time = 60000 | reset = 0 | entrada =     0 | perm = 00000000 | ready = 0
+# Time = 65000 | reset = 0 | entrada =     0 | perm = 00011011 | ready = 1
+# Time = 80000 | reset = 0 | entrada =     1 | perm = 00011011 | ready = 1
+# Time = 85000 | reset = 0 | entrada =     1 | perm = 00011110 | ready = 1
+# Time = 100000 | reset = 0 | entrada =     3 | perm = 00011110 | ready = 1
+# Time = 105000 | reset = 0 | entrada =     3 | perm = 00101101 | ready = 1
+# Time = 120000 | reset = 0 | entrada =    23 | perm = 00101101 | ready = 1
+# Time = 125000 | reset = 0 | entrada =    23 | perm = 11100100 | ready = 1
+# Time = 140000 | reset = 0 | entrada =    24 | perm = 11100100 | ready = 1
+# Time = 145000 | reset = 0 | entrada =    24 | perm = 00000000 | ready = 0
+# Time = 160000 | reset = 0 | entrada =    12 | perm = 00000000 | ready = 0
+# Time = 165000 | reset = 0 | entrada =    12 | perm = 10000111 | ready = 1
+# ** Note: $finish    : C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/indices-cen1.v(67)
+#    Time: 180 ns  Iteration: 0  Instance: /tb_gerador_indices
+# 1
+# Break in Module tb_gerador_indices at C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/indices-cen1.v line 67
+# End time: 13:37:17 on Mar 10,2025, Elapsed time: 1:49:14
 # Errors: 0, Warnings: 1

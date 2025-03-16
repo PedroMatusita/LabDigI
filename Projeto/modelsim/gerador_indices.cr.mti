@@ -1,0 +1,15 @@
+{C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/gerador_indices.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/gerador_indices.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module gerador_indices
+
+Top level modules:
+	gerador_indices
+
+} {} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/indices-cen1.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/indices-cen1.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module tb_gerador_indices
+
+Top level modules:
+	tb_gerador_indices
+
+} {} {}}
