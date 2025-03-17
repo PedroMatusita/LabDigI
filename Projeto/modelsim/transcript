@@ -22,3 +22,6 @@ run -all
 #    Time: 40 ns  Iteration: 0  Instance: /tb_SelectGameIndex
 # 1
 # Break in Module tb_SelectGameIndex at C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/selectindex_tb.v line 59
+quit -sim
+# End time: 19:18:50 on Mar 16,2025, Elapsed time: 6:41:58
+# Errors: 0, Warnings: 1

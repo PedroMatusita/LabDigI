@@ -64,15 +64,6 @@ module fluxo_dados (
         .rco()
     );
 
-
-    // Randomizador
-    randomizador Rand (
-        .clock(clock),
-        .reset(),
-        .entrada(),
-        .saida()
-    );
-
     // Comparadores
     comparador_jog ComparadorJogada (
         .A(), // indices
@@ -134,12 +125,34 @@ module fluxo_dados (
         .OUT(s_seed),
     );                                      
 
+
+    // Randomizador
     lfsr randomizador (
          .clock(clock),
          .reset(reset),              
          .entrada(s_seed),
          .saida(s_numero_aleatorio)
     );
+
+//    GameRam MemoriaJogo (
+//         .clock(clock),
+//         .gameIndex(),
+//         .extGamesPlayed(),
+//         .extGameArray(),
+//         .loadRAM(),
+//         .updateRam(),
+//         .played(),
+//         .gameLocation()
+//     );
+
+//     SelectGameIndex SelecionaJogo (
+//         .clock(clock),
+//         .gameArray(),
+//         .randomNumber(),
+//         .gameIndex(),
+//         .loadRAM(),
+//         .valid()
+//     );
    
    
     // Lógica combinacional

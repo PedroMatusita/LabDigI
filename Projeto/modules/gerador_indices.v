@@ -2,16 +2,16 @@
 // Se Aleatorio % 32 < 24 retorna uma permutacao da memoria e da ready, se nao, retorna 0 e nao da ready
 
 module gerador_indices(
-              input         clock, reset;
-              input  [15:0] entrada;
+              input         clock, reset,
+              input  [15:0] entrada,
 
-              output reg [7:0] perm;
-              output reg ready;
+              output reg [7:0] perm,
+              output reg ready
     );
    
     always @(posedge clock or posedge reset) begin
         if (reset || entrada[4:0] > 5'd24) begin
-            indices <= 8'b0;
+            perm <= 8'b0;
             ready   <= 1'b0; 
         end else begin
             case (entrada[4:0])
@@ -44,4 +44,4 @@ module gerador_indices(
         end 
     end
 
-end module 
+endmodule 

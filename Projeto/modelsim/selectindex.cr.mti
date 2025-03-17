@@ -1,15 +1,15 @@
-{C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/selectindex_tb.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/selectindex_tb.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module tb_SelectGameIndex
-
-Top level modules:
-	tb_SelectGameIndex
-
-} {} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/SelectGameIndex.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/SelectGameIndex.v}
+{C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/SelectGameIndex.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/modules/SelectGameIndex.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module SelectGameIndex
 
 Top level modules:
 	SelectGameIndex
+
+} {} {}} {C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/selectindex_tb.v} {1 {vlog -work work -stats=none {C:/Users/matus/Desktop/Lab Dig/LabDigI/Projeto/tb/selectindex_tb.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module tb_SelectGameIndex
+
+Top level modules:
+	tb_SelectGameIndex
 
 } {} {}}
