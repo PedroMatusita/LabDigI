@@ -13,11 +13,11 @@
 module jogo_mindfocus (
     input        clock, reset,
                       
-    input        jogar,
+    input        iniciar,
     input [3:0]  botoes,
                       
-    output       ganhou, perdeu, pronto,
-    output [3:0] leds,
+    output       pronto,
+    output [3:0] acertos,
                       
     output       db_igual, db_clock, db_iniciar, db_igualjogada, db_tem_jogada,
 
@@ -38,29 +38,30 @@ module jogo_mindfocus (
                              
         .botoes(botoes),
                              
-        .zeraR(s_zeraR), .zeraE(s_zeraE), .zeraA(),                     
-        .registraR(s_registraR),
-        .contaE(s_contaE), .contaA(), 
-        .fimE(s_fimE),
+        .zeraA(), .zeraRod(),.zeraR(), .zeraM(), .zeraI(),                     
+        .registraR(s_registraR), .registraM(),
+        .contaRod(), .contaA(), .contaI(),
         
         .jogada_feita(s_jogada_feita), .botaoIgualMemoria(),
+        rodadaIgualFinal(),
 
-        .acertos(s_acertos),
+        .acertos(acertos),
 
-        .db_tem_jogada(db_tem_jogada), .db_contagem(s_contagem), .db_jogada(s_jogada), .db_memoria(s_memoria)
+        .db_tem_jogada(db_tem_jogada), 
+        .db_indices(),
+        .db_contagem(s_contagem), .db_jogada(s_jogada), .db_memoria(s_memoria)
     );
 
     unidade_controle unidade_controle (
-        .clock(clock), .reset(reset), .iniciar(jogar),
+        .clock(clock), .reset(reset), .iniciar(iniciar),
         
-        .jogada(s_jogada_feita), .igual(s_igualjogada), .timeout(s_timeout), .enderecoIgualSequencia(s_igualseq), 
-        
-        .fimE(s_fimE), .fimS(s_fimS), .fimTMR(s_fimTMR),        
-        .zeraR(s_zeraR), .zeraE(s_zeraE), .zeraS(s_zeraS), .zeraM(s_zeraM), .zeraTMR(s_zeraTMR),        
-        .registraR(s_registraR), .registraM(s_registraM),
-        .contaE(s_contaE), .contaS(s_contaS), .contaTMR(s_contaTMR),
+        .jogada_feita(s_jogada_feita), .botaoIgualMemoria(), .rodadaIgualFinal(), 
+              
+        .zeraR(), .zeraRod(), .zeraA(), .zeraM(), .zeraI(),        
+        .registraR(), .registraM(),
+        .contaRod(), .contaA(), .contaI(),
                                       
-        .acertou(ganhou), .errou(perdeu), .pronto(pronto),
+        .pronto(pronto),
         
         .db_estado(s_estado)
     );
