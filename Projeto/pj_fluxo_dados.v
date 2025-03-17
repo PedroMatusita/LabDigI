@@ -18,16 +18,17 @@ module fluxo_dados (
     // Dados                
     input [3:0]  botoes,
     // Controle     
-    input        zeraA, zeraE, zeraR,  // zerar
-    input        registraR,               // registrar
-    input        contaE, contaA             // contar
-    output       fimE,                   // fim
+    input        zeraA, zeraRod, zeraR, zeraM, zeraI  // zerar
+    input        registraR, registraM               // registrar
+    input        contaRod, contaA, contaI             // contar
+    // output       fimE,                   // fim
 
-    output       botaoIgualMemoria, jogada_feita, 
+    output       botaoIgualMemoria, jogada_feita, rodadaIgualFinal 
     // Saída
     output [3:0] acertos,
     //Depuracao
     output       db_tem_jogada,
+    output [7:0] db_indices,
     output [3:0] db_contagem, db_jogada, db_memoria
 );
 
@@ -39,7 +40,8 @@ module fluxo_dados (
     // Sinais internos
     wire [3:0] s_endereco, s_memoria, s_botao;
     wire s_tem_jogada;
-    wire [15:0] s_seed, s_numero_aletorio, s_contador_jogada, s_perm, s_indice;
+    wire [15:0] s_seed, s_numero_aletorio, s_contador_jogada;
+    wire [7:0]  s_perm, s_indice;
 
     // Contador de Acertos
     contador_163 ContAcertos (
@@ -67,7 +69,7 @@ module fluxo_dados (
 
     // Comparadores
     comparador_jog ComparadorJogada (
-        .A(), // indices
+        .A(s_indice), 
         .B(s_botao),
         .acerto(botaoIgualMemoria)
     );
@@ -83,12 +85,12 @@ module fluxo_dados (
         .AEBo(rodadaIgualFinal)
     );
 
-    // Memória ROM
-    sync_rom_16x4 MemJogo (
-        .clock(clock),
-        .address(),
-        .data_out()
-    );
+    // // Memória ROM
+    // sync_rom_16x4 MemJogo (
+    //     .clock(clock),
+    //     .address(),
+    //     .data_out()
+    // );
 
     // Registrador botoes
     registrador_4 RegBotoes (
@@ -103,15 +105,15 @@ module fluxo_dados (
     edge_detector detector (
         .clock(clock),
         .reset(zeraRod),
-        .sinal(s_tem_jogada),
+        .sinal(db_tem_jogada),
         .pulso(jogada_feita)
     );
 
     contador_m #(.M(65536), .N(16)) contador_tempo_jogada (
         .clock(clock), 
         .zera_s(),
-        .zera_as(),
-        .conta(),             
+        .zera_as(zeraI),
+        .conta(contaI),             
         .Q(s_contador_jogada),
         .fim(),
         .meio()
@@ -145,10 +147,10 @@ module fluxo_dados (
         .ready()
     );
 
-    registrador_m #(.BITS(16)) RegistradorIndice (
+    registrador_m #(.BITS(8)) RegistradorIndice (
         .clock(clock),
-        .clear(),
-        .enable(),
+        .clear(zeraM),
+        .enable(registraM),
         .D(s_perm),
         .Q(s_indice)
     );
@@ -180,6 +182,6 @@ module fluxo_dados (
     // Sinais de depuração
     assign db_jogada = s_botao;
     assign db_contagem = s_endereco;
-    assign db_tem_jogada = s_tem_jogada;
+    assign db_indices = s_indice;
   
 endmodule
