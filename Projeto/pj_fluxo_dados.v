@@ -39,6 +39,7 @@ module fluxo_dados (
     // Sinais internos
     wire [3:0] s_endereco, s_memoria, s_botao;
     wire s_tem_jogada;
+    wire [15:0] s_seed, s_numero_aletorio, s_contador_jogada, s_perm, s_indice;
 
     // Contador de Acertos
     contador_163 ContAcertos (
@@ -106,7 +107,6 @@ module fluxo_dados (
         .pulso(jogada_feita)
     );
 
-    wire [15:0] s_seed, s_numero_aletorio, s_contador_jogada;
     contador_m #(.M(65536), .N(16)) contador_tempo_jogada (
         .clock(clock), 
         .zera_s(),
@@ -132,6 +132,25 @@ module fluxo_dados (
          .reset(reset),              
          .entrada(s_seed),
          .saida(s_numero_aleatorio)
+    );
+
+
+    //Índices
+    gerador_indices GeradorIndices (
+        .clock(clock),
+        .reset(),
+        .entrada(s_numero_aleatorio),
+
+        .perm(s_perm),
+        .ready()
+    );
+
+    registrador_m #(.BITS(16)) RegistradorIndice (
+        .clock(clock),
+        .clear(),
+        .enable(),
+        .D(s_perm),
+        .Q(s_indice)
     );
 
 //    GameRam MemoriaJogo (
