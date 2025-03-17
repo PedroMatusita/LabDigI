@@ -47,11 +47,13 @@ module unidade_controle (
             INICIAL:            Eprox = iniciar ? INICIO_JOGO : INICIAL;
             INICIO_JOGO:        Eprox = PROXIMA_RODADA;
 
-            PROXIMA_RODADA:     Eprox = CARREGA_DADOS;
-            MOSTRA_PERGUNTA:    Eprox = fimTMR ? ZERA_TIMER : MOSTRA_PERGUNTA;          
+            PROXIMA_RODADA:     Eprox = MOSTRA_PERGUNTA;
+            // MOSTRA_PERGUNTA:    Eprox =  ? ZERA_TIMER : MOSTRA_PERGUNTA;   implementar a troca de imagem de pergunta
+            MOSTRA_PERGUNTA:    Eprox = ESPERA_JOGADA;       
             ZERA_TIMER:         Eprox = ESPERA_JOGADA;          
           
-            ESPERA_JOGADA:      Eprox = volta ? MOSTRA_PERGUNTA : (jogada ? REGISTRA_JOGADA : ESPERA_JOGADA);
+            // ESPERA_JOGADA:      Eprox = volta ? MOSTRA_PERGUNTA : (jogada ? REGISTRA_JOGADA : ESPERA_JOGADA);
+            ESPERA_JOGADA:      Eprox = jogada_feita ? REGISTRA_JOGADA : ESPERA_JOGADA;
             REGISTRA_JOGADA:    Eprox = COMPARA_JOGADA;
             COMPARA_JOGADA:     Eprox = botaoIgualMemoria ? ACERTO : (rodadaIgualFinal ? FIM_JOGO : PROXIMA_RODADA);
             ACERTO:             Eprox = rodadaIgualFinal ? FIM_JOGO : PROXIMA_RODADA;
@@ -97,8 +99,8 @@ module unidade_controle (
 
             REGISTRA_JOGADA:     begin registraR = 1'b1; end            
             COMPARA_JOGADA:      begin contaA = 1'b1; end // Estado vazio
-            ACERTO:              begin contaA = 1'b1 end 
-            
+            ACERTO:              begin contaA = 1'b1; end 
+
             PROXIMA_JOGADA:      begin contaRod = 1'b1; end
 
             FIM_JOGO:            begin zeraI = 1'b1; pronto = 1'b1; end
