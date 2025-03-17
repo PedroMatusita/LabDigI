@@ -25,12 +25,11 @@ module jogo_mindfocus (
 );
     /* Sinais internos */
     //Sinais de Controle
-    wire s_zeraR, s_zeraE, s_zeraA;
+    wire s_zeraA, s_zeraRod, s_zeraR, s_zeraM, s_zeraI;
     wire s_registraR, s_registraM;
-    wire s_contaE, s_contaS, s_contaTMR;
-    wire s_fimE, s_fimS, s_fimTMR; 
+    wire s_contaRod, s_contaA, s_contaI;
     //Sinais de depuração
-    wire s_igual, s_igualseq, s_igualjogada, s_jogada_feita, s_timeout;
+    wire s_botaoIgual, s_rodadaIgual, s_jogada_feita;
     wire [3:0]  s_sequencia, s_contagem, s_memoria, s_jogada, s_estado, s_acertos;  
     
     fluxo_dados fluxo_dados (
@@ -38,12 +37,12 @@ module jogo_mindfocus (
                              
         .botoes(botoes),
                              
-        .zeraA(), .zeraRod(),.zeraR(), .zeraM(), .zeraI(),                     
-        .registraR(s_registraR), .registraM(),
-        .contaRod(), .contaA(), .contaI(),
+        .zeraA(s_zeraA), .zeraRod(s_zeraRod),.zeraR(s_zeraR), .zeraM(s_zeraM), .zeraI(s_zeraI),                     
+        .registraR(s_registraR), .registraM(s_registraM),
+        .contaRod(s_contaRod), .contaA(s_contaA), .contaI(s_contaI),
         
-        .jogada_feita(s_jogada_feita), .botaoIgualMemoria(),
-        rodadaIgualFinal(),
+        .jogada_feita(s_jogada_feita), .botaoIgualMemoria(s_botaoIgual),
+        rodadaIgualFinal(s_rodadaIgual),
 
         .acertos(acertos),
 
@@ -55,11 +54,11 @@ module jogo_mindfocus (
     unidade_controle unidade_controle (
         .clock(clock), .reset(reset), .iniciar(iniciar),
         
-        .jogada_feita(s_jogada_feita), .botaoIgualMemoria(), .rodadaIgualFinal(), 
+        .jogada_feita(s_jogada_feita), .botaoIgualMemoria(s_botaoIgual), .rodadaIgualFinal(s_rodadaIgual), 
               
-        .zeraR(), .zeraRod(), .zeraA(), .zeraM(), .zeraI(),        
-        .registraR(), .registraM(),
-        .contaRod(), .contaA(), .contaI(),
+        .zeraR(s_zeraR), .zeraRod(s_zeraRod), .zeraA(s_zeraA), .zeraM(s_zeraM), .zeraI(s_zeraI),        
+        .registraR(s_registraR), .registraM(s_registraM),
+        .contaRod(s_contaRod), .contaA(s_contaA), .contaI(s_contaI),
                                       
         .pronto(pronto),
         
