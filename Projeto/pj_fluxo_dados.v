@@ -18,12 +18,12 @@ module fluxo_dados (
     // Dados                
     input [3:0]  botoes,
     // Controle     
-    input        zeraA, zeraRod, zeraR, zeraM, zeraI  // zerar
-    input        registraR, registraM               // registrar
-    input        contaRod, contaA, contaI             // contar
+    input        zeraA, zeraRod, zeraR, zeraM, zeraI,  // zerar
+    input        registraR, registraM,               // registrar
+    input        contaRod, contaA, contaI,             // contar
     // output       fimE,                   // fim
 
-    output       botaoIgualMemoria, jogada_feita, rodadaIgualFinal 
+    output       botaoIgualMemoria, jogada_feita, rodadaIgualFinal, 
     // Saída
     output [3:0] acertos,
     //Depuracao
@@ -68,9 +68,9 @@ module fluxo_dados (
     );
 
     // Comparadores
-    comparador_jog ComparadorJogada (
-        .A(s_indice), 
-        .B(s_botao),
+    comparador_jogo ComparadorJogada (
+        .indices(s_indice), 
+        .jogada(s_botao),
         .acerto(botaoIgualMemoria)
     );
 
@@ -120,7 +120,6 @@ module fluxo_dados (
     );
 
     mux2x1_n #(.BITS(16)) mux_randomizador (
-        .clock(clock),
         .D0(s_contador_jogada),
         .D1(s_numero_aleatorio),
         .SEL(),

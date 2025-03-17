@@ -10,9 +10,13 @@ module gerador_indices(
     );
    
     always @(posedge clock or posedge reset) begin
-        if (reset || entrada[4:0] > 5'd24) begin
-            perm <= 8'b0;
-            ready   <= 1'b0; 
+    if (reset) begin
+        perm  <= 8'b0;
+        ready <= 1'b0;
+    end else begin
+        if (entrada[4:0] > 5'd24) begin
+            perm  <= 8'b0;
+            ready <= 1'b0;
         end else begin
             case (entrada[4:0])
                 5'd0:  perm <= {2'd0, 2'd1, 2'd2, 2'd3}; // permutation: 0,1,2,3
@@ -43,5 +47,6 @@ module gerador_indices(
             endcase
         end 
     end
-
-endmodule 
+end
+endmodule
+ 

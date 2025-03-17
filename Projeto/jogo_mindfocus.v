@@ -21,7 +21,7 @@ module jogo_mindfocus (
                       
     output       db_igual, db_clock, db_iniciar, db_igualjogada, db_tem_jogada,
 
-    output [6:0] db_contagem, db_memoria, db_estado, db_jogadafeita, db_acertos
+    output [6:0] db_contagem, db_memoria, db_estado, db_jogadafeita, db_acertos, db_indice0, db_indice1, db_indice2, db_indice3
 );
     /* Sinais internos */
     //Sinais de Controle
@@ -30,7 +30,8 @@ module jogo_mindfocus (
     wire s_contaRod, s_contaA, s_contaI;
     //Sinais de depuração
     wire s_botaoIgual, s_rodadaIgual, s_jogada_feita;
-    wire [3:0]  s_sequencia, s_contagem, s_memoria, s_jogada, s_estado, s_acertos;  
+    wire [3:0]  s_sequencia, s_contagem, s_memoria, s_jogada, s_estado, s_acertos, indice0, indice1, indice2, indice3 ;  
+    wire [7:0] index;
     
     fluxo_dados fluxo_dados (
         .clock(clock),
@@ -42,12 +43,12 @@ module jogo_mindfocus (
         .contaRod(s_contaRod), .contaA(s_contaA), .contaI(s_contaI),
         
         .jogada_feita(s_jogada_feita), .botaoIgualMemoria(s_botaoIgual),
-        rodadaIgualFinal(s_rodadaIgual),
+        .rodadaIgualFinal(s_rodadaIgual),
 
         .acertos(acertos),
 
         .db_tem_jogada(db_tem_jogada), 
-        .db_indices(),
+        .db_indices(index),
         .db_contagem(s_contagem), .db_jogada(s_jogada), .db_memoria(s_memoria)
     );
 
@@ -65,24 +66,31 @@ module jogo_mindfocus (
         .db_estado(s_estado)
     );
 
-
-
-
+    assign indice0 = {2'b00, index[1:0]};
+    assign indice1 = {2'b00, index[3:2]};
+    assign indice2 = {2'b00, index[5:4]};
+    assign indice3 = {2'b00, index[7:6]};
    
-    hexa7seg display_contagem ( //D0
-        .hexa(s_contagem),
-        .display(db_contagem)
+   hexa7seg display_indice0 ( //D0
+        .hexa(indice0),
+        .display(db_indice0)
     );
-   
-    hexa7seg display_memoria ( //D1
-        .hexa(s_memoria),   
-        .display(db_memoria)
+
+    hexa7seg display_indice1 ( //D1
+        .hexa(indice1),
+        .display(db_indice1)
     );
-   
-    hexa7seg display_jogada ( //D2
-        .hexa(s_jogada), 
-        .display(db_jogadafeita)
-    ); 
+
+    hexa7seg display_indice2 ( //D2
+        .hexa(indice2),
+        .display(db_indice2)
+    );
+
+    hexa7seg display_indice3 ( //D3
+        .hexa(indice3),
+        .display(db_indice3)
+    );
+    
 
     hexa7seg display_acertos ( //D3
         .hexa(s_acertos),   
@@ -94,10 +102,6 @@ module jogo_mindfocus (
         .display(db_estado)
     ); 
 
-    assign leds = s_memoria;
-    assign db_iniciar = jogar;
-    assign db_timeout = s_timeout;
-    assign db_igualjogada = s_igualjogada;
    
    
 endmodule
