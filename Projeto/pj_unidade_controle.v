@@ -90,7 +90,7 @@ module unidade_controle (
         case (Eatual)
             INICIAL:             begin zeraR = 1'b1; zeraRod = 1'b1; zeraM = 1'b1; zeraA = 1'b1; contaI = 1'b1; end
             INICIO_JOGO:         begin  end
-            PROXIMA_RODADA:      begin registraM = 1'b1; end
+            PROXIMA_RODADA:      begin registraM = 1'b1; contaRod = 1'b1; end
             MOSTRA_PERGUNTA:     begin end // Estado vazio, mas precisa estar definido
 
             ZERA_TIMER:          begin  end
@@ -100,8 +100,6 @@ module unidade_controle (
             REGISTRA_JOGADA:     begin registraR = 1'b1; end            
             COMPARA_JOGADA:      begin contaA = 1'b1; end // Estado vazio
             ACERTO:              begin contaA = 1'b1; end 
-
-            PROXIMA_JOGADA:      begin contaRod = 1'b1; end
 
             FIM_JOGO:            begin zeraI = 1'b1; pronto = 1'b1; end
         endcase  
