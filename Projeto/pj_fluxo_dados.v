@@ -105,7 +105,7 @@ module fluxo_dados (
     edge_detector detector (
         .clock(clock),
         .reset(zeraRod),
-        .sinal(db_tem_jogada),
+        .sinal(s_tem_jogada),
         .pulso(jogada_feita)
     );
 
@@ -121,9 +121,9 @@ module fluxo_dados (
 
     mux2x1_n #(.BITS(16)) mux_randomizador (
         .D0(s_contador_jogada),
-        .D1(s_numero_aleatorio),
-        .SEL(),
-        .OUT(s_seed),
+        .D1(s_numero_aletorio),
+        .SEL(1'b0),
+        .OUT(s_seed)
     );                                      
 
 
@@ -132,7 +132,7 @@ module fluxo_dados (
          .clock(clock),
          .reset(reset),              
          .entrada(s_seed),
-         .saida(s_numero_aleatorio)
+         .saida(s_numero_aletorio)
     );
 
 
@@ -140,7 +140,7 @@ module fluxo_dados (
     gerador_indices GeradorIndices (
         .clock(clock),
         .reset(),
-        .entrada(s_numero_aleatorio),
+        .entrada(s_numero_aletorio),
 
         .perm(s_perm),
         .ready()
