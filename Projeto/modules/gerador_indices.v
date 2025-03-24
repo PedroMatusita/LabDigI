@@ -1,6 +1,5 @@
 
 // Se Aleatorio % 32 < 24 retorna uma permutacao da memoria e da ready, se nao, retorna 0 e nao da ready
-
 module gerador_indices(
               input         clock, reset,
               input  [15:0] entrada,
@@ -18,6 +17,7 @@ module gerador_indices(
             perm  <= 8'b0;
             ready <= 1'b0;
         end else begin
+				ready <= 1'b1;
             case (entrada[4:0])
                 5'd0:  perm <= {2'd0, 2'd1, 2'd2, 2'd3}; // permutation: 0,1,2,3
                 5'd1:  perm <= {2'd0, 2'd1, 2'd3, 2'd2}; // permutation: 0,1,3,2

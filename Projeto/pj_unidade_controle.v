@@ -1,7 +1,7 @@
 module unidade_controle (
     input            clock, reset, iniciar,
     //Controle                     
-    input            jogada_feita, botaoIgualMemoria, rodadaIgualFinal,
+    input            jogada_feita, botaoIgualMemoria, rodadaIgualFinal, indiceReady,
 
     // input            fimE,
 
@@ -22,6 +22,7 @@ module unidade_controle (
     parameter PROXIMA_RODADA = 3;
     parameter MOSTRA_PERGUNTA = 4;
     parameter ZERA_TIMER = 5;
+	 parameter GERA_INDICE = 6;
     //Jogadas
     parameter ESPERA_JOGADA = 7;   
     parameter COMPARA_JOGADA = 8;
@@ -49,13 +50,14 @@ module unidade_controle (
 
             PROXIMA_RODADA:     Eprox = MOSTRA_PERGUNTA;
             // MOSTRA_PERGUNTA:    Eprox =  ? ZERA_TIMER : MOSTRA_PERGUNTA;   implementar a troca de imagem de pergunta
-            MOSTRA_PERGUNTA:    Eprox = ESPERA_JOGADA;       
-           //ZERA_TIMER:         Eprox = ESPERA_JOGADA;          
+            MOSTRA_PERGUNTA:    Eprox = GERA_INDICE;       
+           //ZERA_TIMER:         Eprox = ESPERA_JOGADA;
+				GERA_INDICE:		  Eprox = indiceReady ? ESPERA_JOGADA : GERA_INDICE;
           
             // ESPERA_JOGADA:      Eprox = volta ? MOSTRA_PERGUNTA : (jogada ? REGISTRA_JOGADA : ESPERA_JOGADA);
             ESPERA_JOGADA:      Eprox = jogada_feita ? REGISTRA_JOGADA : ESPERA_JOGADA;
             REGISTRA_JOGADA:    Eprox = COMPARA_JOGADA;
-            COMPARA_JOGADA:     Eprox = botaoIgualMemoria ? ACERTO : PROXIMA_RODADA; // (rodadaIgualFinal ? FIM_JOGO : PROXIMA_RODADA);
+            COMPARA_JOGADA:     Eprox = botaoIgualMemoria ? ACERTO : (rodadaIgualFinal ? FIM_JOGO : PROXIMA_RODADA);
             ACERTO:             Eprox = rodadaIgualFinal ? FIM_JOGO : PROXIMA_RODADA;
 
             FIM_JOGO:           Eprox = iniciar ? INICIAL : FIM_JOGO; // fim do jogo

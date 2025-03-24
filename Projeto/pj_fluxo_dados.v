@@ -23,7 +23,7 @@ module fluxo_dados (
     input        contaRod, contaA, contaI,             // contar
     // output       fimE,                   // fim
 
-    output       botaoIgualMemoria, jogada_feita, rodadaIgualFinal, 
+    output       botaoIgualMemoria, jogada_feita, rodadaIgualFinal, indiceReady,
     // Saída
     output [3:0] acertos,
     //Depuracao
@@ -38,7 +38,7 @@ module fluxo_dados (
 
    
     // Sinais internos
-    wire [3:0] s_endereco, s_memoria, s_botao;
+    wire [3:0] s_rodada, s_memoria, s_botao;
     wire s_tem_jogada;
     wire [15:0] s_seed, s_numero_aletorio, s_contador_jogada;
     wire [7:0]  s_perm, s_indice;
@@ -143,7 +143,7 @@ module fluxo_dados (
         .entrada(s_numero_aletorio),
 
         .perm(s_perm),
-        .ready()
+        .ready(indiceReady)
     );
 
     registrador_m #(.BITS(8)) RegistradorIndice (
@@ -180,7 +180,7 @@ module fluxo_dados (
 
     // Sinais de depuração
     assign db_jogada = s_botao;
-    assign db_contagem = s_endereco;
+    assign db_contagem = s_rodada;
     assign db_indices = s_indice;
   
 endmodule

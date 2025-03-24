@@ -21,13 +21,14 @@ module jogo_mindfocus (
                       
     output       db_igual, db_clock, db_iniciar, db_igualjogada, db_tem_jogada,
 
-    output [6:0] db_contagem, db_memoria, db_estado, db_jogadafeita, db_acertos, db_indice0, db_indice1, db_indice2, db_indice3
+    output [6:0] db_contagem, db_estado, db_jogadafeita, db_acertos, db_indice0, db_indice1, db_indice2, db_indice3
 );
     /* Sinais internos */
     //Sinais de Controle
     wire s_zeraA, s_zeraRod, s_zeraR, s_zeraM, s_zeraI;
     wire s_registraR, s_registraM;
     wire s_contaRod, s_contaA, s_contaI;
+	 wire s_indiceReady;
     //Sinais de depuração
     wire s_botaoIgual, s_rodadaIgual, s_jogada_feita;
     wire [3:0]  s_sequencia, s_contagem, s_memoria, s_jogada, s_estado, s_acertos, indice0, indice1, indice2, indice3 ;  
@@ -43,7 +44,7 @@ module jogo_mindfocus (
         .contaRod(s_contaRod), .contaA(s_contaA), .contaI(s_contaI),
         
         .jogada_feita(s_jogada_feita), .botaoIgualMemoria(s_botaoIgual),
-        .rodadaIgualFinal(s_rodadaIgual),
+        .rodadaIgualFinal(s_rodadaIgual), .indiceReady(s_indiceReady),
 
         .acertos(acertos),
 
@@ -55,7 +56,7 @@ module jogo_mindfocus (
     unidade_controle unidade_controle (
         .clock(clock), .reset(reset), .iniciar(iniciar),
         
-        .jogada_feita(s_jogada_feita), .botaoIgualMemoria(s_botaoIgual), .rodadaIgualFinal(s_rodadaIgual), 
+        .jogada_feita(s_jogada_feita), .botaoIgualMemoria(s_botaoIgual), .rodadaIgualFinal(s_rodadaIgual), .indiceReady(s_indiceReady),
               
         .zeraR(s_zeraR), .zeraRod(s_zeraRod), .zeraA(s_zeraA), .zeraM(s_zeraM), .zeraI(s_zeraI),        
         .registraR(s_registraR), .registraM(s_registraM),
@@ -92,8 +93,13 @@ module jogo_mindfocus (
     );
     
 
+//    hexa7seg display_acertos ( //D4
+//        .hexa(s_acertos),   
+//        .display(db_acertos)
+//    ); 
+	 
     hexa7seg display_acertos ( //D4
-        .hexa(s_acertos),   
+        .hexa(s_contagem),   
         .display(db_acertos)
     ); 
 
@@ -105,6 +111,7 @@ module jogo_mindfocus (
 	assign db_igualjogada = s_botaoIgual;
 	assign db_clock = clock;
 	assign s_acertos = acertos;
+	assign db_igual = s_rodadaIgual;
    
    
 endmodule
