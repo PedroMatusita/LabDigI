@@ -92,7 +92,7 @@ module jogo_mindfocus (
     );
     
 
-    hexa7seg display_acertos ( //D3
+    hexa7seg display_acertos ( //D4
         .hexa(s_acertos),   
         .display(db_acertos)
     ); 
@@ -102,6 +102,9 @@ module jogo_mindfocus (
         .display(db_estado)
     ); 
 
+	assign db_igualjogada = s_botaoIgual;
+	assign db_clock = clock;
+	assign s_acertos = acertos;
    
    
 endmodule

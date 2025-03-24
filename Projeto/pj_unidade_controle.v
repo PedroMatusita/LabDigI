@@ -50,7 +50,7 @@ module unidade_controle (
             PROXIMA_RODADA:     Eprox = MOSTRA_PERGUNTA;
             // MOSTRA_PERGUNTA:    Eprox =  ? ZERA_TIMER : MOSTRA_PERGUNTA;   implementar a troca de imagem de pergunta
             MOSTRA_PERGUNTA:    Eprox = ESPERA_JOGADA;       
-            ZERA_TIMER:         Eprox = ESPERA_JOGADA;          
+           //ZERA_TIMER:         Eprox = ESPERA_JOGADA;          
           
             // ESPERA_JOGADA:      Eprox = volta ? MOSTRA_PERGUNTA : (jogada ? REGISTRA_JOGADA : ESPERA_JOGADA);
             ESPERA_JOGADA:      Eprox = jogada_feita ? REGISTRA_JOGADA : ESPERA_JOGADA;
@@ -71,7 +71,7 @@ module unidade_controle (
         zeraRod    = 1'b0;
         zeraA      = 1'b0;
         zeraM      = 1'b0;
-        zeraI      = 1'b1;
+        zeraI      = 1'b0;
 
 
         contaRod   = 1'b0;
@@ -80,7 +80,7 @@ module unidade_controle (
 
 
         registraR  = 1'b0;
-        registraM  = 1'b1;
+        registraM  = 1'b0;
 
 
         pronto     = 1'b0;
@@ -88,17 +88,16 @@ module unidade_controle (
 
         // Seta valores dependendo do Estado
         case (Eatual)
-            INICIAL:             begin zeraI= 1'b0; zeraR = 1'b1; zeraRod = 1'b1; zeraM = 1'b1; zeraA = 1'b1; contaI = 1'b0; end
+            INICIAL:             begin zeraI= 1'b1; zeraR = 1'b1; zeraRod = 1'b1; zeraM = 1'b1; zeraA = 1'b1; contaI = 1'b0; end
             INICIO_JOGO:         begin  end
             PROXIMA_RODADA:      begin registraM = 1'b1; contaRod = 1'b1; end
             MOSTRA_PERGUNTA:     begin end // Estado vazio, mas precisa estar definido
 
             ZERA_TIMER:          begin  end
 
-            ESPERA_JOGADA:       begin registraR = 1'b1; end // Estado vazio
-
+            ESPERA_JOGADA:       begin end 
             REGISTRA_JOGADA:     begin registraR = 1'b1; end            
-            COMPARA_JOGADA:      begin contaA = 1'b1; end // Estado vazio
+            COMPARA_JOGADA:      begin end // Estado vazio
             ACERTO:              begin contaA = 1'b1; end 
 
             FIM_JOGO:            begin zeraI = 1'b1; pronto = 1'b1; end
