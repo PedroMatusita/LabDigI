@@ -1,14 +1,15 @@
-`timescale 1ns / 1ps
+`timescale 1ns / 1ns
 
 module tb_jogo_mindfocus;
     reg clock = 1;
     reg reset = 0 ;
     reg iniciar = 0;
+    reg voltar = 0;
     reg [3:0] botoes = 4'b0000;
     wire pronto;
     wire [3:0] acertos;
-    wire db_igual, db_clock, db_iniciar, db_igualjogada, db_tem_jogada;
-    wire [6:0] db_contagem, db_memoria, db_estado, db_jogadafeita, db_acertos, db_indice0, db_indice1, db_indice2, db_indice3;
+    wire db_igual, db_clock, db_igualjogada, db_tem_jogada;
+    wire [6:0]  db_estado, db_acertos, db_indice0, db_indice1, db_indice2, db_indice3;
 
     // Gera clock
     parameter clockPeriod = 1_000_000;
@@ -19,12 +20,12 @@ module tb_jogo_mindfocus;
 
     // Instancia o módulo
     jogo_mindfocus uut (
-        .clock(clock), .reset(reset), .iniciar(iniciar), .botoes(botoes),
+        .clock(clock), .reset(reset), .iniciar(iniciar), .voltar(voltar), .botoes(botoes),
         .pronto(pronto), .acertos(acertos),
-        .db_igual(db_igual), .db_clock(db_clock), .db_iniciar(db_iniciar), 
+        .db_igual(db_igual), .db_clock(db_clock), 
         .db_igualjogada(db_igualjogada), .db_tem_jogada(db_tem_jogada),
-        .db_contagem(db_contagem), .db_memoria(db_memoria), .db_estado(db_estado),
-        .db_jogadafeita(db_jogadafeita), .db_acertos(db_acertos),
+        .db_estado(db_estado),
+        .db_acertos(db_acertos),
         .db_indice0(db_indice0), .db_indice1(db_indice1), .db_indice2(db_indice2), .db_indice3(db_indice3)
     );
 
@@ -37,6 +38,7 @@ module tb_jogo_mindfocus;
         clock = 1;
         reset = 0;
         iniciar = 0;
+        voltar = 0;
         botoes = 4'b0000;
         #clockPeriod;
 
@@ -50,66 +52,36 @@ module tb_jogo_mindfocus;
         
         caso = 2;
         iniciar = 1;
-        #(5*clockPeriod);
+        #(clockPeriod);
         iniciar = 0;
+        #(5007 * clockPeriod); // Espera 5.007 segundos antes da jogada
+
         //espera
-        #(10*clockPeriod);
 
         caso = 3;
-         @(negedge clock);
+        @(negedge clock);
+        #(5007 * clockPeriod); // Espera 5.007 segundos antes da jogada
         botoes = 4'b1000;
-        #(10*clockPeriod);
+        #(10000 * clockPeriod); // Mantém o botão pressionado
         botoes = 4'b0000;
-        //espera
-        #(10*clockPeriod);
+        #(clockPeriod);
+
 
         caso = 4;
-         @(negedge clock);
+        @(negedge clock);
+        #(5007 * clockPeriod); // Espera 5.007 segundos antes da jogada
         botoes = 4'b1000;
-        #(10*clockPeriod);
+        #(10000 * clockPeriod); // Mantém o botão pressionado
         botoes = 4'b0000;
-        //espera
-        #(10*clockPeriod);
+        #(clockPeriod);
 
         caso = 5;
-         @(negedge clock);
+        @(negedge clock);
+        #(5007 * clockPeriod); // Espera 5.007 segundos antes da jogada
         botoes = 4'b1000;
-        #(10*clockPeriod);
+        #(10000 * clockPeriod); // Mantém o botão pressionado
         botoes = 4'b0000;
-        //espera
-        #(10*clockPeriod);
-
-        caso = 6;
-         @(negedge clock);
-        botoes = 4'b1000;
-        #(10*clockPeriod);
-        botoes = 4'b0000;
-        //espera
-        #(10*clockPeriod);
-
-        caso = 7;
-         @(negedge clock);
-        botoes = 4'b1000;
-        #(10*clockPeriod);
-        botoes = 4'b0000;
-        //espera
-        #(10*clockPeriod);
-
-        caso = 8;
-         @(negedge clock);
-        botoes = 4'b1000;
-        #(10*clockPeriod);
-        botoes = 4'b0000;
-        //espera
-        #(10*clockPeriod);
-
-        caso = 9;
-         @(negedge clock);
-        botoes = 4'b0100;
-        #(10*clockPeriod);
-        botoes = 4'b0000;
-        //espera
-        #(10*clockPeriod);
+        #(clockPeriod);
 
         caso = 99; 
         #100;
