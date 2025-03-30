@@ -14,13 +14,13 @@
  */
 
 module fluxo_dados (
-    input        clock,
+    input        clock, reset, 
     // Dados                
     input [3:0]  botoes,
     // Controle     
-    input        zeraA, zeraRod, zeraR, zeraM, zeraI,  // zerar
+    input        zeraA, zeraRod, zeraR, zeraM, zeraI, zeraContImg, // zerar 
     input        registraR, registraM,               // registrar
-    input        contaRod, contaA, contaI,             // contar
+    input        contaRod, contaA, contaI, contaimg,             // contar
     // output       fimE,                   // fim
 
     output       botaoIgualMemoria, jogada_feita, rodadaIgualFinal, indiceReady,
@@ -29,16 +29,16 @@ module fluxo_dados (
     //Depuracao
     output       db_tem_jogada,
     output [7:0] db_indices,
-    output [3:0] db_contagem, db_jogada, db_memoria
+    output [3:0] db_contagem, db_jogada, db_memoria,
+    output timeout_img
 );
 
     
     
 
 
-   
     // Sinais internos
-    wire [3:0] s_rodada, s_memoria, s_botao;
+    wire [3:0] s_endereco, s_memoria, s_botao, s_rodada;
     wire s_tem_jogada;
     wire [15:0] s_seed, s_numero_aletorio, s_contador_jogada;
     wire [7:0]  s_perm, s_indice;
@@ -139,7 +139,7 @@ module fluxo_dados (
     //Índices
     gerador_indices GeradorIndices (
         .clock(clock),
-        .reset(),
+        .reset(reset),
         .entrada(s_numero_aletorio),
 
         .perm(s_perm),
@@ -153,7 +153,15 @@ module fluxo_dados (
         .D(s_perm),
         .Q(s_indice)
     );
-
+    contador_m #(.M(5000), .N(13)) contador_tempo_imagem (
+        .clock(clock), 
+        .zera_s(),
+        .zera_as(zeraContImg),
+        .conta(contaimg),             
+        .Q(),
+        .fim(timeout_img),
+        .meio()
+    );
 //    GameRam MemoriaJogo (
 //         .clock(clock),
 //         .gameIndex(),
