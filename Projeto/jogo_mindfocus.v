@@ -14,34 +14,35 @@ module jogo_mindfocus (
     input        clock, reset,
                       
     input        iniciar,
+	 input 		  voltar,
     input [3:0]  botoes,
                       
     output       pronto,
     output [3:0] acertos,
                       
-    output       db_igual, db_clock, db_iniciar, db_igualjogada, db_tem_jogada,
+    output       db_igual, db_clock, db_igualjogada, db_tem_jogada,
 
-    output [6:0] db_contagem, db_estado, db_jogadafeita, db_acertos, db_indice0, db_indice1, db_indice2, db_indice3
+    output [6:0] db_estado, db_acertos, db_indice0, db_indice1, db_indice2, db_indice3
 );
     /* Sinais internos */
     //Sinais de Controle
-    wire s_zeraA, s_zeraRod, s_zeraR, s_zeraM, s_zeraI;
+    wire s_zeraA, s_zeraRod, s_zeraR, s_zeraM, s_zeraI, s_zeraContImg;
     wire s_registraR, s_registraM;
-    wire s_contaRod, s_contaA, s_contaI;
-	 wire s_indiceReady;
+    wire s_contaRod, s_contaA, s_contaI, s_contaimg;
+	wire s_indiceReady;
     //Sinais de depuração
-    wire s_botaoIgual, s_rodadaIgual, s_jogada_feita;
+    wire s_botaoIgual, s_rodadaIgual, s_jogada_feita, s_timeoutImg;
     wire [3:0]  s_sequencia, s_contagem, s_memoria, s_jogada, s_estado, s_acertos, indice0, indice1, indice2, indice3 ;  
     wire [7:0] index;
     
     fluxo_dados fluxo_dados (
-        .clock(clock),
+        .clock(clock), .reset(reset),
                              
         .botoes(botoes),
                              
-        .zeraA(s_zeraA), .zeraRod(s_zeraRod),.zeraR(s_zeraR), .zeraM(s_zeraM), .zeraI(s_zeraI),                     
+        .zeraA(s_zeraA), .zeraRod(s_zeraRod),.zeraR(s_zeraR), .zeraM(s_zeraM), .zeraI(s_zeraI), .zeraContImg(s_zeraContImg),                
         .registraR(s_registraR), .registraM(s_registraM),
-        .contaRod(s_contaRod), .contaA(s_contaA), .contaI(s_contaI),
+        .contaRod(s_contaRod), .contaA(s_contaA), .contaI(s_contaI), .contaimg(s_contaimg),
         
         .jogada_feita(s_jogada_feita), .botaoIgualMemoria(s_botaoIgual),
         .rodadaIgualFinal(s_rodadaIgual), .indiceReady(s_indiceReady),
@@ -50,17 +51,18 @@ module jogo_mindfocus (
 
         .db_tem_jogada(db_tem_jogada), 
         .db_indices(index),
-        .db_contagem(s_contagem), .db_jogada(s_jogada), .db_memoria(s_memoria)
+        .db_contagem(s_contagem), .db_jogada(s_jogada), .db_memoria(s_memoria),
+        .timeout_img(s_timeoutImg)
     );
 
     unidade_controle unidade_controle (
-        .clock(clock), .reset(reset), .iniciar(iniciar),
+        .clock(clock), .reset(reset), .iniciar(iniciar), .voltar(voltar),
         
-        .jogada_feita(s_jogada_feita), .botaoIgualMemoria(s_botaoIgual), .rodadaIgualFinal(s_rodadaIgual), .indiceReady(s_indiceReady),
+        .jogada_feita(s_jogada_feita), .botaoIgualMemoria(s_botaoIgual), .rodadaIgualFinal(s_rodadaIgual), .indiceReady(s_indiceReady), .timeout_img(s_timeoutImg),
               
-        .zeraR(s_zeraR), .zeraRod(s_zeraRod), .zeraA(s_zeraA), .zeraM(s_zeraM), .zeraI(s_zeraI),        
+        .zeraR(s_zeraR), .zeraRod(s_zeraRod), .zeraA(s_zeraA), .zeraM(s_zeraM), .zeraI(s_zeraI), .zeraContImg(s_zeraContImg),       
         .registraR(s_registraR), .registraM(s_registraM),
-        .contaRod(s_contaRod), .contaA(s_contaA), .contaI(s_contaI),
+        .contaRod(s_contaRod), .contaA(s_contaA), .contaI(s_contaI), .contaimg(s_contaimg),
                                       
         .pronto(pronto),
         
@@ -115,3 +117,4 @@ module jogo_mindfocus (
    
    
 endmodule
+
