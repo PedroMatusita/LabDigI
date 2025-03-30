@@ -54,13 +54,17 @@ module tb_jogo_mindfocus;
         iniciar = 1;
         #(clockPeriod);
         iniciar = 0;
-        #(5007 * clockPeriod); // Espera 5.007 segundos antes da jogada
+        #(5000 * clockPeriod); // Espera 5.007 segundos antes da jogada
+        #(5000 * clockPeriod); 
+        #(5000 * clockPeriod); 
+        #(5000 * clockPeriod); 
+        #(7000 * clockPeriod); 
 
         //espera
 
         caso = 3;
         @(negedge clock);
-        #(5007 * clockPeriod); // Espera 5.007 segundos antes da jogada
+        #(100 * clockPeriod); 
         botoes = 4'b1000;
         #(10000 * clockPeriod); // Mantém o botão pressionado
         botoes = 4'b0000;
@@ -69,7 +73,8 @@ module tb_jogo_mindfocus;
 
         caso = 4;
         @(negedge clock);
-        #(5007 * clockPeriod); // Espera 5.007 segundos antes da jogada
+        #(7000 * clockPeriod); 
+        #(7000 * clockPeriod); 
         botoes = 4'b1000;
         #(10000 * clockPeriod); // Mantém o botão pressionado
         botoes = 4'b0000;
@@ -77,7 +82,8 @@ module tb_jogo_mindfocus;
 
         caso = 5;
         @(negedge clock);
-        #(5007 * clockPeriod); // Espera 5.007 segundos antes da jogada
+        #(7000 * clockPeriod); 
+        #(7000 * clockPeriod); 
         botoes = 4'b1000;
         #(10000 * clockPeriod); // Mantém o botão pressionado
         botoes = 4'b0000;
